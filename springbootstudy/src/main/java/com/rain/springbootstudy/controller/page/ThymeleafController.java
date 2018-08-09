@@ -6,13 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("freemarker")
-public class FreemarkerController {
+@RequestMapping("thymeleaf")
+public class ThymeleafController {
 
 	@RequestMapping("hello")
-	public String hello(Map<String, Object> map) {
 
-		map.put("msg", "Rain first demo");
+	public String hello(Map<String, Object> map) {
+		map.put("msg", "Rain first  thymeleaf demo");
 		return "hello";
 	}
 
