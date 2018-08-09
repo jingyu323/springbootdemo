@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import com.rain.springbootstudy.filter.TimeFilter;
 import com.rain.springbootstudy.intercepter.TimeInterceptor;
 import com.rain.springbootstudy.listener.TimeListener;
+import com.rain.springbootstudy.servlet.TimeServlet;
 
 /**
  * implements WebMvcConfigurer 才能添加拦截器 还可以 继承 WebMvcConfigurationSupport 这个类
@@ -49,10 +51,16 @@ public class WebConfig extends WebMvcConfigurationSupport {
 		return registrationBean;
 	}
 
+	/**
+	 * 添加监听器
+	 * 
+	 * @return
+	 */
 	@Bean
 	public ServletListenerRegistrationBean servletListenerRegistrationBean() {
 		return new ServletListenerRegistrationBean(new TimeListener());
 	}
+
 
 	/**
 	 * 添加拦截器
@@ -60,6 +68,15 @@ public class WebConfig extends WebMvcConfigurationSupport {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(timeInterceptor);
+	}
+
+	/**
+	 * 注册servlet
+	 */
+
+	@Bean
+	public ServletRegistrationBean servletRegistrationBean() {
+		return new ServletRegistrationBean(new TimeServlet(), "/servletTest");
 	}
 
 
