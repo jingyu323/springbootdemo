@@ -8,6 +8,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 @SpringBootApplication
 @MapperScan("com.rain.springbootstudy.domain")
+
 public class WebApplication extends SpringBootServletInitializer {
 
 	@Override
