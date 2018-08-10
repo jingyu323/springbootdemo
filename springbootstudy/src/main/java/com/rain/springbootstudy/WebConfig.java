@@ -4,14 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson.support.config.FastJsonConfig;
+import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.rain.springbootstudy.filter.TimeFilter;
 import com.rain.springbootstudy.intercepter.TimeInterceptor;
 import com.rain.springbootstudy.listener.TimeListener;
@@ -78,6 +84,33 @@ public class WebConfig extends WebMvcConfigurationSupport {
 	public ServletRegistrationBean servletRegistrationBean() {
 		return new ServletRegistrationBean(new TimeServlet(), "/servletTest");
 	}
+
+	/**
+	 * 注册fastjson ,用于替换自带的json解析
+	 * 
+	 * @return
+	 */
+
+	@Bean
+	public HttpMessageConverters fastJsonHttpMessageConverters() {
+		FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new FastJsonHttpMessageConverter();
+
+		FastJsonConfig fastJsonConfig = new FastJsonConfig();
+		fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
+
+		// 中文乱码解决方案
+		List<MediaType> mediaTypes = new ArrayList<>();
+		mediaTypes.add(MediaType.APPLICATION_JSON_UTF8);// 设定json格式且编码为UTF-8
+		fastJsonHttpMessageConverter.setSupportedMediaTypes(mediaTypes);
+
+		fastJsonHttpMessageConverter.setFastJsonConfig(fastJsonConfig);
+
+		HttpMessageConverter<?> converter = fastJsonHttpMessageConverter;
+
+		return new HttpMessageConverters(converter);
+
+	}
+
 
 
 }

@@ -2,9 +2,12 @@ package com.rain.springbootstudy.domain;
 
 import java.util.Date;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 public class User {
 
 	private Integer id;
+	private String phone;
 
 	public Integer getId() {
 		return id;
@@ -38,7 +41,16 @@ public class User {
 		this.address = address;
 	}
 	private String name;
+	@JSONField(format = "yyyy-MM-dd")
 	private Date birthday;
 	private String address;
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
 }
