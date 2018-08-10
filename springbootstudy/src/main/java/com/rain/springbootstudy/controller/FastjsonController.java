@@ -3,14 +3,16 @@ package com.rain.springbootstudy.controller;
 import java.util.Date;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.rain.springbootstudy.domain.User;
 import com.rain.springbootstudy.enity.UserBean;
 
 @Controller
 @RequestMapping("fastjson")
+@CrossOrigin(origins = "http://localhost:8088")
+// 细粒度控制
 public class FastjsonController {
 
 	@RequestMapping("/test")
