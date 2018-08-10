@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.rain.springbootstudy.domain.User;
+import com.rain.springbootstudy.enity.UserBean;
 
 @Controller
 @RequestMapping("fastjson")
@@ -14,8 +15,8 @@ public class FastjsonController {
 
 	@RequestMapping("/test")
 	@ResponseBody
-	public User test() {
-		User user = new User();
+	public UserBean test() {
+		UserBean user = new UserBean();
 
 		user.setId(1);
 		user.setName("jack");

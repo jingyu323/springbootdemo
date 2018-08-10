@@ -35,6 +35,27 @@ public class WebConfig extends WebMvcConfigurationSupport {
 
 	@Autowired
 	private TimeInterceptor timeInterceptor;
+//
+	@Override
+	public void configureMessageConverters(
+			List<HttpMessageConverter<?>> converters) {
+		FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new FastJsonHttpMessageConverter();
+
+		FastJsonConfig fastJsonConfig = new FastJsonConfig();
+		fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
+
+		// 中文乱码解决方案
+		List<MediaType> mediaTypes = new ArrayList<>();
+		mediaTypes.add(MediaType.APPLICATION_JSON_UTF8);// 设定json格式且编码为UTF-8
+		fastJsonHttpMessageConverter.setSupportedMediaTypes(mediaTypes);
+
+		fastJsonHttpMessageConverter.setFastJsonConfig(fastJsonConfig);
+
+		converters.add(fastJsonHttpMessageConverter);
+
+		// return new HttpMessageConverters(converter);
+
+	}
 
 	/**
 	 * 添加时间过滤器
@@ -86,7 +107,7 @@ public class WebConfig extends WebMvcConfigurationSupport {
 	}
 
 	/**
-	 * 注册fastjson ,用于替换自带的json解析
+	 * 注册fastjson ,用于替换自带的json解 配置了不起作用 不知道为啥 ，以后在解决
 	 * 
 	 * @return
 	 */
