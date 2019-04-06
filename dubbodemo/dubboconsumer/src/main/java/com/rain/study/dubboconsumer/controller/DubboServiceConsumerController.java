@@ -3,7 +3,6 @@ package com.rain.study.dubboconsumer.controller;
 
 import com.rain.study.dubboconsumer.consumer.HelloConsumer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
