@@ -1,3 +1,4 @@
+import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -85,12 +86,34 @@ public class ThreadPoolTest {
 
 	public static void main(String[] args) {
 
+		new ThreadPoolTest().testCreateFixedThreadPool();
+
 	}
 
 	// 创建可缓存的线程池
 	public void testCreateThreadPool() {
 		// 创建一个可缓存的线线城市
 		ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
+
+		for (int i = 0; i < 10; i++) {
+			final int index = i;
+			try {
+				Thread.sleep(index * 1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			cachedThreadPool.execute(new Runnable() {
+
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					System.out.println(index+":"+new Date().getSeconds());
+				}
+			});
+
+
+
+		}
 	}
 
 	/**
@@ -104,7 +127,19 @@ public class ThreadPoolTest {
 		// ExecutorService fixedThreadPool = Executors.newFixedThreadPool(int
 		// nThreads);
 
-		ExecutorService fixedThreadPool = Executors.newFixedThreadPool(100);
+		ExecutorService fixedThreadPool = Executors.newFixedThreadPool(2);
+
+		for(int i = 1; i < 11; i++){
+			final int index = i;
+			fixedThreadPool.execute(new Runnable() {
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					//会按顺序打印
+					System.out.println("testCreateFixedThreadPool"+index+Thread.currentThread().getName());
+				}
+			});
+		}
 
 	}
 

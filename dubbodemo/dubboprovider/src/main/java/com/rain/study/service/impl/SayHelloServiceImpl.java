@@ -6,7 +6,7 @@ import com.rain.study.service.SayHelloService;
 import org.springframework.stereotype.Component;
 
 
-@Service(interfaceClass = SayHelloService.class)
+@Service(version = "1.0.0",interfaceClass = SayHelloService.class)
 @Component
 public class SayHelloServiceImpl implements SayHelloService {
 
