@@ -12,7 +12,52 @@ public class DeadLockDemo {
           a.start();
           b.start();
 
+          new DeadLockDemo().deadLock();
+
       }
+
+
+       private  void deadLock(){
+          Thread threadA = new Thread(new Runnable() {
+              @Override
+              public void run() {
+                  synchronized (A){
+                      try {
+                          Thread.currentThread().sleep(2000);
+                      } catch (InterruptedException e) {
+                          e.printStackTrace();
+                      }
+                      synchronized(B){
+                          System.out.println("AB");
+                      }
+                  }
+              }
+          });
+
+    Thread threadB =
+        new Thread(
+            new Runnable() {
+              @Override
+              public void run() {
+
+                synchronized (B) {
+                  try {
+                    Thread.currentThread().sleep(1000);
+                  } catch (InterruptedException e) {
+                    e.printStackTrace();
+                  }
+
+                  synchronized (B) {
+                    System.out.println("  BA  ");
+                  }
+                }
+              }
+            });
+
+    threadA.start();
+    threadB.start();
+
+       }
 
 
 }
