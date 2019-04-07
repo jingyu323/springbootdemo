@@ -1,4 +1,8 @@
 package com.rain.study;
 
-public class ILogger {
+import java.lang.reflect.Method;
+
+public interface  ILogger {
+    void start(Method method);
+   void end(Method method);
 }

@@ -1,13 +1,11 @@
-package com.rain.study;
+package com.rain.study.test;
+
 
 /**
  * 一个简单的展示Happen-Before的例子.
- * 这里有两个共享变量:a和flag,初始值分别为0和false.在ThreadA中先给     a=1,然后flag=true.
- * 如果按照有序的话,那么在ThreadB中如果if(flag)成功的话,则应该a=1,而a=a*1之后a仍然为1,下方的if(a==0)应该永远不会为
- * 真,永远不会打印.
+ * 这里有两个共享变量:a和flag,初始值分别为0和false.在ThreadA中先给a=1,然后flag=true.
+ * 如果按照有序的话,那么在ThreadB中如果if(flag)成功的话,则应该a=1,而a=a*1之后a仍然为1,下方的if(a==0)应该永远不会为真,永远不会打印.
  * 但实际情况是:在试验100次的情况下会出现0次或几次的打印结果,而试验1000次结果更明显,有十几次打印.
- * 在虚拟机层面，为了尽可能减少内存操作速度远慢于CPU运行速度所带来的CPU空置的影响，虚拟机会按照自己的一些规则(这规则后面再叙述)将程序编写顺序打
- * 乱——即写在后面的代码在时间顺序上可能会先执行，而写在前面的代码会后执行——以尽可能充分地利用CPU
  */
 public class SimpleHappenBefore {
     /** 这是一个验证结果的变量 */
@@ -22,6 +20,7 @@ public class SimpleHappenBefore {
             ThreadB threadB=new ThreadB();
             threadA.start();
             threadB.start();
+
             //这里等待线程结束后,重置共享变量,以使验证结果的工作变得简单些.
             threadA.join();
             threadB.join();
@@ -35,6 +34,7 @@ public class SimpleHappenBefore {
             flag=true;
         }
     }
+
     static class ThreadB extends Thread{
         public void run(){
             if(flag){
@@ -45,4 +45,6 @@ public class SimpleHappenBefore {
             }
         }
     }
+
+
 }
