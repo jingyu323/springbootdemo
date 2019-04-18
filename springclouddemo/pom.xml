@@ -6,7 +6,11 @@
 
     <groupId>com.rain.study</groupId>
     <artifactId>springclouddemo</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>eureka-server</module>
+    </modules>
 
 
 </project>
