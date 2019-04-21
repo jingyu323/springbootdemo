@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+/**
+ * Spring cloud有两种服务调用方式，一种是ribbon+restTemplate，另一种是feign
+ */
 @RestController
 public class ConsumerController {
 

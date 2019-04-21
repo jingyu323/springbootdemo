@@ -6,6 +6,10 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
+/***
+ * Spring cloud有两种服务调用方式，一种是ribbon+restTemplate，另一种是feign
+ */
 @FeignClient(name= "spring-cloud-producer")
 public interface  HelloConsumerClient {
 
