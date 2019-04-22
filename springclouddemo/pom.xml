@@ -13,6 +13,7 @@
         <module>spring-cloud-producer</module>
         <module>spring-cloud-consumer</module>
         <module>service-ribbon</module>
+        <module>spring-cloud-hystrix</module>
 
     </modules>
 
