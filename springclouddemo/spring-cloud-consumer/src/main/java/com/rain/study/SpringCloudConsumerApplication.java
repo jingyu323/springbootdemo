@@ -9,6 +9,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /***
  * Spring cloud有两种服务调用方式，一种是ribbon+restTemplate，另一种是feign
+ *
+ * 本项目用的就是feign 的这种形式
  */
 @SpringBootApplication
 @EnableDiscoveryClient
