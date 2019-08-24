@@ -23,6 +23,7 @@ public class VolatileDemo {
           Thread.sleep(1000);
 
 
+          if(1==1){}
 
           stopFlag = true;
           System.out.println(" -------2");

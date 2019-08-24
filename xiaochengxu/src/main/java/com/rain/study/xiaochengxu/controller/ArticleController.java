@@ -15,7 +15,7 @@ public class ArticleController {
 
 
     @RequestMapping("/list")
-//    @ResponseBody
+    @ResponseBody
     public List<User> list(String title, Integer pageSize, Integer pageNum) {
 
         List<User> list = new ArrayList<User>();
