@@ -5,8 +5,6 @@ import java.util.Stack;
 public class Calculate {
 
 
-
-
     public int calculate(String s) {
         Stack<Integer> stack = new Stack<Integer>();
         // sign 代表正负
