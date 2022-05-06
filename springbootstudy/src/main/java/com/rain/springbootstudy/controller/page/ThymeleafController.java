@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ThymeleafController {
 
 	@RequestMapping("hello")
-
 	public String hello(Map<String, Object> map) {
 		map.put("msg", "Rain first  thymeleaf demo");
 		return "hello";
