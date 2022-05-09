@@ -11,10 +11,10 @@
 
     <artifactId>spring-cloud-producer</artifactId>
     <dependencies>
-
-
-
-
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
     </dependencies>
 
 
