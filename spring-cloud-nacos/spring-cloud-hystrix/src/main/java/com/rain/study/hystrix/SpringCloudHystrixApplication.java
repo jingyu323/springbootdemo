@@ -5,7 +5,6 @@ import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServl
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
@@ -22,7 +21,11 @@ import org.springframework.web.client.RestTemplate;
  * 不过 controller 层不太好，每个调用方法都要添加
  *
  *
- * Dashboard 后台访问地址 http://localhost:9004/hystrix.stream
+ *
+ * Dashboard 后台访问地址 http://localhost:9005/hystrix.stream
+ *
+ * 注意：这里有一个细节需要注意，要访问/hystrix.stream 接口，首先得访问消费者工程中的任意一个其他接口，否则直接访问/hystrix.stream
+ * 接口时会输出出一连串的 ping: ping: …，先访问 consumer 中的任意一个其他接口，然后再访问/hystrix.stream 接口即可；
  */
 @SpringBootApplication
 @EnableDiscoveryClient

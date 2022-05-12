@@ -16,17 +16,16 @@ public class HelloControler {
     HelloService helloService;
 
 
-
     //增加熔断功能
-//    @HystrixCommand(fallbackMethod = "hiError")
+    @HystrixCommand(fallbackMethod = "hiError")
     @RequestMapping(value = "/sayHi")
-    public String sayHi(@RequestParam String name){
+    public String sayHi(@RequestParam String name) {
         return helloService.sayHelloService(name);
     }
 
 
     public String hiError(String name) {
-        return "hi,"+name+",sorry,error!";
+        return "hi," + name + ",sorry,error!";
     }
 
 }
