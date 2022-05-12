@@ -1,4 +1,5 @@
 package com.rain.study.springcloudproducer;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -12,15 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableDiscoveryClient
 public class NacosProviderApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(NacosProviderApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(NacosProviderApplication.class, args);
+    }
 
-	@RestController
-	class EchoController {
-		@RequestMapping(value = "/echo/{string}", method = RequestMethod.GET)
-		public String echo(@PathVariable String string) {
-			return "Hello Nacos Discovery " + string;
-		}
-	}
+    @RestController
+    class EchoController {
+        @RequestMapping(value = "/echo/{string}", method = RequestMethod.GET)
+        public String echo(@PathVariable String string) {
+            return "Hello Nacos Discovery " + string;
+        }
+    }
 }

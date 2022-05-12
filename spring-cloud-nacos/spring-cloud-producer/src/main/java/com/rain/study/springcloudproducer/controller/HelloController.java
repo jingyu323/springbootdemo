@@ -8,16 +8,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
+/**
+ * 服务提供者
+ */
 @RestController
 @Component
 public class HelloController {
 
     @Value("${server.port}")
-    private String port ;
+    private String port;
 
     @RequestMapping("/hello")
     public String index(@RequestParam String name) {
-        return "hello "+name+"，this is first messge  from HelloController  producer， from port "+port;
+        return "hello " + name + "，this is first messge  from HelloController  producer， from port " + port;
     }
 
 
