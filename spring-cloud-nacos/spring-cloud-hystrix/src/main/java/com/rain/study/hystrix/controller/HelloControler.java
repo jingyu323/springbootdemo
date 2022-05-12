@@ -29,12 +29,12 @@ public class HelloControler {
             @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"), //请求次数
     })
     public String sayHi2(@RequestParam String name) {
-        return helloService.sayHelloService(name);
+        return helloService.sayHelloService2(name);
     }
 
-    public String listByHystirx() {
+    public String listByHystirx(String name) {
         System.out.println("listUserByHystirx executed...");
-        return "listByHystirx exexuted";
+        return "listByHystirx exexuted" + name;
     }
 
 
