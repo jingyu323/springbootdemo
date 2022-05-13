@@ -3,23 +3,33 @@ package com.rain.study.ribbon.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.context.annotation.Bean;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
 
 @Service
 public class HelloService {
 
     @Autowired
-    RestOperations remoteRestTemplate;
+    @Qualifier(value = "remoteRestTemplate")
+    RestTemplate restTemplate;
+    @Autowired
+    private LoadBalancerClient loadBalancerClient;
+    @Value("${spring.application.name}")
+    private String appName;
 
 
+    //    public String sayHelloService(String name) {
+//        return restTemplate.getForObject("http://spring-cloud-producer/hello?name="+name,String.class);
+//    }
     public String sayHelloService(String name) {
-        ResponseEntity<String> forEntity = remoteRestTemplate.getForEntity("http://spring-cloud-producer/hello?name=" + name, String.class);
-        return "aaaa2323";
+        //使用 LoadBalanceClient 和 RestTemplate 结合的方式来访问
+        ServiceInstance serviceInstance = loadBalancerClient.choose("spring-cloud-producer");
+        String url = String.format("http://%s:%s/echo/%s", serviceInstance.getHost(), serviceInstance.getPort(), appName);
+        System.out.println("request url:" + url);
+//        return restTemplate.getForObject(url,String.class);
+        return restTemplate.getForObject("http://spring-cloud-producer/hello?name=" + name, String.class);
     }
 }

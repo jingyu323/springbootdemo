@@ -1,4 +1,4 @@
-package com.rain.study.springcloudproducer.controller;
+package springcloudproducer.controller;
 
 
 import org.springframework.beans.factory.annotation.Value;
@@ -26,6 +26,6 @@ public class HelloController {
     public String echo(@PathVariable String string) {
         return "Hello Nacos Discovery " + string;
     }
+
+
 }
-
-

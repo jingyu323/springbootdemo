@@ -10,6 +10,7 @@
         <module>spring-cloud-hystrix</module>
         <module>spring-cloud-gateway</module>
         <module>spring-cloud-ribbon</module>
+        <module>spring-cloud-producer1</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

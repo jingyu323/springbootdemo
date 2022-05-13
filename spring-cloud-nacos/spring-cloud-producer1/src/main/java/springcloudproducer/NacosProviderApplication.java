@@ -1,9 +1,8 @@
-package com.rain.study.springcloudproducer;
+package springcloudproducer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,5 +16,4 @@ public class NacosProviderApplication {
     public static void main(String[] args) {
         SpringApplication.run(NacosProviderApplication.class, args);
     }
-
 }
