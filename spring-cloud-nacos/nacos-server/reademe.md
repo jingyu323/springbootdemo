@@ -1,0 +1,1 @@
+nacos 这边不需要启动一个server端，是提供了一个专门的软件，而eurca 是需要配置一个server端的

@@ -38,7 +38,6 @@ public class HelloService {
         ServiceInstance serviceInstance = loadBalancerClient.choose("spring-cloud-producer");
         String url = String.format("http://%s:%s/echo/%s", serviceInstance.getHost(), serviceInstance.getPort(), appName);
         System.out.println("request url:" + url);
-//        return restTemplate.getForObject(url,String.class);
         return restTemplate.getForObject(url, String.class);
     }
 }
