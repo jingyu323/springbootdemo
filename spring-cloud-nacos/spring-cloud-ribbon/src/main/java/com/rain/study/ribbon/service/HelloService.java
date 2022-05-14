@@ -21,7 +21,10 @@ public class HelloService {
 
 
     public String sayHelloService2(String name) {
-        return restTemplate.getForObject("http://spring-cloud-producer/hello?name=" + name, String.class);
+        ServiceInstance serviceInstance = loadBalancerClient.choose("spring-cloud-producer");
+        String url = String.format("http://%s:%s/hello/?name=%s", serviceInstance.getHost(), serviceInstance.getPort(), name);
+        System.out.println("request url:" + url);
+        return restTemplate.getForObject(url, String.class);
     }
 
     /**

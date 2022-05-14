@@ -20,4 +20,9 @@ public class HelloControler {
         return helloService.sayHelloService(name);
     }
 
+    @RequestMapping(value = "/sayHi2")
+    public String sayHi2(@RequestParam String name) {
+        return helloService.sayHelloService2(name);
+    }
+
 }
