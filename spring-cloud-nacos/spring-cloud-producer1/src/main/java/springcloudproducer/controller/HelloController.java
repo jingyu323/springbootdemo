@@ -24,7 +24,8 @@ public class HelloController {
 
     @GetMapping(value = "/echo/{string}")
     public String echo(@PathVariable String string) {
-        return "Hello Nacos Discovery " + string;
+
+        return "from " + port + "Hello Nacos Discovery " + string;
     }
 
 
