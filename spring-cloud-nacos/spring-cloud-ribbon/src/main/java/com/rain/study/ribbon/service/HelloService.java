@@ -20,9 +20,16 @@ public class HelloService {
     private String appName;
 
 
-    //    public String sayHelloService(String name) {
-//        return restTemplate.getForObject("http://spring-cloud-producer/hello?name="+name,String.class);
-//    }
+    public String sayHelloService2(String name) {
+        return restTemplate.getForObject("http://spring-cloud-producer/hello?name=" + name, String.class);
+    }
+
+    /**
+     * loadBalancerClient 是alibaba 项目借鉴的
+     *
+     * @param name
+     * @return
+     */
     public String sayHelloService(String name) {
         //使用 LoadBalanceClient 和 RestTemplate 结合的方式来访问
         ServiceInstance serviceInstance = loadBalancerClient.choose("spring-cloud-producer");
