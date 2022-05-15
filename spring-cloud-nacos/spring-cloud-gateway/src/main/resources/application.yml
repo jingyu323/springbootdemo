@@ -11,7 +11,21 @@ spring:
     enabled: false
   cloud:
     nacos:
-      server-addr: localhost:8848
+      discovery:
+        enabled: true
+        # 配置 nacos 的服务地址
+        server-addr: localhost:8848
+        config:
+          # nacos 配置服务的地址，后面的端口不能省，即使是80端口
+          server-addr: localhost:8848
+          # 加载 dataid 配置文件的后缀，默认是 properties
+          file-extension: yml
+          # 配置组，默认就是 DEFAULT_GROUP
+          group: DEFAULT_GROUP
+          # 配置命名空间，此处写的是 命名空间的id 的值，默认是 public 命名空间
+          # namespace:
+          # data-id 的前缀,默认就是 spring.application.name 的值
+          prefix: ${spring.application.name}
     gateway:
       routes: # 网关路由配置
         - id: spring-cloud-producer # 路由id，V自定义，只要唯一即可
