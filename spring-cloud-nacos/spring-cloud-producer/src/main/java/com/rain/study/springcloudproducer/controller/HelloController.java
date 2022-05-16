@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
 
 
 /**
@@ -23,7 +24,15 @@ public class HelloController {
         System.out.println(request.getParameterMap());
 
         for (String str : request.getParameterMap().keySet()) {
-            System.out.println(str + "=" + request.getParameterMap().get(str));
+            System.out.println(str + "=" + request.getParameterValues(str));
+        }
+        Enumeration<String> paraNames = request.getParameterNames();
+        for (Enumeration e = paraNames; e.hasMoreElements(); ) {
+
+            String thisName = e.nextElement().toString();
+            String thisValue = request.getParameter(thisName);
+            System.out.println(thisName + "--------------" + thisValue);
+
         }
         return "hello " + name + "，this is first messge  from HelloController  producer， from port " + port;
     }
