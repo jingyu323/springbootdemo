@@ -20,7 +20,11 @@ public class HelloController {
 
     @RequestMapping("/hello")
     public String index(@RequestParam String name, HttpServletRequest request) {
-        System.out.println(request.getParameterNames());
+        System.out.println(request.getParameterMap());
+
+        for (String str : request.getParameterMap().keySet()) {
+            System.out.println(str + "=" + request.getParameterMap().get(str));
+        }
         return "hello " + name + "，this is first messge  from HelloController  producer， from port " + port;
     }
 
