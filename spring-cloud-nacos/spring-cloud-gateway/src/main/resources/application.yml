@@ -12,6 +12,7 @@ spring:
   cloud:
     nacos:
       discovery:
+
         enabled: true
         # 配置 nacos 的服务地址
         server-addr: localhost:8848
@@ -27,6 +28,10 @@ spring:
           # data-id 的前缀,默认就是 spring.application.name 的值
           prefix: ${spring.application.name}
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
       routes: # 网关路由配置
         - id: cookie_route
           uri: http://localhost
@@ -47,6 +52,12 @@ spring:
             - StripPrefix=1 # 跳过前缀
           predicates: # 路由断言，也就是判断请求是否符合路由规则的条件
             - Path=/service-ribbon/** # 这个是按照路径匹配，只要以/user/开头就符合要求
+        - id: service-ribbon2 # 路由id，自定义，只要唯一即可
+          uri: lb://service-ribbon # 路由的目标地址 lb就是负载均衡，后面跟服务名称
+          filters:
+            - StripPrefix=1 # 跳过前缀
+          predicates: # 路由断言，也就是判断请求是否符合路由规则的条件
+            - Path=/service-ribbon2/** # 这个是按照路径匹配，只要以/user/开头就符合要求
 
 logging:
   level:
