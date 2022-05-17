@@ -12,10 +12,9 @@ spring:
   cloud:
     nacos:
       discovery:
-
-        enabled: true
         # 配置 nacos 的服务地址
         server-addr: localhost:8848
+        enabled: true
         config:
           # nacos 配置服务的地址，后面的端口不能省，即使是80端口
           server-addr: localhost:8848
@@ -24,9 +23,8 @@ spring:
           # 配置组，默认就是 DEFAULT_GROUP
           group: DEFAULT_GROUP
           # 配置命名空间，此处写的是 命名空间的id 的值，默认是 public 命名空间
-          # namespace:
-          # data-id 的前缀,默认就是 spring.application.name 的值
-          prefix: ${spring.application.name}
+          #          namespace:
+          data-id: spring-cloud-gateway # 的前缀,默认就是 spring.application.name 的值
     gateway:
       discovery:
         locator:
