@@ -3,7 +3,6 @@ package com.rain.study.test.dynamicconfig;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.nacos.api.NacosFactory;
-import com.alibaba.nacos.api.PropertyKeyConst;
 import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.config.listener.Listener;
 import org.slf4j.Logger;
@@ -57,21 +56,12 @@ public class DynamicRouteConfig implements ApplicationEventPublisherAware {
     public void dynamicRouteByNacosListener() {
         try {
 
-            String serverAddr = "localhost";
-            String dataId = "spring-cloud-gateway.yaml";
-            String group = "DEFAULT_GROUP";
-            Properties properties = new Properties();
-            properties.put(PropertyKeyConst.SERVER_ADDR, serverAddr);
-            ConfigService configService = NacosFactory.createConfigService(properties);
-            String content = configService.getConfig(dataId, group, 5000);
-            System.out.println(content);
-
             Properties prop = new Properties();
             prop.put("serverAddr", serverAddr);
             prop.put("namespace", namespace);
             ConfigService config = NacosFactory.createConfigService(prop);
             String content2 = config.getConfig(dataId, group, timeout);
-            System.out.println("content=" + content2);
+            System.out.println("content2=" + content2);
             publisher(content2);
             config.addListener(dataId, group, new Listener() {
                 @Override

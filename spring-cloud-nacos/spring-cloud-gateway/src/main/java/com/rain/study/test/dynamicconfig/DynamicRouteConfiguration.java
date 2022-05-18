@@ -16,7 +16,7 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 
 
-@Service
+//@Service
 public class DynamicRouteConfiguration implements ApplicationEventPublisherAware {
     @Autowired
     private RouteDefinitionWriter routeDefinitionWriter;
