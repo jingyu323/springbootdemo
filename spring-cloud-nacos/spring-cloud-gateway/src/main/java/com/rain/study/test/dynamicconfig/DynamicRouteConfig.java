@@ -1,6 +1,7 @@
 package com.rain.study.test.dynamicconfig;
 
 
+import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.nacos.api.NacosFactory;
 import com.alibaba.nacos.api.config.ConfigService;
@@ -14,10 +15,12 @@ import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinitionWriter;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -29,7 +32,8 @@ import java.util.concurrent.Executor;
  * @Author: lc
  * @Date: 2020/7/8 15:49
  */
-@Service
+
+@Component
 public class DynamicRouteConfig implements ApplicationEventPublisherAware {
 
     private static final Logger logger = LoggerFactory.getLogger(DynamicRouteConfig.class);
@@ -52,10 +56,15 @@ public class DynamicRouteConfig implements ApplicationEventPublisherAware {
 
     private static final List<String> ROUTE_LIST = new ArrayList<>();
 
+    @Resource
+    private NacosDiscoveryProperties nacosDiscoveryProperties;
+
     @PostConstruct
     public void dynamicRouteByNacosListener() {
         try {
-
+            if (nacosDiscoveryProperties != null) {
+                System.out.println("nacosDiscoveryProperties=" + nacosDiscoveryProperties);
+            }
             Properties prop = new Properties();
             prop.put("serverAddr", serverAddr);
             prop.put("namespace", namespace);
@@ -121,6 +130,7 @@ public class DynamicRouteConfig implements ApplicationEventPublisherAware {
                 addRoute(route);
             }
             publisher.publishEvent(new RefreshRoutesEvent(this.routedefinitionWriter));
+
             logger.info("update completed ");
         } catch (Exception e) {
             logger.error("Failed to update routing information", e);
@@ -128,6 +138,7 @@ public class DynamicRouteConfig implements ApplicationEventPublisherAware {
         }
 
     }
+
 
     @Override
     public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {

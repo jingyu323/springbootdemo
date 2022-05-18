@@ -33,7 +33,7 @@ spring:
           lower-case-service-id: true
       routes: # 网关路由配置
         - id: cookie_route
-          uri: http://localhost
+          uri: http://localhost:9009
           predicates:
             - Cookie=chocolate, ch.p
         - id: spring-cloud-producer # 路由id，V自定义，只要唯一即可
