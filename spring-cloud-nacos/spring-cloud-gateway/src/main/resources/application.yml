@@ -1,7 +1,4 @@
 spring-cloud-gateway:
-#  hostport: httpbin.org:80
-#  hostport: localhost:5000
-#  uri: http://${test.hostport}
 server:
   port: 9009
 spring:
