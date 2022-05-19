@@ -11,6 +11,7 @@
         <module>spring-cloud-gateway</module>
         <module>spring-cloud-ribbon</module>
         <module>spring-cloud-producer1</module>
+        <module>spring-cloud-sentinel</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
