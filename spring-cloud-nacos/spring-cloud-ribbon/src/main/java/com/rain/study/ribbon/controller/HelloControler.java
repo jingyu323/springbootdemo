@@ -25,4 +25,9 @@ public class HelloControler {
         return helloService.sayHelloService2(name);
     }
 
+    @RequestMapping(value = "/sayHi3")
+    public String sayHi3(@RequestParam String name) {
+        return helloService.sayHelloService3(name);
+    }
+
 }

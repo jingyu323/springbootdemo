@@ -40,4 +40,11 @@ public class HelloService {
         System.out.println("request url:" + url);
         return restTemplate.getForObject(url, String.class);
     }
+
+    //增加熔断功能
+    public String sayHelloService3(String name) {
+        System.out.println("sayHelloService3  name is:" + name);
+        return restTemplate.getForObject("http://spring-cloud-producer/hello?name=" + name, String.class);
+    }
+
 }
