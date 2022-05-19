@@ -21,10 +21,11 @@ public class HelloService {
 
 
     public String sayHelloService2(String name) {
-        ServiceInstance serviceInstance = loadBalancerClient.choose("spring-cloud-producer");
-        String url = String.format("http://%s:%s/hello/?name=%s", serviceInstance.getHost(), serviceInstance.getPort(), name);
-        System.out.println("request url:" + url);
-        return restTemplate.getForObject(url, String.class);
+//        ServiceInstance serviceInstance = loadBalancerClient.choose("spring-cloud-producer");
+//        String url = String.format("http://%s:%s/hello/?name=%s", serviceInstance.getHost(), serviceInstance.getPort(), name);
+//        System.out.println("request url:" + url);
+        System.out.println("sayHelloService2  name is:" + name + ", from :" + appName);
+        return restTemplate.getForObject("http://spring-cloud-producer/hello?name=" + name, String.class);
     }
 
     /**
@@ -35,15 +36,16 @@ public class HelloService {
      */
     public String sayHelloService(String name) {
         //使用 LoadBalanceClient 和 RestTemplate 结合的方式来访问
-        ServiceInstance serviceInstance = loadBalancerClient.choose("spring-cloud-producer");
-        String url = String.format("http://%s:%s/echo/%s", serviceInstance.getHost(), serviceInstance.getPort(), appName);
-        System.out.println("request url:" + url);
-        return restTemplate.getForObject(url, String.class);
+//        ServiceInstance serviceInstance = loadBalancerClient.choose("spring-cloud-producer");
+//        String url = String.format("http://%s:%s/echo/%s", serviceInstance.getHost(), serviceInstance.getPort(), appName);
+//        System.out.println("request url:" + url);
+        System.out.println("sayHelloService  name is:" + name + ", from :" + appName);
+        return restTemplate.getForObject("http://spring-cloud-producer/hello?name=" + name, String.class);
     }
 
     //增加熔断功能
     public String sayHelloService3(String name) {
-        System.out.println("sayHelloService3  name is:" + name);
+        System.out.println("sayHelloService3  name is:" + name + ", from :" + appName);
         return restTemplate.getForObject("http://spring-cloud-producer/hello?name=" + name, String.class);
     }
 

@@ -22,11 +22,12 @@ public class HelloService {
 
     //增加熔断功能
     public String sayHelloService(String name) {
-        ServiceInstance serviceInstance = loadBalancerClient.choose("spring-cloud-producer");
-        String url = String.format("http://%s:%s/hello/?name=%s", serviceInstance.getHost(), serviceInstance.getPort(), name);
-
-        System.out.println("url from :" + url);
+//        ServiceInstance serviceInstance = loadBalancerClient.choose("spring-cloud-producer");
+//        String url = String.format("http://%s:%s/hello/?name=%s", serviceInstance.getHost(), serviceInstance.getPort(), name);
+////
+//        System.out.println("url from :" + url);
 //        return restTemplate.getForObject(url + name, String.class);
+        System.out.println("sayHelloService  name is:" + name);
         return restTemplate.getForObject("http://spring-cloud-producer/hello?name=" + name, String.class);
     }
 
