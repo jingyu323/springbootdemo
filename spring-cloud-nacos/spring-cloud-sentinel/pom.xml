@@ -27,11 +27,26 @@
             <version>3.1.2</version>
         </dependency>
 
+
+        <!-- https://mvnrepository.com/artifact/com.alibaba.csp/sentinel-annotation-aspectj -->
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba.csp</groupId>-->
+        <!--            <artifactId>sentinel-annotation-aspectj</artifactId>-->
+        <!--            <version>1.8.4</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba.csp</groupId>-->
+        <!--            <artifactId>sentinel-datasource-nacos</artifactId>-->
+        <!--            <version>1.8.4</version>-->
+        <!--        </dependency>-->
+
+        <!-- dashborad 依赖开始-->
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-            <version>2021.1</version>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-transport-simple-http</artifactId>
+            <version>1.8.4</version>
         </dependency>
+        <!-- dashborad 依赖结束-->
 
     </dependencies>
 
