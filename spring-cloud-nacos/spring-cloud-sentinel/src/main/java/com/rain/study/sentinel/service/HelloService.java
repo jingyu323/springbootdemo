@@ -1,7 +1,6 @@
-package com.rain.study.hystrix.service;
+package com.rain.study.sentinel.service;
 
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -19,13 +18,11 @@ public class HelloService {
 
 
     //增加熔断功能
-    @HystrixCommand(fallbackMethod = "hiError")
     public String sayHelloService(String name) {
         return restTemplate.getForObject("http://spring-cloud-producer/hello?name=" + name, String.class);
     }
 
     //增加熔断功能
-    @HystrixCommand(fallbackMethod = "listByHystirx")
     public String sayHelloService2(String name) {
         return restTemplate.getForObject("http://spring-cloud-producer/hello?name=" + name, String.class);
     }
