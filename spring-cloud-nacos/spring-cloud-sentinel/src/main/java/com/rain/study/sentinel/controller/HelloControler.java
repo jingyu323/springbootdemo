@@ -3,7 +3,7 @@ package com.rain.study.sentinel.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
-import com.rain.study.hystrix.service.HelloService;
+import com.rain.study.sentinel.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

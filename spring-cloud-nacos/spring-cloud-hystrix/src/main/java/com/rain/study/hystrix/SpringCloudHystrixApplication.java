@@ -44,6 +44,12 @@ public class SpringCloudHystrixApplication {
         return new RestTemplate();
     }
 
+
+    /**
+     * 添加 hitrix dashiboard
+     *
+     * @return
+     */
     @Bean
     public ServletRegistrationBean getServlet() {
         HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();

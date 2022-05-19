@@ -16,15 +16,16 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableDiscoveryClient
 public class SpringCloudSentinelApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(SpringCloudSentinelApplication.class,
-                args);
-    }
 
     @Bean(name = "remoteRestTemplate")
     @LoadBalanced
     RestTemplate restTemplate() {
         return new RestTemplate();
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringCloudSentinelApplication.class,
+                args);
     }
 
 

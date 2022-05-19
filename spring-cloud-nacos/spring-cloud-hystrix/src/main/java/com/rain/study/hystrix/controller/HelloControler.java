@@ -16,7 +16,6 @@ public class HelloControler {
     @Autowired
     HelloService helloService;
 
-
     //增加熔断功能
     @HystrixCommand(fallbackMethod = "hiError")
     @RequestMapping(value = "/sayHi")
@@ -25,9 +24,9 @@ public class HelloControler {
     }
 
     @RequestMapping(value = "/sayHi2")
-    @HystrixCommand(fallbackMethod = "listByHystirx", commandProperties = {
-            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"), //请求次数
-    })
+//    @HystrixCommand(fallbackMethod = "listByHystirx", commandProperties = {
+//            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"), //请求次数
+//    })
     public String sayHi2(@RequestParam String name) {
         return helloService.sayHelloService2(name);
     }

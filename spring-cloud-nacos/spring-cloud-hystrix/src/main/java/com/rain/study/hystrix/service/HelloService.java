@@ -4,6 +4,8 @@ package com.rain.study.hystrix.service;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -17,6 +19,8 @@ public class HelloService {
     @Qualifier(value = "remoteRestTemplate")
     RestTemplate restTemplate;
 
+    @Autowired
+    private LoadBalancerClient loadBalancerClient;
 
     //增加熔断功能
     @HystrixCommand(fallbackMethod = "hiError")
@@ -27,9 +31,17 @@ public class HelloService {
     //增加熔断功能
     @HystrixCommand(fallbackMethod = "listByHystirx")
     public String sayHelloService2(String name) {
-        return restTemplate.getForObject("http://spring-cloud-producer/hello?name=" + name, String.class);
+        ServiceInstance serviceInstance = loadBalancerClient.choose("spring-cloud-producer");
+        String url = String.format("http://%s:%s/hello/?name=%s", serviceInstance.getHost(), serviceInstance.getPort(), name);
+
+        System.out.println("url from :" + url);
+        return restTemplate.getForObject(url + name, String.class);
     }
 
+    public String listByHystirx(String name) {
+        System.out.println("listUserByHystirx executed...");
+        return "listByHystirx exexuted   2222  3333" + name;
+    }
 
     public String hiError(String name) {
         return "hi," + name + ",sorry,error!";
