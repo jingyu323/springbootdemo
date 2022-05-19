@@ -20,11 +20,18 @@
             <artifactId>sentinel-core</artifactId>
             <version>1.8.4</version>
         </dependency>
+        <!-- 模板负载均衡需要这个依赖，不能少，少了就找不到service了-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
             <version>3.1.2</version>
         </dependency>
+
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>-->
+        <!--            <version>2021.1</version>-->
+        <!--        </dependency>-->
 
     </dependencies>
 

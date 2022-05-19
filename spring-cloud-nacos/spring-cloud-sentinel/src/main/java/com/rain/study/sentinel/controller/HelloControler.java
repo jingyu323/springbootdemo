@@ -16,9 +16,8 @@ public class HelloControler {
     @Autowired
     HelloService helloService;
 
-
     //增加熔断功能
-//    @SentinelResource(value = "sentinel", blockHandler = "requestTooFast")
+    @SentinelResource(value = "sentinel", blockHandler = "requestTooFast")
     @RequestMapping(value = "/sayHi")
     public String sayHi(@RequestParam String name) {
         return helloService.sayHelloService(name);

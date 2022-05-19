@@ -3,8 +3,7 @@ package com.rain.study.sentinel.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -17,8 +16,9 @@ public class HelloService {
     @Autowired
     @Qualifier(value = "remoteRestTemplate")
     RestTemplate restTemplate;
-    @Autowired
-    private LoadBalancerClient loadBalancerClient;
+
+    @Value("${spring.application.name}")
+    private String appName;
 
     //增加熔断功能
     public String sayHelloService(String name) {
@@ -27,7 +27,7 @@ public class HelloService {
 ////
 //        System.out.println("url from :" + url);
 //        return restTemplate.getForObject(url + name, String.class);
-        System.out.println("sayHelloService  name is:" + name);
+        System.out.println("sayHelloService  name is:" + name + ", from :" + appName);
         return restTemplate.getForObject("http://spring-cloud-producer/hello?name=" + name, String.class);
     }
 
