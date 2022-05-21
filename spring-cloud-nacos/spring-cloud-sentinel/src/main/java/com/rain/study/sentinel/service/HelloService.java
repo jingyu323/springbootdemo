@@ -1,6 +1,8 @@
 package com.rain.study.sentinel.service;
 
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,6 +23,8 @@ public class HelloService {
     private String appName;
 
     //增加熔断功能
+    //增加熔断功能
+    @SentinelResource(value = "sentinel", blockHandler = "requestTooFast")
     public String sayHelloService(String name) {
 //        ServiceInstance serviceInstance = loadBalancerClient.choose("spring-cloud-producer");
 //        String url = String.format("http://%s:%s/hello/?name=%s", serviceInstance.getHost(), serviceInstance.getPort(), name);
@@ -30,6 +34,11 @@ public class HelloService {
         System.out.println("sayHelloService  name is:" + name + ", from :" + appName);
         return restTemplate.getForObject("http://spring-cloud-producer/hello?name=" + name, String.class);
     }
+
+    public String requestTooFast(BlockException e) {
+        return "请求太频繁了。。。。";
+    }
+
 
     //增加熔断功能
     public String sayHelloService2(String name) {
