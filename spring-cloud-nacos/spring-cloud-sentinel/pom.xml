@@ -50,6 +50,11 @@
             <artifactId>sentinel-core</artifactId>
             <version>1.8.4</version>
         </dependency>
+        <!-- 依赖规则入库-->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-nacos</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
