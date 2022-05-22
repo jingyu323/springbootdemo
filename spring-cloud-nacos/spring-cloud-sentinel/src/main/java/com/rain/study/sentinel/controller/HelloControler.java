@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 流控规则添加到资源名称上才能匹配到配置的错误提示
+ */
 
 @RestController
 public class HelloControler {
