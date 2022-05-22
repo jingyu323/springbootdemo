@@ -12,7 +12,7 @@ java -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject
 4.怎么使用
 
 ## 1. 1.8.4的dashboard必须用1.8.4的依赖，需要配置 1.8.4
-还需要配置对应的serve地址才能对接上 后台
+还需要配置对应的serve地址才能对接上后台
 csp.sentinel.dashboard.server=localhost:8080
 
 

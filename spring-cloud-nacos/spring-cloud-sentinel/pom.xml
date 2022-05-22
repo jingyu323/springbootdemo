@@ -11,10 +11,24 @@
 
     <artifactId>spring-cloud-sentinel</artifactId>
     <dependencies>
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.boot</groupId>-->
-        <!--            <artifactId>spring-boot-starter-web</artifactId>-->
-        <!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
@@ -25,15 +39,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
         <!-- 模板负载均衡需要这个依赖，不能少，少了就找不到service了-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
             <version>3.1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
         <!--sentinel启动器-->
         <!--        <dependency>-->
@@ -59,11 +70,7 @@
             <artifactId>sentinel-transport-simple-http</artifactId>
             <version>1.8.4</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
-            <version>2.6.6</version>
-        </dependency>
+
 
         <!-- dashborad 依赖结束-->
         <dependency>
@@ -71,6 +78,7 @@
             <artifactId>sentinel-core</artifactId>
             <version>1.8.4</version>
         </dependency>
+
     </dependencies>
 
 

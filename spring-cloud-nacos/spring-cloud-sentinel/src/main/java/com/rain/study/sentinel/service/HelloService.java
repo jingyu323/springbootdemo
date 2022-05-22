@@ -6,6 +6,8 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,6 +21,9 @@ public class HelloService {
     @Qualifier(value = "remoteRestTemplate")
     RestTemplate restTemplate;
 
+    @Autowired
+    private LoadBalancerClient loadBalancerClient;
+
     @Value("${spring.application.name}")
     private String appName;
 
@@ -30,8 +35,9 @@ public class HelloService {
 //        String url = String.format("http://%s:%s/hello/?name=%s", serviceInstance.getHost(), serviceInstance.getPort(), name);
 ////
 //        System.out.println("url from :" + url);
+//        System.out.println("sayHelloService  name is:" + name + ", from :" + appName);
 //        return restTemplate.getForObject(url + name, String.class);
-        System.out.println("sayHelloService  name is:" + name + ", from :" + appName);
+
         return restTemplate.getForObject("http://spring-cloud-producer/hello?name=" + name, String.class);
     }
 
