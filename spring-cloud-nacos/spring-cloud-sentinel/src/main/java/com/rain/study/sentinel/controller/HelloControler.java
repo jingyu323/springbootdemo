@@ -34,7 +34,7 @@ public class HelloControler {
         return "listByHystirx exexuted" + name;
     }
 
-    @SentinelResource(value = "demoTest", blockHandler = "exceptionHandler", blockHandlerClass = {ExceptionUtil.class})
+    @SentinelResource(value = "demoTest", blockHandler = "requestTooFast")
     @GetMapping(value = "/demoTest", produces = "application/json;charset=UTF-8")
     public String getTest1() {
         System.out.println("demoTest isOk");

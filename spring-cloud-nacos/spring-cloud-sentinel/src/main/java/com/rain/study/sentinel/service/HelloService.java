@@ -37,7 +37,7 @@ public class HelloService {
 //        System.out.println("url from :" + url);
 //        System.out.println("sayHelloService  name is:" + name + ", from :" + appName);
 //        return restTemplate.getForObject(url + name, String.class);
-
+        System.out.println("sayHelloService  name is:" + name);
         return restTemplate.getForObject("http://spring-cloud-producer/hello?name=" + name, String.class);
     }
 
