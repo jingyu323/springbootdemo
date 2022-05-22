@@ -36,7 +36,7 @@ public class HelloControler {
 
     @SentinelResource(value = "demoTest", blockHandler = "requestTooFast")
     @GetMapping(value = "/demoTest", produces = "application/json;charset=UTF-8")
-    public String getTest1() {
+    public String demoTest() {
         System.out.println("demoTest isOk");
         return "isOk";
 
@@ -47,7 +47,7 @@ public class HelloControler {
         return "hi," + name + ",sorry,error!";
     }
 
-    public String requestTooFast(@RequestParam String name, BlockException e) {
+    public String requestTooFast(BlockException e) {
         return "请求太频繁了。。。。";
     }
 
