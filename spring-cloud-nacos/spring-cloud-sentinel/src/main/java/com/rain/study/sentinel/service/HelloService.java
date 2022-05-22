@@ -30,6 +30,7 @@ public class HelloService {
     //增加熔断功能
     //增加熔断功能
     @SentinelResource(value = "sentinel", blockHandler = "requestTooFast")
+
     public String sayHelloService(String name) {
 //        ServiceInstance serviceInstance = loadBalancerClient.choose("spring-cloud-producer");
 //        String url = String.format("http://%s:%s/hello/?name=%s", serviceInstance.getHost(), serviceInstance.getPort(), name);
@@ -41,7 +42,7 @@ public class HelloService {
         return restTemplate.getForObject("http://spring-cloud-producer/hello?name=" + name, String.class);
     }
 
-    public String requestTooFast(BlockException e) {
+    public String requestTooFast(String name, BlockException e) {
         return "请求太频繁了。。。。";
     }
 

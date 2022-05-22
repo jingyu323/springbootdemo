@@ -47,7 +47,7 @@ public class HelloControler {
         return "hi," + name + ",sorry,error!";
     }
 
-    public String requestTooFast(BlockException e) {
+    public String requestTooFast(@RequestParam String name, BlockException e) {
         return "请求太频繁了。。。。";
     }
 
