@@ -23,4 +23,7 @@ csp.sentinel.dashboard.server=localhost:8080
             <version>1.8.4</version>
         </dependency>
 
- 
+ ## 限流参数
+ 1、我们定义的blockHandler限流方法参数没有加 BlockException，放在末尾
+ 2、blockHandler限流方法返回值和业务方法返回值不一致
+ 注意：限流回调方法XXXBlockHandler,应与业务方法参数完全一致，并新增一个BlockException参数，放在末尾
