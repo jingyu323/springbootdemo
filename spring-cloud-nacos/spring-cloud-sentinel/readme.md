@@ -1,5 +1,7 @@
 官网：
 https://github.com/alibaba/Sentinel/tree/v1.8.0
+web  适配文档
+https://github.com/alibaba/Sentinel/wiki/%E4%B8%BB%E6%B5%81%E6%A1%86%E6%9E%B6%E7%9A%84%E9%80%82%E9%85%8D#web-%E9%80%82%E9%85%8D
 
 sentinel启动：
 java -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard-1.8.4.jar
