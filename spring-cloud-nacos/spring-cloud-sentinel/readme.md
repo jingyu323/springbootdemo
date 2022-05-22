@@ -27,3 +27,8 @@ csp.sentinel.dashboard.server=localhost:8080
  1、我们定义的blockHandler限流方法参数没有加 BlockException，放在末尾
  2、blockHandler限流方法返回值和业务方法返回值不一致
  注意：限流回调方法XXXBlockHandler,应与业务方法参数完全一致，并新增一个BlockException参数，放在末尾
+ ## 流控规则添加到资源名称上才能匹配到配置的错误提示
+ 直接添加到url上的话是系统自定义的
+ 如果添加到资源名上才是自己指定的
+  
+ 
