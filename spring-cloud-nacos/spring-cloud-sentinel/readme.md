@@ -32,5 +32,7 @@ csp.sentinel.dashboard.server=localhost:8080
  ## 流控规则添加到资源名称上才能匹配到配置的错误提示
  直接添加到url上的话是系统自定义的
  如果添加到资源名上才是自己指定的
+ ## sentinal 数据保持到nacose
+ 这个是把创建配置文件在nacose，而不是自动把配置存储到数据库
   
  
