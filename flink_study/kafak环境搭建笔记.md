@@ -56,3 +56,11 @@ zookeeper.connect=192.168.93.41:2181,192.168.93.42:2181,192.168.93.27:2181
 ## 错误1 hile executing topic command : Timed out waiting for a node assignment. Call: createTopics
 检查：监听 plain端口修改没有
 2.命令端口是否为kafka配置端口
+
+## 2. kafka使用笔记
+
+### 2.1 基础概念
+#### 2.1.1 Group
+Consumer Group 
+### 2.2 遇到的问题
+
