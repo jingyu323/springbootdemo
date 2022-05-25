@@ -1,5 +1,19 @@
 package com.rain.study;
 
+import org.apache.flink.api.common.functions.FilterFunction;
+import org.apache.flink.api.common.functions.MapFunction;
+import org.apache.flink.api.common.functions.ReduceFunction;
+import org.apache.flink.api.java.functions.KeySelector;
+import org.apache.flink.api.java.tuple.Tuple2;
+import org.apache.flink.api.java.utils.ParameterTool;
+import org.apache.flink.streaming.api.TimeCharacteristic;
+import org.apache.flink.streaming.api.datastream.DataStream;
+import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.functions.AssignerWithPunctuatedWatermarks;
+import org.apache.flink.streaming.api.watermark.Watermark;
+import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
+import org.apache.flink.streaming.api.windowing.time.Time;
+
 public class FlinkStreamJavaExample {
     public static void main(String[] args) throws Exception {
         // TODO Auto-generated method stub
@@ -70,7 +84,7 @@ public class FlinkStreamJavaExample {
     }
 
     // 构建KeyBy的关键字作为分组依据
-    public static class UserRecordSelector implements KeySelector<UserRecord, Tuple2<String, String>>{
+    public static class UserRecordSelector implements KeySelector<UserRecord, Tuple2<String, String>> {
 
         @Override
         public Tuple2<String, String> getKey(UserRecord value) throws Exception {
@@ -81,7 +95,7 @@ public class FlinkStreamJavaExample {
     }
 
     // 定义水印方法
-    public static class Record2TimeStampsExecuter implements AssignerWithPunctuatedWatermarks<UserRecord>{
+    public static class Record2TimeStampsExecuter implements AssignerWithPunctuatedWatermarks<UserRecord> {
 
         @Override
         public long extractTimestamp(UserRecord arg0, long arg1) {
