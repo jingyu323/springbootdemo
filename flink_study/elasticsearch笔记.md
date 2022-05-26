@@ -52,3 +52,10 @@ xpack.security.enabled: false
 cd /usr/local/elasticsearch/bin &&  ./elasticsearch
 
 ## 问题2  check failure [1] of [1]: max number of threads [2889] for user [snail_es] is too low, increase to at least [4096]
+解决方案
+vim /etc/security/limits.conf文件，添加以下两行即可解决
+
+* soft nproc  4096
+* hard nproc  4096
+一些常见的问题
+https://blog.csdn.net/lixiaohai_918/article/details/89569611
