@@ -28,6 +28,7 @@ snail_es soft nofile 65536
 snail_es hard nofile 65536
 *  hard    nproc     4096
 # 注：* 代表Linux所有用户名称	
+/etc/security/limits.d/90-nproc.conf文件中修改最大线程数
 
 #2. ===最大虚拟内存太小=======
 vim /etc/sysctl.conf
@@ -49,3 +50,5 @@ xpack.security.transport.ssl.enabled] to [true] or disable secu
 xpack.security.enabled: false
 
 cd /usr/local/elasticsearch/bin &&  ./elasticsearch
+
+## 问题2  check failure [1] of [1]: max number of threads [2889] for user [snail_es] is too low, increase to at least [4096]

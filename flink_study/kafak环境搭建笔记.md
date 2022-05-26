@@ -10,6 +10,8 @@ export PATH=$PATH:$ZK_HOME/bin
 
 zookeeper.connect=192.168.93.41:2181,192.168.93.42:2181,192.168.93.27:2181
 
+/usr/local/zookeeper/bin && ./zkServer.sh  start
+
  ./kafka-topics.sh --list --bootstrap-server 192.168.93.42:9092
 log.dir=/var/log/kafka/logs
 
