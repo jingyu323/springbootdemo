@@ -59,3 +59,16 @@ vim /etc/security/limits.conf文件，添加以下两行即可解决
 * hard nproc  4096
 一些常见的问题
 https://blog.csdn.net/lixiaohai_918/article/details/89569611
+## 问题3 
+[node-2] failed to resolve host [host2]
+java.net.UnknownHostException: host2
+	at java.net.InetAddress$CachedAddresses.get(InetAddress.java:948) ~[?:?]
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1628) ~[?:?]
+	at java.net.InetAddress.getAllByName(InetAddress.java:1494) ~[?:?]
+	at org.elasticsearch.transport.TcpTransport.parse(TcpTransport.java:636) ~[elasticsearch-8.2.1.jar:8.2.1]
+	at org.elasticsearch.transport.TcpTransport.addressesFromString(TcpTransport.java:578) ~[elasticsearch-8.2.1.jar:8.2.1]
+	at org.elasticsearch.transport.TransportService.addressesFromString(TransportService.java:980) ~[elasticsearch-8.2.1.jar:8.2.1]
+	at org.elasticsearch.discovery.SeedHostsResolver.lambda$resolveHosts$0(SeedHostsResolver.java:92) ~[elasticsearch-8.2.1.jar:8.2.1]
+
+添加配置
+discovery.seed_hosts: ["外网ip1", "外网ip2", "外网ip3"]
