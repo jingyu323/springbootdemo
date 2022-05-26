@@ -44,4 +44,8 @@ su snail_es  # 切换到alaric用户启动
 ## 问题1：
 xpack.security.transport.ssl.enabled] to [true] or disable secu
 先禁用吧
-xpack.security.transport.ssl.enabled=false
+
+是因为ES8.x默认开启了 ssl 认证。
+xpack.security.enabled: false
+
+cd /usr/local/elasticsearch/bin &&  ./elasticsearch
