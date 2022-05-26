@@ -35,3 +35,13 @@ vim /etc/sysctl.conf
 vm.max_map_count=655360
 # 重新加载，输入下面命令：
 sysctl -p
+
+
+su snail_es  # 切换到alaric用户启动
+    cd /usr/local/elasticsearch/bin &&  ./elasticsearch
+
+# 问题
+## 问题1：
+xpack.security.transport.ssl.enabled] to [true] or disable secu
+先禁用吧
+xpack.security.transport.ssl.enabled=false
