@@ -31,7 +31,7 @@ public class Test {
                 result[start] = balance;
                 int  mod = sum /10;
                 if(mod > 0){
-                    if(start-1 >0){
+                    if(start-1 >=0){
                         result[start-1] = mod;
                     }else {
                         moreString = mod+"";
