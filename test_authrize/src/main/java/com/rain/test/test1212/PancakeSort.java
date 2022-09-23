@@ -59,7 +59,6 @@ public class PancakeSort {
             for (int j = 0; j <= i; j++) {
                 max = A[max] > A[j] ? max : j;
             }
-            System.out.println(i);
             if (max == 0 && i != 0) {//最大数在0位置。翻转一次
                 pancake(A, i);
             } else if (max != i) {//最大数不在0位置，先翻转到0位置，再翻转到目标位置。翻转两次
@@ -75,7 +74,6 @@ public class PancakeSort {
         int i = 0;
         while (k > i) {
             swap(A, i, k);
-            System.out.println(Arrays.toString(A));
             i++;
             k--;
         }
@@ -88,7 +86,7 @@ public class PancakeSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {3,2,4,1,6,8,5,7,9};
+        int[] arr = {3,2,4,1};
         List res  = new PancakeSort().pancakeSort(arr);
         System.out.println(res);
 
