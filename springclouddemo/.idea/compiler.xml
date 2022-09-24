@@ -6,7 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springclouddemo" />
+        <module name="spring-cloud-hystrix" />
+        <module name="service-ribbon" />
+        <module name="common-utils" />
+        <module name="eureka-server" />
+        <module name="spring-cloud-producer" />
+        <module name="spring-cloud-consumer" />
       </profile>
     </annotationProcessing>
   </component>
