@@ -19,5 +19,4 @@ public class SpringCloudConsumerApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringCloudConsumerApplication.class, args);
     }
-
 }
