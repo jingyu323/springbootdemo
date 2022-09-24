@@ -14,11 +14,9 @@
         <module>spring-cloud-consumer</module>
         <module>service-ribbon</module>
         <module>spring-cloud-hystrix</module>
-<<<<<<< HEAD
         <module>common-util</module>
-=======
+
         <module>common-utils</module>
->>>>>>> 9080b8f7d5f768d2844ecdd4a933f178bf4d8abb
 
     </modules>
 
