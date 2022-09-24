@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db4d49ee-dd18-4537-9a44-0a3ce52ef4c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/common-utils/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-utils/src/main/java/com/rain/study/utils/OSUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-utils/src/main/java/com/rain/study/utils/POIUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-cloud-producer/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-utils/src/main/java/com/rain/study/utils/DateUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-utils/src/main/java/com/rain/study/utils/FileUploadUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-utils/src/main/java/com/rain/study/utils/MD5Tools.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-utils/src/main/java/com/rain/study/utils/MathUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-utils/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-utils/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +26,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -34,6 +35,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\study\git\springbootdemo\springclouddemo\common-utils\src\main\java\com\rain\study\utils" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.rain.study.utils" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -44,7 +48,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1663987943376</updated>
-      <workItem from="1663987944604" duration="896000" />
+      <workItem from="1663987944604" duration="1209000" />
     </task>
     <servers />
   </component>
@@ -61,5 +65,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
