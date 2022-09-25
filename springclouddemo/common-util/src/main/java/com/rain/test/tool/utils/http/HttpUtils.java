@@ -1,5 +1,6 @@
 package com.rain.test.tool.utils.http;
 
+import com.rain.test.tool.utils.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

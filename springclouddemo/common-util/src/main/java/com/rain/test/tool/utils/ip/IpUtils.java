@@ -1,7 +1,8 @@
 package com.rain.test.tool.utils.ip;
 
-import com.yzg.common.utils.StringUtils;
-import com.yzg.common.utils.html.EscapeUtil;
+
+import com.rain.test.tool.utils.StringUtils;
+import com.rain.test.tool.utils.html.EscapeUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;

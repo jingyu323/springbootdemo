@@ -1,7 +1,7 @@
 package com.rain.test.tool.utils.sql;
 
-import com.yzg.common.exception.BaseException;
-import com.yzg.common.utils.StringUtils;
+import com.rain.test.tool.utils.BaseException;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * sql操作工具类
@@ -18,8 +18,7 @@ public class SqlUtil
     /**
      * 检查字符，防止注入绕过
      */
-    public static String escapeOrderBySql(String value)
-    {
+    public static String escapeOrderBySql(String value) throws BaseException {
         if (StringUtils.isNotEmpty(value) && !isValidOrderBySql(value))
         {
             throw new BaseException("参数不符合规范，不能进行查询");
