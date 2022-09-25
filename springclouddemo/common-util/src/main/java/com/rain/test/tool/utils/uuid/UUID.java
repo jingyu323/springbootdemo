@@ -1,7 +1,5 @@
 package com.rain.test.tool.utils.uuid;
 
-import com.yzg.common.exception.UtilException;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -23,7 +21,15 @@ public final class UUID implements java.io.Serializable, Comparable<UUID>
      */
     private static class Holder
     {
-        static final SecureRandom numberGenerator = getSecureRandom();
+        static   SecureRandom numberGenerator=null;
+
+        static {
+            try {
+                numberGenerator = getSecureRandom();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /** 此UUID的最高64有效位 */
@@ -460,15 +466,14 @@ public final class UUID implements java.io.Serializable, Comparable<UUID>
      * 
      * @return {@link SecureRandom}
      */
-    public static SecureRandom getSecureRandom()
-    {
+    public static SecureRandom getSecureRandom() throws Exception {
         try
         {
             return SecureRandom.getInstance("SHA1PRNG");
         }
         catch (NoSuchAlgorithmException e)
         {
-            throw new UtilException(e);
+            throw new Exception(e);
         }
     }
 

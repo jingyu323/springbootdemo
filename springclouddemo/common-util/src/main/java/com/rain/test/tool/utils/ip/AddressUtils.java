@@ -1,10 +1,9 @@
 package com.rain.test.tool.utils.ip;
 
 import com.alibaba.fastjson.JSONObject;
-import com.yzg.common.config.RuoYiConfig;
-import com.yzg.common.constant.Constants;
-import com.yzg.common.utils.StringUtils;
-import com.yzg.common.utils.http.HttpUtils;
+import com.rain.test.tool.utils.Constants;
+import com.rain.test.tool.utils.http.HttpUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,8 +30,7 @@ public class AddressUtils
         {
             return "内网IP";
         }
-        if (RuoYiConfig.isAddressEnabled())
-        {
+
             try
             {
                 String rspStr = HttpUtils.sendGet(IP_URL, "ip=" + ip + "&json=true", Constants.GBK);
@@ -50,7 +48,7 @@ public class AddressUtils
             {
                 log.error("获取地理位置异常 {}", ip);
             }
-        }
+
         return address;
     }
 }
