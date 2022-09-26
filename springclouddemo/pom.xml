@@ -16,8 +16,6 @@
         <module>spring-cloud-hystrix</module>
         <module>common-util</module>
 
-        <module>common-utils</module>
-
     </modules>
 
 
