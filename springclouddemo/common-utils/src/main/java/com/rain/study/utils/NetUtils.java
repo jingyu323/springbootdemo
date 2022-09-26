@@ -22,10 +22,4 @@ public class NetUtils {
     }
 
 
-    public static void main(String[] args) throws Exception {
-
-        sendPingRequest("192.168.99.132");
-
-
-    }
 }
