@@ -1,6 +1,6 @@
 package com.rain.test.tool.utils;
 
-import com.yzg.common.utils.spring.SpringUtils;
+import com.rain.test.tool.utils.spring.SpringUtils;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 
