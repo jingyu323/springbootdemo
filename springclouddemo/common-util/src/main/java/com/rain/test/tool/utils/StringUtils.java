@@ -1,6 +1,5 @@
 package com.rain.test.tool.utils;
 
-import com.yzg.common.core.text.StrFormatter;
 
 import java.util.*;
 
@@ -253,7 +252,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils
         {
             return template;
         }
-        return StrFormatter.format(template, params);
+        return String.format(template, params);
     }
 
     /**
