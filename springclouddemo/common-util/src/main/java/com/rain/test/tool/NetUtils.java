@@ -51,12 +51,4 @@ public class NetUtils {
         logger.info("Sending Ping Request to " + ipAddress);
         return geek.isReachable(5000);
     }
-
-
-    public static void main(String[] args) throws Exception {
-
-        sendPingRequest("192.168.99.132");
-
-
-    }
 }

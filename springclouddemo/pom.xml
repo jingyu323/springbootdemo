@@ -15,7 +15,6 @@
         <module>service-ribbon</module>
         <module>spring-cloud-hystrix</module>
         <module>common-util</module>
-
     </modules>
 
 
