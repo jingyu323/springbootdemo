@@ -1,6 +1,5 @@
 package com.rain.test.tool;
 
-import com.ht.controller.HtgwDeviceController;
 import com.sun.management.OperatingSystemMXBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
