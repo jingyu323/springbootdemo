@@ -1,17 +1,7 @@
 package com.rain.test.tool.utils.poi;
 
-import com.yzg.common.annotation.Excel;
-import com.yzg.common.annotation.Excel.ColumnType;
-import com.yzg.common.annotation.Excel.Type;
-import com.yzg.common.annotation.Excels;
-import com.yzg.common.config.RuoYiConfig;
-import com.yzg.common.core.domain.AjaxResult;
-import com.yzg.common.core.text.Convert;
-import com.yzg.common.exception.CustomException;
-import com.yzg.common.utils.DateUtils;
-import com.yzg.common.utils.DictUtils;
-import com.yzg.common.utils.StringUtils;
-import com.yzg.common.utils.reflect.ReflectUtils;
+import com.sun.tools.javac.util.Convert;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddressList;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
@@ -21,11 +11,10 @@ import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.lang.reflect.Field;
+import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.*;
-import java.util.stream.Collectors;
-
 /**
  * Excel相关处理
  * 
@@ -275,98 +264,6 @@ public class ExcelUtil<T>
         return list;
     }
 
-    /**
-     * 对list数据源将其里面的数据导入到excel表单
-     * 
-     * @param list 导出数据集合
-     * @param sheetName 工作表的名称
-     * @return 结果
-     */
-    public AjaxResult exportExcel(List<T> list, String sheetName)
-    {
-        this.init(list, sheetName, Type.EXPORT);
-        return exportExcel();
-    }
-
-    /**
-     * 对list数据源将其里面的数据导入到excel表单
-     * 
-     * @param sheetName 工作表的名称
-     * @return 结果
-     */
-    public AjaxResult importTemplateExcel(String sheetName)
-    {
-        this.init(null, sheetName, Type.IMPORT);
-        return exportExcel();
-    }
-
-    /**
-     * 对list数据源将其里面的数据导入到excel表单
-     * 
-     * @return 结果
-     */
-    public AjaxResult exportExcel()
-    {
-        OutputStream out = null;
-        try
-        {
-            // 取出一共有多少个sheet.
-            double sheetNo = Math.ceil(list.size() / sheetSize);
-            for (int index = 0; index <= sheetNo; index++)
-            {
-                createSheet(sheetNo, index);
-
-                // 产生一行
-                Row row = sheet.createRow(0);
-                int column = 0;
-                // 写入各个字段的列头名称
-                for (Object[] os : fields)
-                {
-                    Excel excel = (Excel) os[1];
-                    this.createCell(excel, row, column++);
-                }
-                if (Type.EXPORT.equals(type))
-                {
-                    fillExcelData(index, row);
-                    addStatisticsRow();
-                }
-            }
-            String filename = encodingFilename(sheetName);
-            out = new FileOutputStream(getAbsoluteFile(filename));
-            wb.write(out);
-            return AjaxResult.success(filename);
-        }
-        catch (Exception e)
-        {
-            log.error("导出Excel异常{}", e.getMessage());
-            throw new CustomException("导出Excel失败，请联系网站管理员！");
-        }
-        finally
-        {
-            if (wb != null)
-            {
-                try
-                {
-                    wb.close();
-                }
-                catch (IOException e1)
-                {
-                    e1.printStackTrace();
-                }
-            }
-            if (out != null)
-            {
-                try
-                {
-                    out.close();
-                }
-                catch (IOException e1)
-                {
-                    e1.printStackTrace();
-                }
-            }
-        }
-    }
 
     /**
      * 填充excel数据

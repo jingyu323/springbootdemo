@@ -1,7 +1,7 @@
 package com.rain.test.tool.utils.reflect;
 
-import com.yzg.common.core.text.Convert;
-import com.yzg.common.utils.DateUtils;
+import com.rain.test.tool.utils.DateUtils;
+import com.sun.tools.javac.util.Convert;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.apache.poi.ss.usermodel.DateUtil;
@@ -167,7 +167,7 @@ public class ReflectUtils
                 {
                     if (cs[i] == String.class)
                     {
-                        args[i] = Convert.toStr(args[i]);
+                        args[i] =  args[i].toString();
                         if (StringUtils.endsWith((String) args[i], ".0"))
                         {
                             args[i] = StringUtils.substringBefore((String) args[i], ".0");
@@ -175,19 +175,19 @@ public class ReflectUtils
                     }
                     else if (cs[i] == Integer.class)
                     {
-                        args[i] = Convert.toInt(args[i]);
+                        args[i] =Integer.valueOf((Integer) args[i]);
                     }
                     else if (cs[i] == Long.class)
                     {
-                        args[i] = Convert.toLong(args[i]);
+                        args[i] = Long.valueOf((String) args[i]);
                     }
                     else if (cs[i] == Double.class)
                     {
-                        args[i] = Convert.toDouble(args[i]);
+                        args[i] = Double.valueOf((Double) args[i]);
                     }
                     else if (cs[i] == Float.class)
                     {
-                        args[i] = Convert.toFloat(args[i]);
+                        args[i] = Float.valueOf((Float) args[i]);
                     }
                     else if (cs[i] == Date.class)
                     {
@@ -202,7 +202,7 @@ public class ReflectUtils
                     }
                     else if (cs[i] == boolean.class || cs[i] == Boolean.class)
                     {
-                        args[i] = Convert.toBool(args[i]);
+                        args[i] = Boolean.valueOf(args[i].toString());
                     }
                 }
             }
