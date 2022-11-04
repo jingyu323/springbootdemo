@@ -1,7 +1,10 @@
-import java.util.Date;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+package main.java;
 
+import com.rain.test.task.CreateTaskThread;
+import com.rain.test.task.JobTask;
+
+import java.util.Date;
+import java.util.concurrent.*;
 
 
 /***
@@ -86,7 +89,11 @@ public class ThreadPoolTest {
 
 	public static void main(String[] args) {
 
-		new ThreadPoolTest().testCreateFixedThreadPool();
+		ExecutorService pool=new ThreadPoolExecutor(2, 4, 60, TimeUnit.SECONDS, new LinkedBlockingQueue<>(20)) {	};
+
+		CreateTaskThread tt = new CreateTaskThread(pool);
+		Thread st = new Thread(tt);
+		st.start();
 
 	}
 
