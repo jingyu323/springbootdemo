@@ -1,3 +1,4 @@
+package com.rain.test.thread;
 
 import com.rain.test.task.CreateTaskThread;
 import com.rain.test.task.JobTask;

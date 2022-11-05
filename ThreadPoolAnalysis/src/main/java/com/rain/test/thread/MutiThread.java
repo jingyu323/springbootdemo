@@ -1,4 +1,4 @@
-
+package com.rain.test.thread;
 
 public class MutiThread extends  Thread {
     private int ticket=100;//每个线程都拥有100张票
