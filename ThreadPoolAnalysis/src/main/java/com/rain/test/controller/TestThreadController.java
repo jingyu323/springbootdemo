@@ -26,7 +26,16 @@ public class TestThreadController {
     public String addTask() {
         JobTask task =  new JobTask();
         log.info("start add task...");
-        taskExecutorService.addTask(task);
+
+
+        try {
+            taskExecutorService.addTask(task);
+        }catch (Exception e){
+            log.info("start add task failed...");
+            e.printStackTrace();
+        }
+
+
 
         return "success";
     }
