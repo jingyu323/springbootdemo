@@ -1,3 +1,5 @@
+package com.rain.test.thread;
+
 public class MutiRunnableSharedDate implements  Runnable {
 
 
