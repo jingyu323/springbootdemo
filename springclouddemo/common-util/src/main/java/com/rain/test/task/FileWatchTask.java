@@ -16,7 +16,6 @@ public class FileWatchTask  implements Runnable{
     }
 
 
-
     public void run() {
         logger.info("watch is start....");
         WatchService service = null;
