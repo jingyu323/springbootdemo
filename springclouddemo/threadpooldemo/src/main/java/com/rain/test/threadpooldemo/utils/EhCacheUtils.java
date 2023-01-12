@@ -10,16 +10,17 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class EhCacheUtils {
-    @Autowired
-    public   void setCacheManager(CacheManager cacheManager) {
-        EhCacheUtils.cacheManager = cacheManager;
-    }
+    public static final Logger logger = LoggerFactory.getLogger(EhCacheUtils.class);
 
     /** CacheManager */
 
 
     private static  CacheManager cacheManager;
-    public static final Logger logger = LoggerFactory.getLogger(EhCacheUtils.class);
+    @Autowired
+    public   void setCacheManager(CacheManager cacheManager) {
+        EhCacheUtils.cacheManager = cacheManager;
+    }
+
     /**
      * 获取Cache
      *

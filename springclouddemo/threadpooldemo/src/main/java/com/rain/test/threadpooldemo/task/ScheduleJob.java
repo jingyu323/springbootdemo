@@ -14,8 +14,6 @@ import org.springframework.stereotype.Component;
 public class ScheduleJob {
     private static Logger logger = LoggerFactory.getLogger(ScheduleJob.class);
 
-    @Value("${serverInfoURl}")
-    private String serverInfoURl;
 
 
     @Autowired
