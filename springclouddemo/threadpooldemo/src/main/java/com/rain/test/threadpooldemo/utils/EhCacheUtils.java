@@ -13,8 +13,6 @@ public class EhCacheUtils {
     public static final Logger logger = LoggerFactory.getLogger(EhCacheUtils.class);
 
     /** CacheManager */
-
-
     private static  CacheManager cacheManager;
     @Autowired
     public   void setCacheManager(CacheManager cacheManager) {
