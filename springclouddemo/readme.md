@@ -18,7 +18,7 @@ cond(no)->sub(right)->op
 Erurca server: 注册中心  <br>
 Ribbon 负载均衡 <br>
 Producer 服务提供者  <br>
-Consumer 服务调用者  <br>
+Consumer 服务调用者，调用  <br>
 
 
 # 服务调用流程
@@ -29,6 +29,9 @@ Consumer 服务调用者  <br>
 
 #  方法调用流程
 ##  ribbon 
-consumer 调用producer 自动负载均衡
+ribbon  调用producer 使用fenclient 做负载均衡
+
+
+consumer 调用producer 自动负载均衡,如果需要对consumer负载均衡需要在 ribbon类似实现方法代理
 
 # 实现功能

@@ -17,4 +17,10 @@ public class HelloService {
     public String sayHelloService(String name) {
         return restTemplate.getForObject("http://spring-cloud-producer/hello?name="+name,String.class);
     }
+
+
+    public String sayHelloConsumer(String name) {
+
+        return restTemplate.getForObject("http://spring-cloud-consumer/hello/"+name,String.class);
+    }
 }
