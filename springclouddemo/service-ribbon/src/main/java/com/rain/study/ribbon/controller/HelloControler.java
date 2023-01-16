@@ -12,10 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloControler {
 
     @Autowired
-
     HelloService helloService;
-
-
 
     @RequestMapping(value = "/sayHi")
     public String sayHi(@RequestParam String name){
