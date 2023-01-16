@@ -13,8 +13,6 @@
 
 
     <dependencies>
-
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
@@ -24,6 +22,10 @@
                         <groupId>org.springframework</groupId>
                      <artifactId>spring-web</artifactId>
                 </exclusion>
+                    <exclusion>
+                        <groupId>com.netflix.archaius</groupId>
+                        <artifactId>archaius-core</artifactId>
+                    </exclusion>
             </exclusions>
         </dependency>
 
