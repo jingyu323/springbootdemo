@@ -12,6 +12,7 @@
         <module>eureka-server</module>
         <module>eureka-server2</module>
         <module>eureka-server3</module>
+        <module>springcloudprovider</module>
         <module>spring-cloud-producer</module>
         <module>spring-cloud-producer2</module>
         <module>spring-cloud-producer3</module>
