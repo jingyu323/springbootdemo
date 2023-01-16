@@ -18,6 +18,11 @@ cond(no)->sub(right)->op
 Erurca server: 注册中心  <br>
 Ribbon 负载均衡 <br>
 Producer 服务提供者  <br>
+Consumer 服务调用者  <br>
+
+
+# 服务调用流程
+前端-》ribbon(实现负载均衡)-》producer（服务提供者）->返回结果
 
 开启服务发现
 @EnableDiscoveryClient
