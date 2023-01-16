@@ -34,6 +34,11 @@ ribbon  调用producer 使用fenclient 做负载均衡
 
 consumer 调用producer 自动负载均衡,如果需要对consumer负载均衡需要在 ribbon类似实现方法代理
 # 注册中心集群
+## 开启注册中心集群配置
+
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+eureka.client.serviceUrl.defaultZone=http://localhost:${server.port}/eureka/,http://localhost:8000/eureka/,http://localhost:8001/eureka
 
 
 # 实现功能
