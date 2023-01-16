@@ -12,7 +12,9 @@
         <module>eureka-server</module>
         <module>spring-cloud-producer</module>
         <module>spring-cloud-producer2</module>
+        <module>spring-cloud-producer3</module>
         <module>spring-cloud-consumer</module>
+        <module>spring-cloud-consumer2</module>
         <module>service-ribbon</module>
         <module>spring-cloud-hystrix</module>
         <module>common-util</module>

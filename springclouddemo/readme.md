@@ -29,3 +29,6 @@ Consumer 服务调用者  <br>
 
 #  方法调用流程
 ##  ribbon 
+consumer 调用producer 自动负载均衡
+
+# 实现功能
