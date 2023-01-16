@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name= "spring-cloud-producer",fallback = SchedualServiceHiHystric.class)
 public interface  HelloConsumerClient {
 
-
     @RequestMapping(value = "/hello")
     public String hello(@RequestParam(value = "name") String name);
 

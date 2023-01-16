@@ -23,7 +23,7 @@ public class ConsumerController {
 
     @RequestMapping("/hello/{name}")
     public String index(@PathVariable("name") String name) {
-        logger.info("hello  para is:{}",name);
+        logger.info("Consumer  hello  para is:{}",name);
         return helloConsumerClient.hello(name);
     }
 
