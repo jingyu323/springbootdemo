@@ -42,3 +42,6 @@ eureka.client.serviceUrl.defaultZone=http://localhost:${server.port}/eureka/,htt
 
 
 # 实现功能
+
+@EnableDiscoveryClient 
+开启服务提供者或消费者，客户端的支持，用来注册服务或连接到如Eureka之类的注册中心
