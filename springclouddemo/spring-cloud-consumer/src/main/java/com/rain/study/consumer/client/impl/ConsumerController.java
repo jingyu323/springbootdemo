@@ -2,7 +2,10 @@ package com.rain.study.consumer.client.impl;
 
 
 import com.rain.study.consumer.client.HelloConsumerClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,17 +16,20 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class ConsumerController {
+    public static final Logger logger = LoggerFactory.getLogger(ConsumerController.class);
 
     @Autowired
-    HelloConsumerClient HelloConsumerClient;
+    HelloConsumerClient helloConsumerClient;
 
     @RequestMapping("/hello/{name}")
     public String index(@PathVariable("name") String name) {
-        return HelloConsumerClient.hello(name);
+        logger.info("Consumer  hello  para is:{}",name);
+        return helloConsumerClient.hello(name);
     }
 
     @RequestMapping("/hello2")
     public String index2() {
+        logger.info("hello2 .............." );
         return "---<<< 11";
     }
 }

@@ -10,12 +10,78 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>eureka-server</module>
+        <module>eureka-server2</module>
+        <module>eureka-server3</module>
+        <module>springcloudprovider</module>
         <module>spring-cloud-producer</module>
+        <module>spring-cloud-producer2</module>
+        <module>spring-cloud-producer3</module>
         <module>spring-cloud-consumer</module>
+        <module>spring-cloud-consumer2</module>
         <module>service-ribbon</module>
+        <module>service-ribbon2</module>
+        <module>eureka-client</module>
+        <module>eureka-client2</module>
         <module>spring-cloud-hystrix</module>
-
+        <module>common-util</module>
+        <module>threadpooldemo</module>
     </modules>
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- jdk版本号，angel在这里使用1.8，大家修改为大家本地配置的jdk版本号即可 -->
+        <java.version>1.8</java.version>
+        <!-- spring版本号 -->
+        <spring.version>4.3.8.RELEASE</spring.version>
+        <!-- mybatis版本号 -->
+        <mybatis.version>3.2.6</mybatis.version>
+        <!-- log4j日志文件管理包版本 -->
+        <slf4j.version>1.7.7</slf4j.version>
+        <log4j.version>1.2.17</log4j.version>
+        <!-- swagger-ui 版本 -->
+        <swaggger.version>2.7.0</swaggger.version>
+        <!-- activeMQ版本 -->
+        <activeMQ-version>5.11.2</activeMQ-version>
+        <!-- quartz任务调度 -->
+        <quartz.version>2.2.2</quartz.version>
+        <!-- netty版本 -->
+        <netty.version>4.1.0.Final</netty.version>
+        <oshi.core.version>5.3.6</oshi.core.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.oshi</groupId>
+            <artifactId>oshi-core</artifactId>
+            <version>${oshi.core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml-schemas</artifactId>
+            <version>3.17</version>
+        </dependency>
+    </dependencies>
 
 
 
