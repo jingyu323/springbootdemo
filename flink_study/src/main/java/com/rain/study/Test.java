@@ -1,5 +1,7 @@
 package com.rain.study;
 
+import scala.collection.mutable.StringBuilder;
+
 /**
  *
  */
@@ -39,7 +41,7 @@ public class Test {
                 }
                 index++;
             }
-            StringBuilder  sb = new StringBuilder(moreString);
+            StringBuilder sb = new StringBuilder(moreString);
             for(int in : result){
                 if(in == 0){
                     continue;
