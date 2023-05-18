@@ -4,7 +4,7 @@ import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
 public class CyclicBarrierTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
         CyclicBarrier cyclicBarrier = new CyclicBarrier(3);
         new Thread(() -> {
             try {
@@ -32,5 +32,11 @@ public class CyclicBarrierTest {
         System.out.println(" 裁判 在准备 ");
         cyclicBarrier.await();
         System.out.println(" 裁判 准备好了 ");
+        while (true){
+            if (cyclicBarrier.getNumberWaiting()==0){
+                System.out.println(" 时间到: 开始比赛");
+                return;
+            }
+        }
     }
 }
