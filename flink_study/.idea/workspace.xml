@@ -28,7 +28,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="settings.editor.selected.configurable" value="settings.saveactions" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.33563218" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RunManager">
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -61,6 +65,8 @@
       <option name="presentableId" value="Default" />
       <updated>1653402432574</updated>
       <workItem from="1653402441428" duration="24447000" />
+      <workItem from="1681909075783" duration="661000" />
+      <workItem from="1682001076879" duration="930000" />
     </task>
     <task id="LOCAL-00001" summary="添加 kafka demo">
       <created>1653406497814</created>
@@ -181,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653659000138</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="添加 zk 启动笔记">
+      <created>1682001553852</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1682001553852</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,69 +208,29 @@
     <option name="LAST_COMMIT_MESSAGE" value="添加 zk 启动笔记" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="517" y="104" key="CommitChangelistDialog2" timestamp="1653658999326">
-      <screen x="0" y="0" width="1858" height="1080" />
+    <state x="509" y="104" key="CommitChangelistDialog2" timestamp="1682001553065">
+      <screen x="0" y="0" width="1842" height="1080" />
     </state>
-    <state x="517" y="104" key="CommitChangelistDialog2/0.0.1858.1080@0.0.1858.1080" timestamp="1653658999326" />
-    <state width="416" height="466" key="DebuggerActiveHint" timestamp="1653655026665">
-      <screen x="0" y="0" width="1858" height="1080" />
+    <state x="509" y="104" key="CommitChangelistDialog2/0.0.1842.1080@0.0.1842.1080" timestamp="1682001553065" />
+    <state x="701" y="294" key="FileChooserDialogImpl" timestamp="1682002007388">
+      <screen x="0" y="0" width="1842" height="1080" />
     </state>
-    <state width="416" height="466" key="DebuggerActiveHint/0.0.1858.1080@0.0.1858.1080" timestamp="1653655026665" />
-    <state x="175" y="90" key="DiffContextDialog" timestamp="1653486063234">
-      <screen x="0" y="0" width="1858" height="1080" />
+    <state x="701" y="294" key="FileChooserDialogImpl/0.0.1842.1080@0.0.1842.1080" timestamp="1682002007388" />
+    <state x="401" y="114" key="SettingsEditor" timestamp="1682001330063">
+      <screen x="0" y="0" width="1842" height="1080" />
     </state>
-    <state x="175" y="90" key="DiffContextDialog/0.0.1858.1080@0.0.1858.1080" timestamp="1653486063234" />
-    <state width="1815" height="252" key="GridCell.Tab.0.bottom" timestamp="1653661445717">
-      <screen x="0" y="0" width="1858" height="1080" />
+    <state x="401" y="114" key="SettingsEditor/0.0.1842.1080@0.0.1842.1080" timestamp="1682001330063" />
+    <state x="513" y="272" key="Vcs.Push.Dialog.v2" timestamp="1682001558127">
+      <screen x="0" y="0" width="1842" height="1080" />
     </state>
-    <state width="1815" height="252" key="GridCell.Tab.0.bottom/0.0.1858.1080@0.0.1858.1080" timestamp="1653661445717" />
-    <state width="1815" height="252" key="GridCell.Tab.0.center" timestamp="1653661445717">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1815" height="252" key="GridCell.Tab.0.center/0.0.1858.1080@0.0.1858.1080" timestamp="1653661445717" />
-    <state width="1815" height="252" key="GridCell.Tab.0.left" timestamp="1653661445717">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1815" height="252" key="GridCell.Tab.0.left/0.0.1858.1080@0.0.1858.1080" timestamp="1653661445717" />
-    <state width="1815" height="252" key="GridCell.Tab.0.right" timestamp="1653661445717">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1815" height="252" key="GridCell.Tab.0.right/0.0.1858.1080@0.0.1858.1080" timestamp="1653661445717" />
-    <state width="1815" height="252" key="GridCell.Tab.1.bottom" timestamp="1653661445718">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1815" height="252" key="GridCell.Tab.1.bottom/0.0.1858.1080@0.0.1858.1080" timestamp="1653661445718" />
-    <state width="1815" height="252" key="GridCell.Tab.1.center" timestamp="1653661445717">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1815" height="252" key="GridCell.Tab.1.center/0.0.1858.1080@0.0.1858.1080" timestamp="1653661445717" />
-    <state width="1815" height="252" key="GridCell.Tab.1.left" timestamp="1653661445717">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1815" height="252" key="GridCell.Tab.1.left/0.0.1858.1080@0.0.1858.1080" timestamp="1653661445717" />
-    <state width="1815" height="252" key="GridCell.Tab.1.right" timestamp="1653661445718">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1815" height="252" key="GridCell.Tab.1.right/0.0.1858.1080@0.0.1858.1080" timestamp="1653661445718" />
-    <state x="430" y="184" key="SettingsEditor" timestamp="1653653691669">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state x="430" y="184" key="SettingsEditor/0.0.1858.1080@0.0.1858.1080" timestamp="1653653691669" />
-    <state x="521" y="272" key="Vcs.Push.Dialog.v2" timestamp="1653659002405">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state x="521" y="272" key="Vcs.Push.Dialog.v2/0.0.1858.1080@0.0.1858.1080" timestamp="1653659002405" />
-    <state x="723" y="452" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1653655060692">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state x="723" y="452" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1858.1080@0.0.1858.1080" timestamp="1653655060692" />
+    <state x="513" y="272" key="Vcs.Push.Dialog.v2/0.0.1842.1080@0.0.1842.1080" timestamp="1682001558127" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/rain/study/Test.java</url>
-          <line>17</line>
+          <line>19</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
