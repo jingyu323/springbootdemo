@@ -2,13 +2,11 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
-import org.bson.Document;
+
+
 
 public class MongoDBJDBC {
-    private final Logger logger = LoggerFactory.getLogger(MongoDBJDBC.class);
-    public static void main(String[] args) {
+     public static void main(String[] args) {
         try{
             // 连接到 mongodb 服务
             MongoClient mongoClient = new MongoClient( "192.168.182.142" , 27017 );
