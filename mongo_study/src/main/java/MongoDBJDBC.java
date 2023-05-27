@@ -11,7 +11,7 @@ public class MongoDBJDBC {
     public static void main(String[] args) {
         try{
             // 连接到 mongodb 服务
-            MongoClient mongoClient = new MongoClient( "192.168.100.38" , 27017 );
+            MongoClient mongoClient = new MongoClient( "192.168.182.142" , 27017 );
 
             // 连接到数据库
             MongoDatabase mongoDatabase = mongoClient.getDatabase("raintest");
