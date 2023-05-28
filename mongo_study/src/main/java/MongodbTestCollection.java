@@ -2,6 +2,9 @@ import com.mongodb.MongoCredential;
 import com.mongodb.client.*;
 import org.bson.Document;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static com.mongodb.client.model.Filters.eq;
 
 /**
@@ -29,10 +32,32 @@ public class MongodbTestCollection {
 
             System.out.println("name="+collection.getNamespace());
 
-            if( collection.countDocuments() <= 0){
+
+            System.out.println("name2===================");
+
+            boolean create=true;
+            System.out.println("name===================");
+            for (String name : db.listCollectionNames()) {
+                System.out.println(name);
+                if("test22222".equals(name)){
+                    create =false;
+                }
+            }
+            if(create){
                 db.createCollection("test22222");
                 System.out.println("集合创建成功");
             }
+
+
+            Map<String, Object> map = new HashMap<>();
+            map.put("_id", "20");
+            map.put("name", "wangwu");
+            map.put("age", 18);
+            map.put("sex", 1);
+            Document document = new Document(map);
+            MongoCollection<Document> coll1 = db.getCollection("test22222");
+            //向集合中插入文档
+            coll1.insertOne(document);
 
             FindIterable<Document> documents = collection.find();
             System.out.println("document===================");
@@ -55,6 +80,11 @@ public class MongodbTestCollection {
             //5.循环遍历
             for (Document doc1 : documents1) {
                 System.out.println(doc1);
+            }
+            System.out.println("-------------------");
+            for (String name : db.listCollectionNames()) {
+                System.out.println(name);
+
             }
 
         }
