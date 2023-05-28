@@ -1,6 +1,8 @@
 
 import com.mongodb.client.*;
+import com.mongodb.client.model.Filters;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,8 +27,8 @@ public class MongoDBJDBC {
 
             // 创建文档
             Map<String, Object> map = new HashMap<>();
-            map.put("_id", "13");
-            map.put("name", "zhaoyun");
+            map.put("_id", "15");
+            map.put("name", "wangwu");
             map.put("age", 18);
             map.put("sex", 1);
             Document document = new Document(map);
@@ -42,6 +44,54 @@ public class MongoDBJDBC {
             for (Document doc : documents) {
                 System.out.println(doc);
             }
+
+
+            //全查
+            FindIterable<Document> find = collection.find();
+            for (Document doc : find) {
+                System.out.println(doc);
+            }
+            //单条件查询
+            Bson eq = Filters.eq("_id", "13");
+            FindIterable<Document> find1 = collection.find(eq);
+            //多条件查询
+            Bson bson = Filters.and(
+                    Filters.eq("_id", "14")
+            );
+            FindIterable<Document> find2 = collection.find(bson);
+
+
+            for (Document doc : find1) {
+                System.out.println(doc);
+            }
+
+            System.out.println("find2 ========================");
+            for (Document doc : find2) {
+                System.out.println(doc);
+            }
+
+            Bson regex = Filters.regex("name", "w");// （开头）：^桑 / （结尾）：桑$
+            FindIterable<Document> find3 = collection.find(regex);
+            //分页
+            FindIterable<Document> find4 = collection.find().limit(3);
+            //排序
+            Document doc = new Document("age",-1);
+            FindIterable<Document> find5 = collection.find().sort(doc);
+            System.out.println("find2 ========================");
+            for (Document doc1 : find4) {
+                System.out.println(doc1);
+            }
+            System.out.println("find3 ========================");
+            for (Document doc1 : find3) {
+                System.out.println(doc1);
+            }
+            System.out.println("find5 ========================");
+            for (Document doc1 : find5) {
+                System.out.println(doc1);
+            }
+
+
+
             //6.关闭连接
             mongoClient.close();
 
