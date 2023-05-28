@@ -3,6 +3,13 @@ import org.bson.Document;
 
 import static com.mongodb.client.model.Filters.eq;
 
+/**
+ * db -  db
+ * table	collection
+ *row	document
+ *
+ */
+
 
 public class Mongodb {
     public static void mongoQueryAll() {
