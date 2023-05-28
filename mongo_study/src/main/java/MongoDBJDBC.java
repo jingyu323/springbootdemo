@@ -1,6 +1,7 @@
 
 import com.mongodb.client.*;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
@@ -27,7 +28,7 @@ public class MongoDBJDBC {
 
             // 创建文档
             Map<String, Object> map = new HashMap<>();
-            map.put("_id", "15");
+            map.put("_id", "16");
             map.put("name", "wangwu");
             map.put("age", 18);
             map.put("sex", 1);
@@ -46,11 +47,6 @@ public class MongoDBJDBC {
             }
 
 
-            //全查
-            FindIterable<Document> find = collection.find();
-            for (Document doc : find) {
-                System.out.println(doc);
-            }
             //单条件查询
             Bson eq = Filters.eq("_id", "13");
             FindIterable<Document> find1 = collection.find(eq);
@@ -90,7 +86,23 @@ public class MongoDBJDBC {
                 System.out.println(doc1);
             }
 
+            Bson filter = Filters.eq("_id", "14");
+            //指定修改的更新文档
+            Document updateDocument = new Document("$set", new Document("age", 100).append("name", "安琪拉"));
+            UpdateResult updateResult = coll1.updateOne(filter, updateDocument);
+            if (updateResult.getModifiedCount() == 0) {
+                System.out.println(false);
+            } else {
+                System.out.println(true);
+                System.out.println(updateResult.getModifiedCount()); //1
+            }
 
+            System.out.println("find ========================");
+            //全查
+            FindIterable<Document> find = collection.find();
+            for (Document doc2 : find) {
+                System.out.println(doc2);
+            }
 
             //6.关闭连接
             mongoClient.close();
