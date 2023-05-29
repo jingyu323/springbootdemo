@@ -1,35 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-    <!--
-        配置集中管理属性
-        我们可以直接改属性的 value 值
-        格式：${name}
-    -->
-    <property name="pattern" value="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} %c %M %L [%thread] %m%n"/>
-    <!--
-    日志输出格式：
-        %-5level 从左显示5个字符宽度
-        %d{yyyy-MM-dd HH:mm:ss.SSS}日期
-        %c类的完整名称
-        %M为method
-        %L为行号
-        %thread线程名称
-        %m或者%msg为信息
-        %n换行
-      -->
-    <!--控制台日志输出的 appender-->
-    <appender name="console"  class="ch.qos.logback.core.ConsoleAppender">
-        <!--控制输出流对象 默认 System.out 改为 System.err-->
-        <target>System.out</target>
-        <!--日志消息格式配置-->
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>${pattern}</pattern>
+<configuration debug="true" scan="true" scanPeriod="1 seconds">
+
+
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+    <!--定义了一个过滤器,在LEVEL之下的日志输出不会被打印出来-->
+    <!--这里定义了DEBUG，也就是控制台不会输出比ERROR级别小的日志-->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+        <!-- encoder 默认配置为PatternLayoutEncoder -->
+        <!--定义控制台输出格式-->
+        <encoder>
+            <pattern>%d [%thread] %-5level %logger{36} [%file : %line] - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name = "File" class= "ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/app.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/archives/app-%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <!--一天内大于size就单独分隔-->
+            <maxFileSize>1 GB</maxFileSize>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--定义日志输出的路径-->
+        <!--这里的scheduler.manager.server.home 没有在上面的配置中设定，所以会使用java启动时配置的值-->
+        <!--比如通过 java -Dscheduler.manager.server.home=/path/to XXXX 配置该属性-->
+        <file>${scheduler.manager.server.home}/logs/${app.name}.log</file>
+        <!--定义日志滚动的策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--定义文件滚动时的文件名的格式-->
+            <fileNamePattern>logs/archives/app-%d{yyyy-MM-dd}.log.gz
+            </fileNamePattern>
+            <!--60天的时间周期，日志量最大20GB-->
+            <maxHistory>60</maxHistory>
+            <!-- 该属性在 1.1.6版本后 才开始支持-->
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <!--每个日志文件最大100MB-->
+            <maxFileSize>100MB</maxFileSize>
+        </triggeringPolicy>
+        <!--定义输出格式-->
+        <encoder>
+            <pattern>%d [%thread] %-5level %logger{36} [%file : %line] - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <!--root logger 配置 , ALL表示开启所有日志级别 OFF表示关闭日志
-    还有5个日志级别为TRACE, DEBUG, INFO, WARN, ERROR。不区分大小写-->
-    <root level="ALL">
-        <appender-ref ref="console"/>
+
+    <root level="info">
+        <appender-ref ref="File"/>
+        <appender-ref ref="file"/>
+        <appender-ref ref="stdout"/>
     </root>
 </configuration>
