@@ -11,8 +11,8 @@ import org.junit.jupiter.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
-@DisplayName("我的第一个测试用例")
+@TestClassOrder(ClassOrderer.DisplayName.class)
+@DisplayName("mongodb study")
 public class DocumentsTest {
     static String uri = "mongodb://192.168.20.131:27017";
     static MongoDatabase db = null;
