@@ -1,17 +1,21 @@
-
 import com.mongodb.client.*;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class MongoDBJDBC {
-     public static void main(String[] args) {
-        try{
+    private final static Logger logger = LoggerFactory.getLogger(MongoDBJDBC.class);
+
+    public static void main(String[] args) {
+        try {
+            logger.info("sss..");
             // 连接到 mongodb 服务
 //            MongoClient mongoClient = new MongoClient( "192.168.182.142" , 27017 );
 //            String uri = "mongodb://192.168.182.142:27017";
@@ -20,17 +24,17 @@ public class MongoDBJDBC {
             // 连接到数据库
             MongoDatabase mongoDatabase = mongoClient.getDatabase("collection_test");
 
-            System.out.println( mongoDatabase.getCollection("coll_test1"));
-            if(mongoDatabase.getCollection("coll_test1") == null ){
+            System.out.println(mongoDatabase.getCollection("coll_test1"));
+            if (mongoDatabase.getCollection("coll_test1") == null) {
                 mongoDatabase.createCollection("coll_test1");
             }
 
             MongoCollection<Document> coll1 = mongoDatabase.getCollection("coll_test1");
 
-            for (int i=0;i<10000000;i++){
+            for (int i = 0; i < 10000000; i++) {
                 // 创建文档
                 Map<String, Object> map = new HashMap<>();
-                map.put("_id", "id"+i);
+                map.put("_id", "id" + i);
                 map.put("name", "wangwu");
                 map.put("age", i);
                 map.put("sex", 1);
@@ -75,7 +79,7 @@ public class MongoDBJDBC {
             //分页
             FindIterable<Document> find4 = collection.find().limit(3);
             //排序
-            Document doc = new Document("age",-1);
+            Document doc = new Document("age", -1);
             FindIterable<Document> find5 = collection.find().sort(doc);
             System.out.println("find2 ========================");
             for (Document doc1 : find4) {
@@ -111,8 +115,8 @@ public class MongoDBJDBC {
             //6.关闭连接
             mongoClient.close();
 
-        }catch(Exception e){
-            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
     }
 }
