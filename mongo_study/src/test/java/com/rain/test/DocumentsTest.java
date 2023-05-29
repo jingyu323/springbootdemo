@@ -14,7 +14,8 @@ import org.slf4j.LoggerFactory;
 @TestClassOrder(ClassOrderer.DisplayName.class)
 @DisplayName("mongodb study")
 public class DocumentsTest {
-    static String uri = "mongodb://192.168.20.131:27017";
+                String uri = "mongodb://192.168.182.142:27017";
+//    static String uri = "mongodb://192.168.20.131:27017";
     static MongoDatabase db = null;
     static MongoClient mongoClient = null;
     static Logger logger = LoggerFactory.getLogger(DocumentsTest.class);
