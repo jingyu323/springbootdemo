@@ -27,16 +27,19 @@ public class MongoDBJDBC {
 
             MongoCollection<Document> coll1 = mongoDatabase.getCollection("coll_test1");
 
-            // 创建文档
-            Map<String, Object> map = new HashMap<>();
-            map.put("_id", "16");
-            map.put("name", "wangwu");
-            map.put("age", 18);
-            map.put("sex", 1);
-            Document document = new Document(map);
-            //向集合中插入文档
-            coll1.insertOne(document);
-            System.out.println(coll1.countDocuments());
+            for (int i=0;i<10000000;i++){
+                // 创建文档
+                Map<String, Object> map = new HashMap<>();
+                map.put("_id", "id"+i);
+                map.put("name", "wangwu");
+                map.put("age", i);
+                map.put("sex", 1);
+                Document document = new Document(map);
+                //向集合中插入文档
+                coll1.insertOne(document);
+                System.out.println(coll1.countDocuments());
+            }
+
 
             //3.获取集合
             MongoCollection<Document> collection = mongoDatabase.getCollection("coll_test1");

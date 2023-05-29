@@ -1,3 +1,4 @@
+import com.mongodb.DuplicateKeyException;
 import com.mongodb.MongoCredential;
 import com.mongodb.client.*;
 import com.mongodb.client.model.IndexOptions;
@@ -92,12 +93,19 @@ public class MongodbTestCollection {
             }
 
 
-            IndexOptions indexOptions = new IndexOptions().unique(true);
-            String resultCreateIndex = collection.createIndex(Indexes.descending("age"), indexOptions);
-
-            System.out.println(String.format("Index created: %s", resultCreateIndex));
             MongoCollection<Document> collection1 = db.getCollection("test22222");
             System.out.println("name="+collection1.getNamespace());
+
+            try {
+                IndexOptions indexOptions = new IndexOptions().unique(true);
+                String resultCreateIndex = collection.createIndex(Indexes.descending("age"), indexOptions);
+
+                System.out.println(String.format("Index created: %s", resultCreateIndex));
+            } catch (DuplicateKeyException e) {
+                System.out.printf("duplicate field values encountered, couldn't create index: \t%s\n", e);
+            }
+
+
             FindIterable<Document> documents1 = collection1.find();
             //5.循环遍历
             for (Document doc1 : documents1) {
