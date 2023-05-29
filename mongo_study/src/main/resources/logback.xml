@@ -1,50 +1,35 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-
-<configuration debug="true">
-    <appender name="CONSOLE"
-              class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>
-                %-4relative [%thread] %-5level %logger{30} - %msg%n
-            </pattern>
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--
+        配置集中管理属性
+        我们可以直接改属性的 value 值
+        格式：${name}
+    -->
+    <property name="pattern" value="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} %c %M %L [%thread] %m%n"/>
+    <!--
+    日志输出格式：
+        %-5level 从左显示5个字符宽度
+        %d{yyyy-MM-dd HH:mm:ss.SSS}日期
+        %c类的完整名称
+        %M为method
+        %L为行号
+        %thread线程名称
+        %m或者%msg为信息
+        %n换行
+      -->
+    <!--控制台日志输出的 appender-->
+    <appender name="console"  class="ch.qos.logback.core.ConsoleAppender">
+        <!--控制输出流对象 默认 System.out 改为 System.err-->
+        <target>System.out</target>
+        <!--日志消息格式配置-->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${pattern}</pattern>
         </encoder>
     </appender>
-    <!--    <logger name="org.mongodb.driver.connection" level="INFO" additivity="true"/>-->
-    <!--    <root level="debug">-->
-    <!--        <appender-ref ref="CONSOLE"/>-->
-    <!--    </root>-->
 
-
-    <property name="LOG_HOME" value="logs"/>
-    <!-- 控制台输出 -->
-    <!--    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">-->
-    <!--        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">-->
-    <!--            &lt;!&ndash;格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符&ndash;&gt;-->
-    <!--            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
-    <!--        </encoder>-->
-    <!--    </appender>-->
-    <!--    &lt;!&ndash; 按照每天生成日志文件 &ndash;&gt;-->
-    <!--    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
-    <!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
-    <!--            &lt;!&ndash;日志文件输出的文件名&ndash;&gt;-->
-    <!--            <FileNamePattern>${LOG_HOME}/TestWeb.log.%d{yyyy-MM-dd}.log</FileNamePattern>-->
-    <!--            &lt;!&ndash;日志文件保留天数&ndash;&gt;-->
-    <!--            <MaxHistory>30</MaxHistory>-->
-    <!--        </rollingPolicy>-->
-    <!--        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">-->
-    <!--            &lt;!&ndash;格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符&ndash;&gt;-->
-    <!--            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
-    <!--        </encoder>-->
-    <!--        &lt;!&ndash;日志文件最大的大小&ndash;&gt;-->
-    <!--        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">-->
-    <!--            <MaxFileSize>10MB</MaxFileSize>-->
-    <!--        </triggeringPolicy>-->
-    <!--    </appender>-->
-
-    <!-- 日志输出级别 -->
-    <root level="debug">
-        <appender-ref ref="CONSOLE"/>
-        <!--        <appender-ref ref="FILE"/>-->
+    <!--root logger 配置 , ALL表示开启所有日志级别 OFF表示关闭日志
+    还有5个日志级别为TRACE, DEBUG, INFO, WARN, ERROR。不区分大小写-->
+    <root level="ALL">
+        <appender-ref ref="console"/>
     </root>
-
 </configuration>

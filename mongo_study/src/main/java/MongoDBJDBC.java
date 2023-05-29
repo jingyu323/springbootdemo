@@ -18,8 +18,8 @@ public class MongoDBJDBC {
             logger.info("sss..");
             // 连接到 mongodb 服务
 //            MongoClient mongoClient = new MongoClient( "192.168.182.142" , 27017 );
-//            String uri = "mongodb://192.168.182.142:27017";
-            String uri = "mongodb://192.168.20.131:27017";
+            String uri = "mongodb://192.168.182.142:27017";
+//            String uri = "mongodb://192.168.20.131:27017";
             MongoClient mongoClient = MongoClients.create(uri);
             // 连接到数据库
             MongoDatabase mongoDatabase = mongoClient.getDatabase("collection_test");
