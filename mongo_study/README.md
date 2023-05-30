@@ -35,3 +35,6 @@ $set与$unset
 用来指定一个字段的值。如果这个字段不存在，则创建它。
 $inc
  $inc 用来增加已有键的值，或者该键不存在那就创建一个。对于更新分析数据、因果关系、投票或者其他有变化数值的地方很方便。
+ 
+ upsert
+ Set to true if a new document should be inserted if there are no matches to the query filter.

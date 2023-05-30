@@ -12,6 +12,7 @@ import org.bson.conversions.Bson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.gt;
 
 public class UpdateMany {
@@ -22,7 +23,7 @@ public class UpdateMany {
         try (MongoClient mongoClient = MongoClients.create(uri)) {
             MongoDatabase database = mongoClient.getDatabase("sample_mflix");
             MongoCollection<Document> collection = database.getCollection("movies");
-            Bson query = null;
+            Bson query = gt("num_mflix_comments", 50);
             Bson updates = Updates.combine(
                     Updates.addToSet("genres", "Frequently Discussed"),
                     Updates.currentTimestamp("lastUpdated"));
