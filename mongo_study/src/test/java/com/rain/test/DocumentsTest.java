@@ -186,11 +186,8 @@ public class DocumentsTest {
     public void testQueryBySort() {
         MongoCollection<Document> collection = db.getCollection("coll_test2");
 //添加条件
-
         Bson bson = new Document("age", 1);
 //带上排序条件查询
-
-
 //带上条件查询
         FindIterable<Document> find = collection.find().sort(bson);
 //迭代器对象
