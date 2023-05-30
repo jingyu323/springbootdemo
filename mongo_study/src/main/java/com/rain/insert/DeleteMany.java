@@ -12,6 +12,10 @@ import org.bson.conversions.Bson;
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.lt;
 
+/**
+ * 提供一个空的docment 则删除所有
+ * If you provide an empty document, MongoDB matches all documents in the collection and deletes them
+ */
 public class DeleteMany {
     public static void main(String[] args) {
         // Replace the uri string with your MongoDB deployment's connection string

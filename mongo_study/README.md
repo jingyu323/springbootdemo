@@ -38,3 +38,6 @@ $inc
  
  upsert
  Set to true if a new document should be inserted if there are no matches to the query filter.
+ 
+  提供一个空的docment 则删除所有
+  If you provide an empty document, MongoDB matches all documents in the collection and deletes them
