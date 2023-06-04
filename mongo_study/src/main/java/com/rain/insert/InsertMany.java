@@ -20,8 +20,8 @@ public class InsertMany {
         // Replace the uri string with your MongoDB deployment's connection string
         String uri = "mongodb://192.168.182.142:27017";
         try (MongoClient mongoClient = MongoClients.create(uri)) {
-            MongoDatabase database = mongoClient.getDatabase("sample_mflix");
-            MongoCollection<Document> collection = database.getCollection("movies");
+            MongoDatabase database = mongoClient.getDatabase("raintest");
+            MongoCollection<Document> collection = database.getCollection("movies2");
             List<Document> movieList = Arrays.asList(
                     new Document().append("title", "Short Circuit 2").append("genres", Arrays.asList("ttt", "Comedy")),
                     new Document().append("title", "The Lego Frozen Movie2"));
