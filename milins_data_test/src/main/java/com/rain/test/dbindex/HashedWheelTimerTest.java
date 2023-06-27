@@ -26,7 +26,7 @@ public class HashedWheelTimerTest {
         },5,TimeUnit.SECONDS);
 
         //等待定时任务执行完毕后,将时间轮内部工作线程停止,这里只是粗略的等待,也可以使用CountDownLatch
-        Thread.sleep(3000);
+        Thread.sleep(6000);
 
         timer.stop();
 
