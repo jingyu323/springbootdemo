@@ -38,6 +38,5 @@ public class hashedWheelTimerTest2 {
         }, 4000, TimeUnit.MILLISECONDS);
         Thread.sleep(10000);
 
-        timer.stop();
     }
 }
