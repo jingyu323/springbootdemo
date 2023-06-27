@@ -35,7 +35,6 @@ public class HashedWheelTimerTest {
         Timeout newTimeout = timer1.newTimeout((TimerTask) timeout -> {
             System.out.println("任务3执行");
             System.out.println("线程名称:" + Thread.currentThread().getName());
-
         }, 5, TimeUnit.SECONDS);
 
         //现在又想取消掉这个任务
