@@ -26,9 +26,7 @@ public class HashedWheelTimerTest {
         },5,TimeUnit.SECONDS);
 
         //等待定时任务执行完毕后,将时间轮内部工作线程停止,这里只是粗略的等待,也可以使用CountDownLatch
-        Thread.sleep(6000);
 
-        timer.stop();
 
 
         //构建时间轮对象
@@ -42,8 +40,12 @@ public class HashedWheelTimerTest {
 
         //现在又想取消掉这个任务
         if(!newTimeout.isExpired()){
+            System.out.println("cancel task");
             newTimeout.cancel();
         }
+        timer1.stop();
+        Thread.sleep(10000);
+        timer.stop();
 
     }
 
