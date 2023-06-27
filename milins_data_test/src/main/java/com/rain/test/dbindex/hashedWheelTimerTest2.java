@@ -12,30 +12,22 @@ public class hashedWheelTimerTest2 {
     public static void main(String[] args) throws InterruptedException {
         final HashedWheelTimer timer = new HashedWheelTimer(
                            Executors.defaultThreadFactory(), 100, TimeUnit.MILLISECONDS, 32);
-        // 添加时间轮片，
-        timer.newTimeout(new TimerTask() {
-              @Override
-             public void run(final Timeout timeout) throws Exception {
-                              System.out.println("lee");   //打印名字
-                             }
-          }, 1000, TimeUnit.MILLISECONDS);
 
 
-        timer.newTimeout(new TimerTask() {
-            @Override
-            public void run(final Timeout timeout) throws Exception {
-                System.out.println("lee2");   //打印名字
-            }
-        }, 3000, TimeUnit.MILLISECONDS);
+        for(int i=1;i<65;i++){
+            // 添加时间轮片，
+            int finalI = i;
+            timer.newTimeout(new TimerTask() {
+                @Override
+                public void run(final Timeout timeout) throws Exception {
+                    System.out.println("lee"+ finalI);   //打印名字
+                }
+            }, 1000*i, TimeUnit.MILLISECONDS);
+        }
+        System.out.println("task add finished ... ");
 
 
 
-        timer.newTimeout(new TimerTask() {
-            @Override
-            public void run(final Timeout timeout) throws Exception {
-                System.out.println("lee3");   //打印名字
-            }
-        }, 4000, TimeUnit.MILLISECONDS);
         Thread.sleep(10000);
 
     }
