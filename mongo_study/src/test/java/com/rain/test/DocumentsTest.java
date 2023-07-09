@@ -62,7 +62,7 @@ public class DocumentsTest {
     @Test
     public void testUpdate() {
         MongoCollection<Document> collection = db.getCollection("coll_test2");
-        Bson eq = Filters.eq("name", "9");
+        Bson eq = Filters.eq("name", "66");
         UpdateResult updateOne = collection.updateMany(eq, new Document("$set", new Document("age", 99)));
         logger.info("updateOne=" + updateOne);
     }
