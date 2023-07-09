@@ -12,6 +12,9 @@ import org.bson.Document;
 
 import java.util.Arrays;
 
+/**
+ * 批量写入
+ */
 public class BulkWrite {
 
     public static void main(String[] args) {
