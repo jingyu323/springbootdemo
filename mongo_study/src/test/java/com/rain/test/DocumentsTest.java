@@ -12,14 +12,15 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import static com.mongodb.client.model.Filters.and;
 
 @TestClassOrder(ClassOrderer.DisplayName.class)
 @DisplayName("mongodb study")
 public class DocumentsTest {
-    String uri = "mongodb://192.168.182.142:27017";
-    //    static String uri = "mongodb://192.168.20.131:27017";
+    //    String uri = "mongodb://192.168.182.142:27017";
+    static String uri = "mongodb://192.168.20.131:27017";
     static MongoDatabase db = null;
     static MongoClient mongoClient = null;
     private final static Logger logger = LoggerFactory.getLogger(DocumentsTest.class);
@@ -32,6 +33,7 @@ public class DocumentsTest {
             logger.info(s);
         }
         db = mongoClient.getDatabase("raintest");
+
     }
 
     @Test
@@ -45,13 +47,16 @@ public class DocumentsTest {
 
     @Test
     public void testAdd() {
-        MongoCollection<Document> collection = db.getCollection("coll_test2");
-        Document document = new Document();
-        document.put("name", "66");
-        document.put("age", 33);
-        document.put("sex", "女");
-        document.put("wanju", "小汽车");
-        collection.insertOne(document);
+        MongoCollection<Document> collection = db.getCollection("test22222");
+        for (int i = 99; i < 110; i++) {
+            Document document = new Document();
+            document.put("name", i + "");
+            document.put("age", i);
+            document.put("sex", "女");
+            document.put("da hei gou " + i, "小汽车");
+            collection.insertOne(document);
+        }
+
 
     }
 
