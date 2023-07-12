@@ -1,0 +1,48 @@
+2023-01-12 10:22:10.551 INFO  --- [main] com.rain.test.threadpooldemo.ThreadpooldemoApplicationTests Line:55  - Starting ThreadpooldemoApplicationTests using Java 1.8.0_40 on PC-20221022PALD with PID 11432 (started by Administrator in E:\study\git\springbootdemo\springclouddemo\threadpooldemo)
+2023-01-12 10:22:10.552 INFO  --- [main] com.rain.test.threadpooldemo.ThreadpooldemoApplicationTests Line:634 - No active profile set, falling back to 1 default profile: "default"
+2023-01-12 10:22:10.574 TRACE --- [main] org.springframework.web.context.support.GenericWebApplicationContext Line:626 - Refreshing org.springframework.web.context.support.GenericWebApplicationContext@49d3c823, started on Thu Jan 12 10:22:10 CST 2023
+2023-01-12 10:22:10.983 TRACE --- [main] org.springframework.web.context.support.GenericWebApplicationContext Line:793 - No 'messageSource' bean, using [Empty MessageSource]
+2023-01-12 10:22:10.984 TRACE --- [main] org.springframework.web.context.support.GenericWebApplicationContext Line:816 - No 'applicationEventMulticaster' bean, using [SimpleApplicationEventMulticaster]
+2023-01-12 10:22:11.202 WARN  --- [main] net.sf.ehcache.DiskStorePathManager Line:162 - diskStorePath 'C:\Users\ADMINI~1\AppData\Local\Temp' is already used by an existing CacheManager either in the same VM or in a different process.
+The diskStore path for this CacheManager will be set to C:\Users\ADMINI~1\AppData\Local\Temp\ehcache_auto_created6282303107926357360diskstore.
+To avoid this warning consider using the CacheManager factory methods to create a singleton CacheManager or specifying a separate ehcache configuration (ehcache.xml) for each CacheManager instance.
+2023-01-12 10:22:11.203 WARN  --- [main] net.sf.ehcache.store.disk.DiskStorageFactory Line:134 - Data in persistent disk stores is ignored for stores from automatically created directories.
+Remove diskPersistent or resolve the conflicting disk paths in cache configuration.
+Deleting data file C:\Users\ADMINI~1\AppData\Local\Temp\ehcache_auto_created6282303107926357360diskstore\file%0043reate%0051ueue.data
+2023-01-12 10:22:11.499 DEBUG --- [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter Line:625 - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-01-12 10:22:11.657 TRACE --- [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:292 - 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2023-01-12 10:22:11.661 DEBUG --- [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:367 - 2 mappings in 'requestMappingHandlerMapping'
+2023-01-12 10:22:11.674 DEBUG --- [main] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping Line:89  - Detected 0 mappings in 'beanNameHandlerMapping'
+2023-01-12 10:22:11.682 TRACE --- [main] org.springframework.web.servlet.function.support.RouterFunctionMapping Line:184 - 0 RouterFunction(s) in 'routerFunctionMapping'
+2023-01-12 10:22:11.696 TRACE --- [main] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:451 - Mapped [/webjars/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-01-12 10:22:11.697 TRACE --- [main] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:451 - Mapped [/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2023-01-12 10:22:11.697 DEBUG --- [main] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:188 - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-01-12 10:22:11.719 DEBUG --- [main] org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver Line:307 - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-01-12 10:22:11.865 TRACE --- [main] org.springframework.web.context.support.GenericWebApplicationContext Line:833 - Using LifecycleProcessor [org.springframework.context.support.DefaultLifecycleProcessor@109a2025]
+2023-01-12 10:22:11.879 INFO  --- [main] com.rain.test.threadpooldemo.ThreadpooldemoApplicationTests Line:61  - Started ThreadpooldemoApplicationTests in 1.541 seconds (JVM running for 2.128)
+2023-01-12 10:22:11.880 INFO  --- [scheduling-1] com.rain.test.threadpooldemo.task.ScheduleJob Line:36  - cache value is:ssss
+2023-01-12 10:22:12.195 DEBUG --- [SpringApplicationShutdownHook] org.springframework.web.context.support.GenericWebApplicationContext Line:1049 - Closing org.springframework.web.context.support.GenericWebApplicationContext@49d3c823, started on Thu Jan 12 10:22:10 CST 2023
+2023-01-12 17:34:57.050 INFO  --- [main] com.rain.test.threadpooldemo.ThreadpooldemoApplicationTests Line:55  - Starting ThreadpooldemoApplicationTests using Java 1.8.0_40 on PC-20221022PALD with PID 20848 (started by Administrator in E:\study\git\springbootdemo\springclouddemo\threadpooldemo)
+2023-01-12 17:34:57.051 INFO  --- [main] com.rain.test.threadpooldemo.ThreadpooldemoApplicationTests Line:634 - No active profile set, falling back to 1 default profile: "default"
+2023-01-12 17:34:57.073 TRACE --- [main] org.springframework.web.context.support.GenericWebApplicationContext Line:626 - Refreshing org.springframework.web.context.support.GenericWebApplicationContext@5fe1ce85, started on Thu Jan 12 17:34:57 CST 2023
+2023-01-12 17:34:57.545 TRACE --- [main] org.springframework.web.context.support.GenericWebApplicationContext Line:793 - No 'messageSource' bean, using [Empty MessageSource]
+2023-01-12 17:34:57.546 TRACE --- [main] org.springframework.web.context.support.GenericWebApplicationContext Line:816 - No 'applicationEventMulticaster' bean, using [SimpleApplicationEventMulticaster]
+2023-01-12 17:34:58.126 DEBUG --- [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter Line:625 - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-01-12 17:34:58.292 TRACE --- [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:292 - 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2023-01-12 17:34:58.297 DEBUG --- [main] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:367 - 2 mappings in 'requestMappingHandlerMapping'
+2023-01-12 17:34:58.317 DEBUG --- [main] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping Line:89  - Detected 0 mappings in 'beanNameHandlerMapping'
+2023-01-12 17:34:58.329 TRACE --- [main] org.springframework.web.servlet.function.support.RouterFunctionMapping Line:184 - 0 RouterFunction(s) in 'routerFunctionMapping'
+2023-01-12 17:34:58.349 TRACE --- [main] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:451 - Mapped [/webjars/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-01-12 17:34:58.350 TRACE --- [main] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:451 - Mapped [/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2023-01-12 17:34:58.351 DEBUG --- [main] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:188 - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-01-12 17:34:58.372 DEBUG --- [main] org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver Line:307 - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-01-12 17:34:58.518 TRACE --- [main] org.springframework.web.context.support.GenericWebApplicationContext Line:833 - Using LifecycleProcessor [org.springframework.context.support.DefaultLifecycleProcessor@68d651f2]
+2023-01-12 17:34:58.532 INFO  --- [main] com.rain.test.threadpooldemo.ThreadpooldemoApplicationTests Line:61  - Started ThreadpooldemoApplicationTests in 1.727 seconds (JVM running for 2.334)
+2023-01-12 17:34:58.535 INFO  --- [scheduling-1] com.rain.test.threadpooldemo.task.ScheduleJob Line:36  - cache value is:ssss
+2023-01-12 17:34:58.850 DEBUG --- [SpringApplicationShutdownHook] org.springframework.web.context.support.GenericWebApplicationContext Line:1049 - Closing org.springframework.web.context.support.GenericWebApplicationContext@5fe1ce85, started on Thu Jan 12 17:34:57 CST 2023

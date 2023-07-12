@@ -14,6 +14,7 @@ import org.apache.flink.streaming.api.watermark.Watermark;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
 
+
 public class FlinkStreamJavaExample {
     public static void main(String[] args) throws Exception {
         // TODO Auto-generated method stub
@@ -61,7 +62,7 @@ public class FlinkStreamJavaExample {
                 .reduce(new ReduceFunction<UserRecord>() {
 
                     @Override
-                    public UserRecord reduce(UserRecord value1, UserRecord value2) throws Exception {
+                    public UserRecord reduce(UserRecord value1, UserRecord value2) {
                         // TODO Auto-generated method stub
                         value1.shoppingTime += value2.shoppingTime;
                         return value1;
@@ -70,7 +71,7 @@ public class FlinkStreamJavaExample {
                 .filter(new FilterFunction<UserRecord>() {
 
                     @Override
-                    public boolean filter(UserRecord value) throws Exception {
+                    public boolean filter(UserRecord value) {
                         // TODO Auto-generated method stub
                         return value.shoppingTime > 120;
                     }
