@@ -4,6 +4,7 @@ import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import co.elastic.clients.elasticsearch.core.IndexResponse;
 import co.elastic.clients.json.jackson.JacksonJsonpMapper;
 import co.elastic.clients.transport.ElasticsearchTransport;
+import co.elastic.clients.transport.TransportUtils;
 import co.elastic.clients.transport.rest_client.RestClientTransport;
 import com.raintest.pojo.Product;
 import org.apache.http.Header;
@@ -11,6 +12,8 @@ import org.apache.http.HttpHost;
 import org.apache.http.message.BasicHeader;
 import org.elasticsearch.client.RestClient;
 
+import javax.net.ssl.SSLContext;
+import java.io.File;
 import java.io.IOException;
 
 public class EsConection {
@@ -18,7 +21,6 @@ public class EsConection {
         // URL and API key
         String serverUrl = "https://192.168.99.118:9200";
         String apiKey = "OWxUM1Rva0JqcU5ocUI1bVVzRkM6VUZUWlZPeFhTclNSRGpLanNPRm9lUQ==";
-
 
 // Create the low-level client
         RestClient restClient = RestClient
