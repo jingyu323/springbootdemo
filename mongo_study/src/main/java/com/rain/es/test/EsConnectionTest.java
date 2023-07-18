@@ -4,6 +4,8 @@ import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import co.elastic.clients.elasticsearch.core.IndexResponse;
 import co.elastic.clients.elasticsearch.core.SearchResponse;
 import co.elastic.clients.elasticsearch.core.search.Hit;
+import co.elastic.clients.elasticsearch.core.search.TotalHits;
+import co.elastic.clients.elasticsearch.core.search.TotalHitsRelation;
 import co.elastic.clients.json.jackson.JacksonJsonpMapper;
 import co.elastic.clients.transport.ElasticsearchTransport;
 import co.elastic.clients.transport.TransportUtils;
@@ -19,57 +21,67 @@ import org.slf4j.LoggerFactory;
 import javax.net.ssl.SSLContext;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class EsConnectionTest {
     private static Logger logger = LoggerFactory.getLogger(EsConnectionTest.class);
+    static ElasticsearchClient esClient = null;
 
-    public static void main(String[] args) throws IOException {
-
-
-        SSLContext sslContext = TransportUtils
-                .sslContextFromHttpCaCrt(new File("src/main/java/com/rain/es/test/http_ca.crt"));
+    static {
+        SSLContext sslContext = null;
+        try {
+            sslContext = TransportUtils
+                    .sslContextFromHttpCaCrt(new File("src/main/java/com/rain/es/test/http_ca.crt"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         BasicCredentialsProvider credsProv = new BasicCredentialsProvider();
         credsProv.setCredentials(
                 AuthScope.ANY, new UsernamePasswordCredentials("elastic", "V6DycNLQVPeYKhBLPZUO")
         );
 
 
+        SSLContext finalSslContext = sslContext;
         RestClient restClient = RestClient
                 .builder(new HttpHost("192.168.99.118", 9200, "https"))
                 .setHttpClientConfigCallback(hc -> hc
-                        .setSSLContext(sslContext)
+                        .setSSLContext(finalSslContext)
                         .setDefaultCredentialsProvider(credsProv)
                 )
                 .build();
 
 // Create the transport and the API client
         ElasticsearchTransport transport = new RestClientTransport(restClient, new JacksonJsonpMapper());
-        ElasticsearchClient esClient = new ElasticsearchClient(transport);
+        esClient = new ElasticsearchClient(transport);
+    }
 
-//        esClient.indices().create(c -> c
-//                .index("products")
-//        );
+    public static void main(String[] args) throws IOException {
+        String index = "raintest";
 
+//        createIndex(index);
+        addElementToIndex(index);
 
-        Product product = new Product("bk-2", "City bik2e", 125.0);
+    }
+
+    public static void addElementToIndex(String index) throws IOException {
+        Product product = new Product("bk-31", "City bik31", 325.0);
 
         IndexResponse response = esClient.index(i -> i
-                .index("products")
+                .index(index)
                 .id(product.getName())
                 .document(product)
         );
 
         logger.info("Indexed with version " + response.version());
+    }
 
-        if (esClient.exists(b -> b.index("products").id("bk-1")).value()) {
-            logger.info("product exists");
-        }
-
+    public static void searchByterm() throws IOException {
+        // term 查询是 index 对象中的字段才行
         SearchResponse<Product> search = esClient.search(s -> s
                         .index("products")
                         .query(q -> q
                                 .term(t -> t
-                                        .field("name")
+                                        .field("_id")
                                         .value(v -> v.stringValue("bk-2"))
                                 )),
                 Product.class);
@@ -79,6 +91,55 @@ public class EsConnectionTest {
             System.out.println(hit.source().getName());
 
         }
+    }
 
+    public static void checkItemExist() throws IOException {
+        if (esClient.exists(b -> b.index("products").id("bk-2")).value()) {
+            logger.info("product exists");
+        }
+
+    }
+
+    public static void createIndex(String indexName) {
+        try {
+            esClient.indices().create(c -> c
+                    .index(indexName)
+            );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static void queryItemByMatch() throws IOException {
+        String searchText = "bk-2";
+
+        //  match 可以查询
+        SearchResponse<Product> response = esClient.search(s -> s
+                        .index("products")
+                        .query(q -> q
+                                .match(t -> t
+                                        .field("name")
+                                        .query(searchText)
+                                )
+                        ),
+                Product.class
+        );
+
+
+        TotalHits total = response.hits().total();
+        boolean isExactResult = total.relation() == TotalHitsRelation.Eq;
+
+        if (isExactResult) {
+            logger.info("There are " + total.value() + " results");
+        } else {
+            logger.info("There are more than " + total.value() + " results");
+        }
+
+        List<Hit<Product>> hits = response.hits().hits();
+        for (Hit<Product> hit : hits) {
+            Product product = hit.source();
+            logger.info("Found product " + product.getName() + ", score " + hit.score());
+        }
     }
 }
