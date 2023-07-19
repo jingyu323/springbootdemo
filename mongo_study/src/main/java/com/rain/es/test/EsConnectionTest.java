@@ -1,11 +1,17 @@
 package com.rain.es.test;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.elasticsearch._types.query_dsl.QueryBuilders;
+import co.elastic.clients.elasticsearch.core.IndexRequest;
 import co.elastic.clients.elasticsearch.core.IndexResponse;
 import co.elastic.clients.elasticsearch.core.SearchResponse;
 import co.elastic.clients.elasticsearch.core.search.Hit;
 import co.elastic.clients.elasticsearch.core.search.TotalHits;
 import co.elastic.clients.elasticsearch.core.search.TotalHitsRelation;
+import co.elastic.clients.elasticsearch.indices.CreateIndexRequest;
+import co.elastic.clients.elasticsearch.indices.GetIndexRequest;
+import co.elastic.clients.elasticsearch.indices.GetIndexResponse;
+import co.elastic.clients.json.JsonData;
 import co.elastic.clients.json.jackson.JacksonJsonpMapper;
 import co.elastic.clients.transport.ElasticsearchTransport;
 import co.elastic.clients.transport.TransportUtils;
@@ -14,6 +20,7 @@ import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.impl.client.BasicCredentialsProvider;
+import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +28,8 @@ import org.slf4j.LoggerFactory;
 import javax.net.ssl.SSLContext;
 import java.io.File;
 import java.io.IOException;
+import java.io.Reader;
+import java.io.StringReader;
 import java.util.List;
 
 public class EsConnectionTest {
@@ -58,8 +67,8 @@ public class EsConnectionTest {
     public static void main(String[] args) throws IOException {
         String index = "raintest";
 
-//        createIndex(index);
-        addElementToIndex(index);
+
+        rawJson(null);
 
     }
 
@@ -92,6 +101,7 @@ public class EsConnectionTest {
 
         }
     }
+
 
     public static void checkItemExist() throws IOException {
         if (esClient.exists(b -> b.index("products").id("bk-2")).value()) {
@@ -141,5 +151,25 @@ public class EsConnectionTest {
             Product product = hit.source();
             logger.info("Found product " + product.getName() + ", score " + hit.score());
         }
+    }
+
+    public static void getIndex(String index) throws IOException {
+
+
+    }
+
+    public static void rawJson(String index) throws IOException {
+        Reader input = new StringReader(
+                "{'@timestamp': '2022-04-08T13:55:32Z', 'level': 'warn', 'message': 'Some log message'}"
+                        .replace('\'', '"'));
+
+        IndexRequest<JsonData> request = IndexRequest.of(i -> i
+                .index("logs")
+                .withJson(input)
+        );
+
+        IndexResponse response = esClient.index(request);
+        logger.info("Indexed with version " + response.version());
+
     }
 }
