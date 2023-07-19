@@ -1,6 +1,7 @@
 package com.rain.es.test;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.elasticsearch._types.aggregations.HistogramBucket;
 import co.elastic.clients.elasticsearch._types.query_dsl.MatchQuery;
 import co.elastic.clients.elasticsearch._types.query_dsl.Query;
 import co.elastic.clients.elasticsearch._types.query_dsl.QueryBuilders;
@@ -80,7 +81,7 @@ public class EsConnectionTest {
         String index = "raintest";
 
 
-        templateSearch();
+        testaggregations();
 
     }
 
@@ -242,4 +243,40 @@ public class EsConnectionTest {
             logger.info("Found product " + product.getName() + ", score " + hit.score());
         }
     }
+
+    public static void testaggregations() throws IOException {
+        String searchText = "bk";
+
+        Query query = MatchQuery.of(m -> m
+                .field("name")
+                .query(searchText)
+        )._toQuery();
+
+        SearchResponse<Void> response = esClient.search(b -> b
+                        .index("products")
+                        .size(0)
+                        .query(query)
+                        .aggregations("price-histogram", a -> a
+                                .histogram(h -> h
+                                        .field("price")
+                                        .interval(10.0)
+                                )
+                        ),
+                Void.class
+        );
+
+
+        List<HistogramBucket> buckets = response.aggregations()
+                .get("price-histogram")
+                .histogram()
+                .buckets().array();
+
+        for (HistogramBucket bucket : buckets) {
+            logger.info("There are " + bucket.docCount() +
+                    " bikes under " + bucket.key());
+        }
+
+    }
+
+
 }
