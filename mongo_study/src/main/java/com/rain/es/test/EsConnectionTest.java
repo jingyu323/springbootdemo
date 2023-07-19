@@ -1,10 +1,14 @@
 package com.rain.es.test;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.elasticsearch._types.query_dsl.MatchQuery;
+import co.elastic.clients.elasticsearch._types.query_dsl.Query;
 import co.elastic.clients.elasticsearch._types.query_dsl.QueryBuilders;
+import co.elastic.clients.elasticsearch._types.query_dsl.RangeQuery;
 import co.elastic.clients.elasticsearch.core.IndexRequest;
 import co.elastic.clients.elasticsearch.core.IndexResponse;
 import co.elastic.clients.elasticsearch.core.SearchResponse;
+import co.elastic.clients.elasticsearch.core.SearchTemplateResponse;
 import co.elastic.clients.elasticsearch.core.search.Hit;
 import co.elastic.clients.elasticsearch.core.search.TotalHits;
 import co.elastic.clients.elasticsearch.core.search.TotalHitsRelation;
@@ -68,7 +72,7 @@ public class EsConnectionTest {
         String index = "raintest";
 
 
-        rawJson(null);
+        templateSearch();
 
     }
 
@@ -158,6 +162,42 @@ public class EsConnectionTest {
 
     }
 
+    public static void nestSearch(String index) throws IOException {
+
+        String searchText = "bike";
+        double maxPrice = 200.0;
+
+// Search by product name
+        Query byName = MatchQuery.of(m -> m
+                .field("name")
+                .query(searchText)
+        )._toQuery();
+
+// Search by max price
+        Query byMaxPrice = RangeQuery.of(r -> r
+                .field("price")
+                .gte(JsonData.of(maxPrice))
+        )._toQuery();
+
+// Combine name and price queries to search the product index
+        SearchResponse<Product> response = esClient.search(s -> s
+                        .index("products")
+                        .query(q -> q
+                                .bool(b -> b
+                                        .must(byName)
+                                        .must(byMaxPrice)
+                                )
+                        ),
+                Product.class
+        );
+
+        List<Hit<Product>> hits = response.hits().hits();
+        for (Hit<Product> hit : hits) {
+            Product product = hit.source();
+            logger.info("Found product " + product.getName() + ", score " + hit.score());
+        }
+    }
+
     public static void rawJson(String index) throws IOException {
         Reader input = new StringReader(
                 "{'@timestamp': '2022-04-08T13:55:32Z', 'level': 'warn', 'message': 'Some log message'}"
@@ -171,5 +211,27 @@ public class EsConnectionTest {
         IndexResponse response = esClient.index(request);
         logger.info("Indexed with version " + response.version());
 
+    }
+
+    /**
+     * 使用模板查询
+     *
+     * @throws IOException
+     */
+    public static void templateSearch() throws IOException {
+        SearchTemplateResponse<Product> response = esClient.searchTemplate(r -> r
+                        .index("products")
+                        .id("my-search-template")
+                        .params("query_string", JsonData.of("125.0"))
+                        .params("from", JsonData.of("0"))
+                        .params("size", JsonData.of("10")),
+                Product.class
+        );
+
+        List<Hit<Product>> hits = response.hits().hits();
+        for (Hit<Product> hit : hits) {
+            Product product = hit.source();
+            logger.info("Found product " + product.getName() + ", score " + hit.score());
+        }
     }
 }
