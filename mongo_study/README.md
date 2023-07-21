@@ -1,3 +1,7 @@
+本demo包含 mongo和es的练习代码
+
+
+
 # mongo
 
 1.问题获取集合之后如何判断该集合是否存在? 用listCollectionNames 查找集合的名字，如果名字存在则说明集合存在否则集合不存在，创建集合 for (String name :
