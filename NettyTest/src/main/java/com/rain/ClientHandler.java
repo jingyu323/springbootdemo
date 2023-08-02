@@ -9,6 +9,8 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void  channelRead(ChannelHandlerContext ctx, Object response) throws Exception {
         System.out.println("接受到server响应数据: " + response.toString());
+
+
     }
 
     @Override

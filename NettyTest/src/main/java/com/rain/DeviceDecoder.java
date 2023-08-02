@@ -72,7 +72,6 @@ public class DeviceDecoder extends ByteToMessageDecoder {
             DeviceProtocol protocol = new DeviceProtocol();
             protocol.setDataLength(length);
             protocol.setCmd(cmd);
-            protocol.setDevCode(devCode);
             protocol.setVersion(version);
             protocol.setMsgData(dataMsg);
             out.add(protocol);

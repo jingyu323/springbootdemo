@@ -6,15 +6,12 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ConstantValue {
-	/**
-	 * 头结点55AA
-	 */
+
 	public static final String HEAD_NODE= "55aa";
 	/**
 	 * 协议版本号
 	 */
-	public static final String VERSION_00= "00";
-    public static final String VERSION_01= "01";
+
     public static final String VERSION_02= "02";
     /**
 	 * 保留字段
@@ -36,27 +33,7 @@ public class ConstantValue {
 	public static final String CMD_FWUPCOM = "06";
 	public static final String CMD_HEART = "07";
     public static final String CMD_POWER = "08";
-    /**
-     * 网关配置参数
-     * 1-maxBlockSize 网关上传文件分组最大大小,单位GB
-	 * 2-minRouteTime 机车最小交路时间,单位分钟
-	 */
-	public static final String PARAM_1 = "maxBlockSize";
-	public static final String PARAM_2 = "minRouteTime";
-	/**
-	 * 网关通讯流水号map
-	 */
-	public static Map<String, String> transMap = new ConcurrentHashMap<String, String>();
 
-	public static Map<String, ChannelHandlerContext> channelMap = new ConcurrentHashMap<>();
 
-	/**
-	 * 网关侧块数据丢失，无需再断点续传；
-	 */
-	public static final String BLOCK_MISSED = "block_missed";
-	/**
-	 * 网关侧块数据正在传输中
-	 */
-	public static final String BLOCK_UPLOADING = "uploading";
 
 }

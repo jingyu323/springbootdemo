@@ -12,7 +12,7 @@ public class DeviceProtocol {
 
 	private String cmd;// 命令标识
 
-	private String devCode;// 网关编码
+
 
 	private String retain = ConstantValue.RETAIN;// 保留字段
 
@@ -38,17 +38,13 @@ public class DeviceProtocol {
 
 	@Override
 	public String toString() {
-		return "DeviceProtocol [headNode=" + headNode + ", version=" + version + ", cmd=" + cmd + ", devCode=" + devCode
+		return "DeviceProtocol [headNode=" + headNode + ", version=" + version + ", cmd=" + cmd
 				+ ", retain=" + retain + ", dataLength=" + dataLength + ", msgData=" + msgData + "]";
 	}
 
-	public String getDevCode() {
-		return devCode;
-	}
 
-	public void setDevCode(String devCode) {
-		this.devCode = devCode;
-	}
+
+
 
 	public String getRetain() {
 		return retain;
@@ -58,9 +54,6 @@ public class DeviceProtocol {
 	    this.retain = retain;
     }
 
-	public int getDataLenth() {
-		return dataLength;
-	}
 
 	public void setDataLength(int dataLength) {
 		this.dataLength = dataLength;
@@ -79,7 +72,6 @@ public class DeviceProtocol {
 		str.append(headNode);
 		str.append(version);
 		str.append(cmd);
-		str.append(CodeUtils.str2HexStr(devCode));
 		str.append(retain);
 		str.append(String.format("%04x", msgData.getBytes().length));
 		str.append(CodeUtils.str2HexStr(msgData));
