@@ -9,4 +9,66 @@
     <version>1.0-SNAPSHOT</version>
 
 
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- jdk版本号，angel在这里使用1.8，大家修改为大家本地配置的jdk版本号即可 -->
+        <java.version>1.8</java.version>
+        <!-- spring版本号 -->
+        <spring.version>2.6.9</spring.version>
+        <!-- mybatis版本号 -->
+        <mybatis.version>3.2.6</mybatis.version>
+        <!-- log4j日志文件管理包版本 -->
+        <slf4j.version>1.7.7</slf4j.version>
+        <log4j.version>1.2.17</log4j.version>
+        <!-- swagger-ui 版本 -->
+        <swaggger.version>2.7.0</swaggger.version>
+        <!-- activeMQ版本 -->
+        <activeMQ-version>5.11.2</activeMQ-version>
+        <!-- quartz任务调度 -->
+        <quartz.version>2.2.2</quartz.version>
+        <!-- netty版本 -->
+        <netty.version>4.1.0.Final</netty.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jdbc</artifactId>
+            <version>2.6.9</version>
+        </dependency>
+        <!-- 导入Mysql数据库链接jar包 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.16</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.6.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.14.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.14.3</version>
+        </dependency>
+
+
+    </dependencies>
+
 </project>
