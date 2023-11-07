@@ -26,6 +26,14 @@ public class MySQLController {
         return list;
     }
 
+
+    @RequestMapping(value = "/allByPartion", method = RequestMethod.GET)
+    public List<UserBean> allByPartion(String pation) {
+        List<UserBean> list = userDaoImpl.findallByPartion(pation);
+        return list;
+    }
+
+
     @RequestMapping(value = "/this", method = RequestMethod.GET)
     public String findByname(String username) {
         username = "李四";

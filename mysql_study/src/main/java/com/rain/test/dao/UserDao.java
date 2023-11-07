@@ -15,6 +15,6 @@ public interface UserDao {
 
     boolean deleteByName(String name);
 
-    List<UserBean> findallByPartion(int pationNumber);
+    List<UserBean> findallByPartion(String pationNumber);
 
 }

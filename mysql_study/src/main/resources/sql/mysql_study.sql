@@ -12,7 +12,10 @@ ALTER TABLE test_user
 
 #删除分区
 alter table qfyu_chat
-    drop partition p20221101
+    drop partition p20221101;
 
 #修改分区
-alter table qfyu_chatadd partition (partition p20221101 values less than (738641))
+alter table qfyu_chatadd partition (partition p20221101 values less than (738641));
+
+
+# 定时添加分区
