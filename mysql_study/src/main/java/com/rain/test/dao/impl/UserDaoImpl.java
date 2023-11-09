@@ -54,8 +54,10 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public List<UserBean> findallByPartion(int pationNumber) {
-        String sql = "select * from test_user";
+    public List<UserBean> findallByPartion(String pationNumber) {
+        String sql = "select * from test_user partition(" + pationNumber + ")";
+
+        System.out.println(sql);
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<UserBean>(UserBean.class));
     }
 }
