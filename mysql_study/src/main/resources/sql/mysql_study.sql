@@ -26,6 +26,10 @@ ALTER TABLE test_user
     REORGANIZE PARTITION pN
         INTO (PARTITION p3 VALUES LESS THAN (400)
         , PARTITION pN VALUES LESS THAN MAXVALUE);
+#合并分区
+alter table user
+    reorganize partition p0,p1,p2,p3 into
+        (partition p02 values less than (12));
 
 ## 查询有缺陷，之后创建的分区不会把记录统计进去，查询处理的心分区记录为0
 
