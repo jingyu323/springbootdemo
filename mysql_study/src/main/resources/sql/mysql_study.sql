@@ -50,7 +50,7 @@ DELIMITER //
 
 CREATE PROCEDURE add_partition()
 BEGIN
-    DECLARE max_year INT;
+    DECLARE max_id INT;
     DECLARE current_year INT DEFAULT YEAR(CURDATE());
 
     SELECT MAX(YEAR(date)) INTO max_year FROM old_table;
@@ -60,7 +60,7 @@ BEGIN
     END IF;
 
     SET @sql = CONCAT('ALTER TABLE old_table ADD PARTITION (PARTITION p', max_year + 1, ' VALUES LESS THAN (',
-                      max_year + 1, '))');
+                      max_year + 100, '))');
 
     PREPARE stmt FROM @sql;
     EXECUTE stmt;
