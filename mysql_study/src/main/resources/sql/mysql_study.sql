@@ -19,7 +19,22 @@ alter table test_user
     drop partition p0;
 
 #修改分区
-alter table test_user partition (partition p1 values less than (738641));
+
+
+# 修改maxvalue ，添加新的分区
+ALTER TABLE test_user
+    REORGANIZE PARTITION pN
+        INTO (PARTITION p3 VALUES LESS THAN (400)
+        , PARTITION pN VALUES LESS THAN MAXVALUE);
+
+##
+
+SELECT PARTITION_NAME AS '分区名',
+       TABLE_ROWS     AS '记录数'
+FROM information_schema.PARTITIONS
+
+WHERE table_schema = 'mydatabase'
+  AND table_name = 'test_user';
 
 
 # 定时添加分区
