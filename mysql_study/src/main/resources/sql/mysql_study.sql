@@ -14,7 +14,7 @@ ALTER TABLE test_user
 select *
 from test_user partition (pn);
 
-#删除分区
+#删除分区的同时会把数据同时清理
 alter table test_user
     drop partition p0;
 
@@ -27,7 +27,7 @@ ALTER TABLE test_user
         INTO (PARTITION p3 VALUES LESS THAN (400)
         , PARTITION pN VALUES LESS THAN MAXVALUE);
 
-##
+## 查询有缺陷，之后创建的分区不会把记录统计进去，查询处理的心分区记录为0
 
 SELECT PARTITION_NAME AS '分区名',
        TABLE_ROWS     AS '记录数'
