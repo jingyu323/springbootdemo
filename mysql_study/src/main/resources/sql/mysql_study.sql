@@ -39,6 +39,7 @@ WHERE table_schema = 'mydatabase'
 
 # 定时添加分区
 
+# 查看定时任务是否开启
 show variables like '%event_sche%';
 
 DELIMITER //
