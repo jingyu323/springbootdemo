@@ -146,3 +146,5 @@ CREATE EVENT e_partition
     ON SCHEDULE EVERY 1 HOUR
     ON COMPLETION PRESERVE ENABLE
     DO CALL p_partition_month();
+
+
