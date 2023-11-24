@@ -15,6 +15,7 @@ import java.util.Date;
 public class UserBean {
     private String name;
     private String age;
+    
     private int id;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
