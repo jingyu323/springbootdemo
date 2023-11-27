@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class KafkaTestController {
 
 
-    private final static String TOPIC_NAME = "my-replicated-topic";
+    private final static String TOPIC_NAME = "test";
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
