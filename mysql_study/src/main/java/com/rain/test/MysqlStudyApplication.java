@@ -19,10 +19,15 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
+import java.util.List;
+
+import static javafx.scene.input.KeyCode.K;
+import static javafx.scene.input.KeyCode.V;
 
 
 @SpringBootApplication
@@ -47,6 +52,7 @@ public class MysqlStudyApplication {
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
             }
+            // 添加之后 重启之后不再重复消费消息
             consumer.commitAsync();
         }
     }
@@ -54,8 +60,55 @@ public class MysqlStudyApplication {
     @Component
     public class ConsumerListene2r {
         @KafkaListener(topics = "test", groupId = "group2333")
-        public void onMessage(ConsumerRecord<String, String> record) {
+        public void onMessage(ConsumerRecord record, List<String> data) {
             System.out.println("分区2 ：" + record.topic() + " : " + record.value());
+
+            for (String msg : data) {
+                System.out.println("data value is ：" + msg);
+            }
+
+        }
+    }
+
+    @Component
+    public class ConsumerListener3 {
+        @KafkaListener(topics = "test", groupId = "group3333")
+//        public void onMessage(List<ConsumerRecord> records, Acknowledgment acknowledgment, Consumer consumer) {
+        public void onMessage(List<ConsumerRecord<String, String>> records, Acknowledgment acknowledgment, Consumer<String, String> consumer) {
+//            for (ConsumerRecord<String, String> record : records) {
+//                System.out.println("分区33 ：" + record.topic() + " : " + record.value());
+//            }
+
+            try {
+                System.out.println("分区333 ：" + objectMapper.writeValueAsString(records));
+
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
+
+            // 添加之后 重启之后不再重复消费消息
+            consumer.commitAsync();
+
+        }
+    }
+
+    @Component
+    public class ConsumerListener4 {
+        @KafkaListener(topics = "test", groupId = "group4")
+        public void onMessage(List<String> records) {
+            for (String record : records) {
+                System.out.println("分区444 ：" + record);
+            }
+
+//            try {
+//                System.out.println(objectMapper.writeValueAsString(records));
+//
+//            } catch (JsonProcessingException e) {
+//                e.printStackTrace();
+//            }
+
+            // 添加之后 重启之后不再重复消费消息
+//            consumer.commitAsync();
 
         }
     }
