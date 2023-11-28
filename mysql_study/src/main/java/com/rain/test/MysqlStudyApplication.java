@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
@@ -20,16 +21,28 @@ import java.util.Properties;
 
 
 @SpringBootApplication
+//@EnableKafka
 @ComponentScan("com.rain.test.*")
 public class MysqlStudyApplication {
     @Component
     public class ConsumerListener {
-        @KafkaListener(topics = "test", groupId = "default-group")
+        @KafkaListener(topics = "test", groupId = "group22222")
         public void onMessage(String msg) {
             System.out.println("----收到消息：" + msg + "----");
+
+
         }
     }
- 
+
+    @Component
+    public class ConsumerListene2r {
+        @KafkaListener(topics = "test", groupId = "group2333")
+        public void onMessage(ConsumerRecord<String, String> record) {
+            System.out.println("分区2 ：" + record.topic() + " : " + record.value());
+            
+        }
+    }
+
 
     @Component
     public class KafkaProducer {
