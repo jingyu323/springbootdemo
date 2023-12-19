@@ -9,6 +9,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 import org.apache.commons.io.FileUtils;
 
@@ -31,6 +32,22 @@ public class FileTimeTest {
 
         System.out.println("diffen=" + diffen);
         System.out.println("thDay=" + thDay);
+
+
+    }
+
+    @Test
+    public void testRand() {
+
+
+        int days = new Random().nextInt(10);
+
+        System.out.println("diffen=" + days);
+
+
+        File f = new File("/root");
+
+        System.out.println(f.getName());
 
 
     }
