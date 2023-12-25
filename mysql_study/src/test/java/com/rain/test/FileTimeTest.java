@@ -54,6 +54,16 @@ public class FileTimeTest {
 
 
     @Test
+    public void testFileModifyTime() {
+
+        File f = new File("E:\\study\\git\\springbootdemo\\mysql_study\\src\\test\\java\\com\\rain\\test\\hertest_05_客室3摄像头1_20231222_163000.mp4");
+
+        System.out.println(new Date(f.lastModified()));
+
+    }
+
+
+    @Test
     public void testFileMove() throws IOException {
         File file1 = new File("path1");
 
