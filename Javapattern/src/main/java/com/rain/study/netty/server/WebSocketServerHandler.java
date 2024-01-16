@@ -10,6 +10,10 @@ import io.netty.handler.codec.http.websocketx.WebSocketFrame;
 import io.netty.util.concurrent.GlobalEventExecutor;
 import lombok.extern.slf4j.Slf4j;
 
+
+/**
+ * 聊天室 利用不同的通道 转发收到的消息  但是有时候会丢消息
+ */
 @Slf4j
 public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> {
 
