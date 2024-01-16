@@ -92,7 +92,8 @@ public class CopyFileTestClient {
      * <p>
      * 缺点：局限于文件通道
      * <p>
-     * 实践案例：Netty、Kafka
+     * 实践案例：
+     * Netty、Kafka
      * 耗时：662
      * <p>
      * socket IO 写入 有限制 最大等于8M

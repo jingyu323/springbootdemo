@@ -11,8 +11,6 @@ import org.bytedeco.javacv.OpenCVFrameGrabber;
 /**
  * 调用本地摄像头窗口视频
  *
- * @author eguid
- * @date 2016年6月13日
  * @since javacv1.2
  */
 public class JavavcCameraTest {

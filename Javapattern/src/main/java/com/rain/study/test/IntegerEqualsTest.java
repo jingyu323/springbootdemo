@@ -1,7 +1,5 @@
 package com.rain.study.test;
 
-import
-
 public class IntegerEqualsTest {
 
     public static void main(String[] args) {

@@ -14,7 +14,7 @@ import javax.swing.*;
 public class ImageFilteringExample {
 
     public static void main(String[] args) {
-        // 加载图像
+//         加载图像
 //        opencv_core.Mat src = opencv_imgcodecs.imread("lena.png");
 //        opencv_core.Mat dst = new opencv_core.Mat();
 //
