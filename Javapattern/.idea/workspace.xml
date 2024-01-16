@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2b8d963-3a6a-43cd-a734-33d1f8a01dff" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/ClientHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/HClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/HServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/NettyClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/ServerHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/MyHttpService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/MyWebSocketService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/WebSocketServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/WebSocketServerHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +23,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -47,6 +48,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../NettyTest" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RunManager" selected="Application.HClient">
     <configuration name="HClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -119,7 +121,7 @@
       <option name="presentableId" value="Default" />
       <updated>1705373346940</updated>
       <workItem from="1705373348373" duration="384000" />
-      <workItem from="1705373748834" duration="4940000" />
+      <workItem from="1705373748834" duration="9691000" />
     </task>
     <servers />
   </component>
