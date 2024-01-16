@@ -200,6 +200,8 @@ public class WebSocketServer implements MyHttpService, MyWebSocketService {
                 && headers.get(HttpHeaderNames.CONNECTION).contains(WEBSOCKET_CONNECTION);
     }
 
-
+    public static void main(String[] args) {
+        new WebSocketServer("127.0.0.1",9999).start();
+    }
 
 }
