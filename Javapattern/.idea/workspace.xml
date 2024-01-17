@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2b8d963-3a6a-43cd-a734-33d1f8a01dff" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/WebSocketServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/WebSocketServerHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/patternstatudy/adapter/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/patternstatudy/factory/FactoryMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/patternstatudy/strategy/Strategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/patternstatudy/strategy/StrategyPatternDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +62,33 @@
       <recent name="E:\study\git\springbootdemo\Javapattern\src\main\webapp" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.WebSocketServer">
+  <component name="RunManager" selected="Application.Client">
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.rain.study.patternstatudy.adapter.Client" />
+      <module name="Javapattern" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.rain.study.patternstatudy.adapter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FactoryMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.rain.study.patternstatudy.factory.FactoryMain" />
+      <module name="Javapattern" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.rain.study.patternstatudy.factory.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.rain.study.netty.server.HClient" />
       <module name="Javapattern" />
@@ -85,32 +115,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HelloServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.rain.study.netty.server.HelloServer" />
-      <module name="Javapattern" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.rain.study.netty.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserCaseTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.rain.study.anotation.UserCaseTest" />
-      <module name="Javapattern" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.rain.study.anotation.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="WebSocketServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.rain.study.netty.server.WebSocketServer" />
       <module name="Javapattern" />
@@ -126,11 +130,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.FactoryMain" />
         <item itemvalue="Application.WebSocketServer" />
         <item itemvalue="Application.HClient" />
         <item itemvalue="Application.HServer" />
-        <item itemvalue="Application.HelloServer" />
-        <item itemvalue="Application.UserCaseTest" />
       </list>
     </recent_temporary>
   </component>
@@ -143,7 +147,7 @@
       <option name="presentableId" value="Default" />
       <updated>1705373346940</updated>
       <workItem from="1705373348373" duration="384000" />
-      <workItem from="1705373748834" duration="16091000" />
+      <workItem from="1705373748834" duration="18281000" />
     </task>
     <servers />
   </component>
