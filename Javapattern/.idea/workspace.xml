@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2b8d963-3a6a-43cd-a734-33d1f8a01dff" name="Changes" comment="" />
+    <list default="true" id="e2b8d963-3a6a-43cd-a734-33d1f8a01dff" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/patternstatudy/cp/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/patternstatudy/decorator/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/patternstatudy/facade/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/patternstatudy/iteratorpattern/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/patternstatudy/visitor/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,7 +63,7 @@
       <recent name="E:\study\git\springbootdemo\Javapattern\src\main\webapp" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client (1)">
+  <component name="RunManager" selected="Application.Client (2)">
     <configuration name="BridgeDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.rain.study.patternstatudy.bridge.BridgeDemo" />
       <module name="Javapattern" />
@@ -76,6 +83,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.rain.study.patternstatudy.builder.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.rain.study.patternstatudy.cp.Client" />
+      <module name="Javapattern" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.rain.study.patternstatudy.cp.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -109,26 +129,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WebSocketServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.rain.study.netty.server.WebSocketServer" />
-      <module name="Javapattern" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.rain.study.netty.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Client (2)" />
         <item itemvalue="Application.Client (1)" />
         <item itemvalue="Application.BridgeDemo" />
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.FactoryMain" />
-        <item itemvalue="Application.WebSocketServer" />
       </list>
     </recent_temporary>
   </component>
@@ -141,7 +148,8 @@
       <option name="presentableId" value="Default" />
       <updated>1705373346940</updated>
       <workItem from="1705373348373" duration="384000" />
-      <workItem from="1705373748834" duration="20454000" />
+      <workItem from="1705373748834" duration="23579000" />
+      <workItem from="1705461929064" duration="77000" />
     </task>
     <servers />
   </component>
