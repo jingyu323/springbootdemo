@@ -13,10 +13,14 @@ import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.timeout.IdleStateHandler;
 
 import java.net.InetSocketAddress;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class HServer {
+    static  int count = 0;
 
+    Set ids  = new HashSet();
     public void start(int port) throws InterruptedException {
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         EventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -36,6 +40,10 @@ public class HServer {
                         ch.pipeline().addLast("decoder", new StringDecoder());
                         ch.pipeline().addLast("encoder", new StringEncoder());
                         ch.pipeline().addLast(new ServerHandler());
+                        System.out.println(ch.id());
+                        ids.add(ch.id());
+
+                        System.out.println("ids ="+ids);
                     };
 
                 }).option(ChannelOption.SO_BACKLOG, 128)

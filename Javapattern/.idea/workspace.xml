@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2b8d963-3a6a-43cd-a734-33d1f8a01dff" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/patternstatudy/cp/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/patternstatudy/decorator/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/patternstatudy/facade/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/patternstatudy/iteratorpattern/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/patternstatudy/visitor/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/test/TestComa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/HClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/HClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/HServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/HServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/NettyClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/NettyClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,33 +62,7 @@
       <recent name="E:\study\git\springbootdemo\Javapattern\src\main\webapp" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client (2)">
-    <configuration name="BridgeDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.rain.study.patternstatudy.bridge.BridgeDemo" />
-      <module name="Javapattern" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.rain.study.patternstatudy.bridge.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Client (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.rain.study.patternstatudy.builder.Client" />
-      <module name="Javapattern" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.rain.study.patternstatudy.builder.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.NettyClient">
     <configuration name="Client (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.rain.study.patternstatudy.cp.Client" />
       <module name="Javapattern" />
@@ -103,12 +76,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.rain.study.patternstatudy.adapter.Client" />
+    <configuration name="HClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.rain.study.netty.server.HClient" />
       <module name="Javapattern" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.rain.study.patternstatudy.adapter.*" />
+          <option name="PATTERN" value="com.rain.study.netty.server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,12 +89,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FactoryMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.rain.study.patternstatudy.factory.FactoryMain" />
+    <configuration name="HServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.rain.study.netty.server.HServer" />
       <module name="Javapattern" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.rain.study.patternstatudy.factory.*" />
+          <option name="PATTERN" value="com.rain.study.netty.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NettyClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.rain.study.netty.server.NettyClient" />
+      <module name="Javapattern" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.rain.study.netty.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestComa" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.rain.study.test.TestComa" />
+      <module name="Javapattern" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.rain.study.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -131,11 +130,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.NettyClient" />
+        <item itemvalue="Application.HServer" />
+        <item itemvalue="Application.HClient" />
+        <item itemvalue="Application.TestComa" />
         <item itemvalue="Application.Client (2)" />
-        <item itemvalue="Application.Client (1)" />
-        <item itemvalue="Application.BridgeDemo" />
-        <item itemvalue="Application.Client" />
-        <item itemvalue="Application.FactoryMain" />
       </list>
     </recent_temporary>
   </component>
@@ -150,6 +149,11 @@
       <workItem from="1705373348373" duration="384000" />
       <workItem from="1705373748834" duration="23579000" />
       <workItem from="1705461929064" duration="77000" />
+      <workItem from="1705471905128" duration="497000" />
+      <workItem from="1705476861565" duration="1218000" />
+      <workItem from="1705567564753" duration="1097000" />
+      <workItem from="1705627875427" duration="38000" />
+      <workItem from="1705638858696" duration="4545000" />
     </task>
     <servers />
   </component>

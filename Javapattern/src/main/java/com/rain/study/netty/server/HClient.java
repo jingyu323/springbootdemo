@@ -38,9 +38,9 @@ public class HClient {
         HClient client  = new HClient();
         ChannelFuture future = client.connect("127.0.0.1",4473);
         future.channel().writeAndFlush("hello,I am from client 1111");
-//        while (true){
-//            Thread.sleep(1000);
-//            future.channel().writeAndFlush("hello,I am from client");
-//        }
+        while (true){
+            Thread.sleep(1000);
+            future.channel().writeAndFlush("hello,I am from client");
+        }
     }
 }
