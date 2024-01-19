@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2b8d963-3a6a-43cd-a734-33d1f8a01dff" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/test/TestComa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/HClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/HClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/HServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/HServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/NettyClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/NettyClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/netty/server/ServerHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +151,7 @@
       <workItem from="1705476861565" duration="1218000" />
       <workItem from="1705567564753" duration="1097000" />
       <workItem from="1705627875427" duration="38000" />
-      <workItem from="1705638858696" duration="4545000" />
+      <workItem from="1705638858696" duration="5967000" />
     </task>
     <servers />
   </component>

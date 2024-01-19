@@ -21,6 +21,8 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         super.channelInactive(ctx);
+
+        System.out.println("closed channel id is:"+ctx.channel().id());
     }
 
     @Override
