@@ -10,8 +10,6 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.timeout.IdleStateHandler;
 
-import java.net.InetSocketAddress;
-import java.nio.ByteBuffer;
 import java.util.concurrent.TimeUnit;
 
 public class NettyClient {
