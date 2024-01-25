@@ -1,4 +1,4 @@
-public class VolatileTest  extends Thread {
+public class    VolatileTest  extends Thread {
 
 
     /**
