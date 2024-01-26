@@ -1,4 +1,4 @@
-package com.rain.study.sync;
+package com.rain.study.lock;
 
 /**
  * 主要为了测试 volatile  不具有原子性
