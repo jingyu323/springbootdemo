@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2b8d963-3a6a-43cd-a734-33d1f8a01dff" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/lock/ThreadlocalTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rain/study/sync/VolatileAoticTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/lock/VolatileAoticTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +152,7 @@
       <workItem from="1706163025622" duration="1000" />
       <workItem from="1706167069761" duration="192000" />
       <workItem from="1706247741058" duration="594000" />
-      <workItem from="1706252034826" duration="592000" />
+      <workItem from="1706252034826" duration="1448000" />
     </task>
     <servers />
   </component>
