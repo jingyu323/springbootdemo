@@ -38,12 +38,21 @@ public class RedisTest {
         zsetTest.put("zetes1", 1d);
         zsetTest.put("zetes2", 4d);
         zsetTest.put("zetes3", 3d);
+        zsetTest.put("zetes4", 2d);
         jedis.zadd("zsetTest", zsetTest);
         // 获取排序后的数据
 
-        List ss = jedis.zrange("zsetTest", 0, 8);
+        List ss = jedis.zrange("zsetTest", 0, -1);
 
         System.out.println(ss);
+//        查询 Zset 所有数据和评分
+        List ssss = jedis.zrangeWithScores("zsetTest", 0, -1);
+
+        System.out.println(ssss);
+
+        List rssss = jedis.zrevrange("zsetTest", 0, -1);
+
+        System.out.println(rssss);
 
     }
 }
