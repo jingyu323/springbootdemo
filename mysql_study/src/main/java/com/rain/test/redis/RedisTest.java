@@ -56,7 +56,7 @@ public class RedisTest {
         zsetTest1.put("zetes2", 4d);
         zsetTest1.put("zetes3", 3d);
         zsetTest1.put("zetes4", 2d);
-        jedis.zadd("zsetTest1", zsetTest1);
+        jedis.zadd("zsetTest", zsetTest1);
 
 
         Map<String, Double> zsetTest2 = new HashMap<>();
