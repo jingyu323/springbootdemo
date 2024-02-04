@@ -157,6 +157,11 @@
             <artifactId>jedis</artifactId>
             <version>4.2.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson-spring-boot-starter</artifactId>
+            <version>3.26.0</version>
+        </dependency>
         <!--        <dependency>-->
         <!--            <groupId>org.bytedeco</groupId>-->
         <!--            <artifactId>openblas</artifactId>-->
