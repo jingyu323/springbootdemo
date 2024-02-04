@@ -2,6 +2,7 @@ package com.rain.test.redis;
 
 
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.Transaction;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,18 +18,22 @@ public class RedisTest {
 // 测试服务是否连接
         System.out.println(jedis.ping());
 
+        Transaction trans = jedis.multi();
+
         Map<String, String> hashValue = new HashMap<>();
         hashValue.put("key1", "key");
         hashValue.put("key2", "key2");
         hashValue.put("key3", "key3");
-        jedis.hset("testHash", hashValue);
+        trans.hset("testHash", hashValue);
 
+        trans.hset("employee", "name", "NewBoy");
+        trans.hset("employee", "salary", "3000");
+        trans.exec();
         Map<String, String> res = jedis.hgetAll("testHash");
 
         System.out.println(res.values());
 
-        jedis.hset("employee", "name", "NewBoy");
-        jedis.hset("employee", "salary", "3000");
+
         //使用hgetall读取hash对象输出
         Map<String, String> employee = jedis.hgetAll("employee");
         System.out.println(employee);
