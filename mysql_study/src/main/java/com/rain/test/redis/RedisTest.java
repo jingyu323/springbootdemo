@@ -52,7 +52,11 @@ public class RedisTest {
 
         List rssss = jedis.zrevrange("zsetTest", 0, -1);
 
+        // 取 最大最小范围内的值
+        long zcount = jedis.zcount("zsetTest", 0, 100);
+
         System.out.println(rssss);
+        System.out.println(zcount);
 
     }
 }
