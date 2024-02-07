@@ -3,6 +3,7 @@ package com.rain.test.controller;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.rain.test.common.JsonResult;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
 import java.util.concurrent.*;
@@ -81,5 +83,36 @@ public class TestRedisController {
         }
         return new JsonResult(true, "加锁失败，请稍后重试", null);
     }
+
+    @GetMapping("/testList")
+    public JsonResult testList(@RequestParam Long goodsId) {
+
+        String key = "key";
+        boolean haskey = redisTemplate.hasKey(key);
+        log.info("haskey：{}", haskey);
+//        有则取出key值所对应的值
+        redisTemplate.opsForValue().get(key);
+//        批量删除key
+//        redisTemplate.delete(keys) //其中keys:Collection<K> keys
+
+        redisTemplate.expire("testExpire", 10, TimeUnit.SECONDS);
+        redisTemplate.expireAt("testExpire", new Date());
+
+        redisTemplate.opsForHash().get("key", "field");
+
+//        redisTemplate.opsForList().index(key, index)
+//        redisTemplate.opsForList().range(key, start, end)
+//        redisTemplate.opsForSet().add(key, values)
+
+
+        /**
+         *   redisTemplate.opsForZSet().add(key, value, score)
+         *   redisTemplate.opsForZSet().rank(key, value)
+         *   https://blog.csdn.net/weixin_44761056/article/details/124172630
+         */
+        return new JsonResult(true, "加" +
+                "锁失败，请稍后重试", null);
+    }
+
 
 }
