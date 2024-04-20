@@ -11,9 +11,14 @@ public class MergePDF4 {
 
     public static void main(String[] args) {
         String[] files = {
-                "E:\\git_project\\java\\springbootdemo\\java_test\\src\\main\\resources\\pdf\\马辉-课题论文.pdf",
-                "E:\\git_project\\java\\springbootdemo\\java_test\\src\\main\\resources\\pdf\\1_本人论文.pdf",
-                "E:\\git_project\\java\\springbootdemo\\java_test\\src\\main\\resources\\pdf\\虢萍论文.pdf"
+                "E:\\git_project\\java\\springbootdemo\\java_test\\src\\main\\resources\\pdf\\merge_file1.pdf",
+                "E:\\git_project\\java\\springbootdemo\\java_test\\src\\main\\resources\\pdf\\尚小英论文1.pdf",
+                "E:\\git_project\\java\\springbootdemo\\java_test\\src\\main\\resources\\pdf\\尚晓英论文2.pdf",
+                "E:\\git_project\\java\\springbootdemo\\java_test\\src\\main\\resources\\pdf\\论王慧芝.pdf",
+                "E:\\git_project\\java\\springbootdemo\\java_test\\src\\main\\resources\\pdf\\王续斌论文.pdf",
+                "E:\\git_project\\java\\springbootdemo\\java_test\\src\\main\\resources\\pdf\\ls.pdf",
+                "E:\\git_project\\java\\springbootdemo\\java_test\\src\\main\\resources\\pdf\\曹林论文.pdf",
+                "E:\\git_project\\java\\springbootdemo\\java_test\\src\\main\\resources\\pdf\\樊清娟论文.pdf"
         }; // 待合并的PDF文件路径
         String resultFileName = "merge_file.pdf"; // 合并后的PDF文件名及路径
 
