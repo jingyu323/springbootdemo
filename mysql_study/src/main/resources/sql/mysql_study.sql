@@ -23,9 +23,16 @@ alter table test_user
 
 # 修改maxvalue ，添加新的分区
 ALTER TABLE test_user
-    REORGANIZE PARTITION pN
+    REORGANIZE PARTITION default_part
         INTO (PARTITION p3 VALUES LESS THAN (400)
-        , PARTITION pN VALUES LESS THAN MAXVALUE);
+        , PARTITION default_part VALUES LESS THAN MAXVALUE);
+
+
+## 修改pN为default_part
+ALTER TABLE test_user
+    REORGANIZE PARTITION pN
+        INTO (PARTITION p5 VALUES LESS THAN (600)
+        , PARTITION default_part VALUES LESS THAN MAXVALUE);
 #合并分区
 alter table user
     reorganize partition p0,p1,p2,p3 into
@@ -46,25 +53,98 @@ WHERE table_schema = 'mydatabase'
 # 查看定时任务是否开启
 show variables like '%event_sche%';
 
+# 创建分区存储过程
+
+
+# 创建分区存储过程
+DROP PROCEDURE IF EXISTS add_partition;
 DELIMITER //
 
 CREATE PROCEDURE add_partition()
 BEGIN
+    DECLARE max_pd_num INT;
+    DECLARE max_pd_name varchar(32);
+    DECLARE netxt_pation INT;
+    DECLARE netxt_pation_name varchar(32);
     DECLARE max_id INT;
-    DECLARE current_year INT DEFAULT YEAR(CURDATE());
 
-    SELECT MAX(YEAR(date)) INTO max_year FROM old_table;
+    DECLARE cur_test1 CURSOR FOR
+        SELECT max(PARTITION_NAME)        as 'max_pd_name',
+               max(partition_description) as 'max_pd_num'
+        FROM information_schema.PARTITIONS
 
-    IF max_year < current_year THEN
-        SET max_year = current_year;
-    END IF;
+        WHERE table_schema = 'mydatabase'
+          AND table_name = 'test_user'
+          AND PARTITION_NAME like "p%";
 
-    SET @sql = CONCAT('ALTER TABLE old_table ADD PARTITION (PARTITION p', max_year + 1, ' VALUES LESS THAN (',
-                      max_year + 100, '))');
+    DECLARE cur_max_id CURSOR FOR
+        SELECT max(id) as 'max_id'
+        FROM mydatabase.test_user;
 
-    PREPARE stmt FROM @sql;
-    EXECUTE stmt;
-    DEALLOCATE PREPARE stmt;
-END //
+    OPEN cur_test1;
 
-DELIMITER ; 
+    FETCH cur_test1 INTO max_pd_name,max_pd_num;
+
+    SELECT max_pd_name, max_pd_num;
+
+    CLOSE cur_test1;
+
+
+    OPEN cur_max_id;
+    FETCH cur_max_id INTO max_id;
+
+    SELECT max_id;
+
+    out_loop:
+    LOOP
+        -- 	 设置值
+        set netxt_pation := max_pd_num + 100;
+        SELECT netxt_pation, max_pd_name;
+        set netxt_pation_name = CONCAT('p', REPLACE(max_pd_name, 'p', '') + 1);
+
+        SELECT netxt_pation_name;
+
+        SET @sql = CONCAT('ALTER TABLE test_user
+			REORGANIZE PARTITION default_part
+        INTO (PARTITION ', netxt_pation_name, ' VALUES LESS THAN (', netxt_pation, ')
+        , PARTITION default_part VALUES LESS THAN MAXVALUE);');
+
+        PREPARE stmt FROM @sql;
+        EXECUTE stmt;
+        DEALLOCATE PREPARE stmt;
+        IF netxt_pation > max_id THEN
+            LEAVE out_loop;
+        END IF;
+
+
+    END LOOP out_loop;
+    CLOSE cur_max_id;
+
+
+END
+//
+
+DELIMITER ;
+
+
+call add_partition();
+# 创建定时任务
+
+# 查看定时任务
+SELECT event_name, event_definition, interval_value, interval_field, status
+FROM information_schema.EVENTS;
+
+# 开启
+alter event run_event on completion preserve enable;
+# 关闭
+alter event run_event on completion preserve disable;
+
+
+drop event e_partition;
+
+CREATE EVENT e_partition
+    ON SCHEDULE EVERY 1 HOUR
+    ON COMPLETION PRESERVE ENABLE
+    DO CALL p_partition_month();
+
+
