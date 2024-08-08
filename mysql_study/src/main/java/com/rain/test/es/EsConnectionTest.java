@@ -67,12 +67,13 @@ public class EsConnectionTest {
     }
 
     public static void main(String[] args) throws IOException {
-        String index = "raintest";
+        String index = "products001";
 
 
 //        testaggregations();
 
-        createIndex("products001");
+//        createIndex("products001");
+        addElementToIndex(index);
 
     }
 
@@ -267,6 +268,14 @@ public class EsConnectionTest {
                     " bikes under " + bucket.key());
         }
 
+    }
+
+
+    public void testIndexJson() {
+        String source = "{\"name\":\"will\",\"age\":18}";
+
+        Product product = new Product("bk-31", "City bik31", 325.0);
+ 
     }
 
 
