@@ -30,6 +30,6 @@ public class UserServiceHandler  implements InvocationHandler {
             System.out.println("该类无接口，不能使用jdk都动态代理");
             throw new RuntimeException("该类无接口，不能使用jdk都动态代理");
         }
-        return Proxy.newProxyInstance(UserServiceHandler.class.getClassLoader(), interfaces, this);
+        return Proxy.newProxyInstance(target.getClass().getClassLoader(), interfaces, this);
     }
 }
