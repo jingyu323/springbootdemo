@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2178aaf8-59ce-4235-8884-5adb239476ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Javapattern/src/main/java/com/rain/study/weizhifu/H5ServiceExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Javapattern/src/main/java/com/rain/study/weizhifu/QuickStart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flink.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/DataSetWordcount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/StreamWordcount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/StreamWordcount2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Javapattern/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Javapattern/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Javapattern/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Javapattern/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rain/study/DataSetWordcount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/DataSetWordcount.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +34,10 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
@@ -68,7 +61,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1731577367738</updated>
-      <workItem from="1731577375057" duration="81000" />
+      <workItem from="1731577375057" duration="1115000" />
     </task>
     <servers />
   </component>
