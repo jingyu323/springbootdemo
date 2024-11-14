@@ -1,239 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc1e10fa-2877-484c-bf45-0de9f7ddf2b5" name="Default Changelist" comment="" />
+    <list default="true" id="2178aaf8-59ce-4235-8884-5adb239476ef" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Javapattern/src/main/java/com/rain/study/weizhifu/H5ServiceExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Javapattern/src/main/java/com/rain/study/weizhifu/QuickStart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flink.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/DataSetWordcount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/StreamWordcount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rain/study/StreamWordcount2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Javapattern/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Javapattern/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Javapattern/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Javapattern/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="29cBKw2lVFjadJ1ngEI8MDzXbcx" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2oprSRpbzN7s6tN8gQVGxh3KSDb" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.33563218" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+      </set>
+    </attachedChunks>
   </component>
-  <component name="RunManager">
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.rain.study.Test" />
-      <module name="flink_study" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.rain.study.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Test" />
-      </list>
-    </recent_temporary>
-  </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fc1e10fa-2877-484c-bf45-0de9f7ddf2b5" name="Default Changelist" comment="" />
-      <created>1653402432574</created>
+      <changelist id="2178aaf8-59ce-4235-8884-5adb239476ef" name="Changes" comment="" />
+      <created>1731577367738</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1653402432574</updated>
-      <workItem from="1653402441428" duration="24447000" />
-      <workItem from="1681909075783" duration="661000" />
-      <workItem from="1682001076879" duration="930000" />
+      <updated>1731577367738</updated>
+      <workItem from="1731577375057" duration="81000" />
     </task>
-    <task id="LOCAL-00001" summary="添加 kafka demo">
-      <created>1653406497814</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1653406497814</updated>
-    </task>
-    <task id="LOCAL-00002" summary="添加 kafka demo">
-      <created>1653486067441</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1653486067441</updated>
-    </task>
-    <task id="LOCAL-00003" summary="添加 kafka demo">
-      <created>1653488294300</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1653488294300</updated>
-    </task>
-    <task id="LOCAL-00004" summary="添加 kafka  安装笔记">
-      <created>1653488335232</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1653488335232</updated>
-    </task>
-    <task id="LOCAL-00005" summary="添加 kafka  安装笔记">
-      <created>1653488765579</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1653488765579</updated>
-    </task>
-    <task id="LOCAL-00006" summary="添加 kafka  安装笔记">
-      <created>1653488842584</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1653488842584</updated>
-    </task>
-    <task id="LOCAL-00007" summary="添加 kafka  安装笔记">
-      <created>1653488906024</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1653488906024</updated>
-    </task>
-    <task id="LOCAL-00008" summary="添加 kafka  安装笔记">
-      <created>1653489200893</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1653489200893</updated>
-    </task>
-    <task id="LOCAL-00009" summary="添加 kafka  安装笔记">
-      <created>1653490177866</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1653490177866</updated>
-    </task>
-    <task id="LOCAL-00010" summary="添加 kafka  安装笔记">
-      <created>1653521963443</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1653521963443</updated>
-    </task>
-    <task id="LOCAL-00011" summary="添加 kafka  安装笔记">
-      <created>1653573264445</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1653573264445</updated>
-    </task>
-    <task id="LOCAL-00012" summary="禁用 ssl，解决">
-      <created>1653574775129</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1653574775129</updated>
-    </task>
-    <task id="LOCAL-00013" summary="添加 zk 启动笔记">
-      <created>1653575819225</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1653575819225</updated>
-    </task>
-    <task id="LOCAL-00014" summary="添加 zk 启动笔记">
-      <created>1653577600966</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1653577600966</updated>
-    </task>
-    <task id="LOCAL-00015" summary="添加 zk 启动笔记">
-      <created>1653579623845</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1653579623845</updated>
-    </task>
-    <task id="LOCAL-00016" summary="添加 zk 启动笔记">
-      <created>1653657239501</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1653657239501</updated>
-    </task>
-    <task id="LOCAL-00017" summary="添加 zk 启动笔记">
-      <created>1653659000138</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1653659000138</updated>
-    </task>
-    <task id="LOCAL-00018" summary="添加 zk 启动笔记">
-      <created>1682001553852</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1682001553852</updated>
-    </task>
-    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="添加 kafka demo" />
-    <MESSAGE value="添加 kafka  安装笔记" />
-    <MESSAGE value="禁用 ssl，解决" />
-    <MESSAGE value="添加 zk 启动笔记" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加 zk 启动笔记" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="509" y="104" key="CommitChangelistDialog2" timestamp="1682001553065">
-      <screen x="0" y="0" width="1842" height="1080" />
-    </state>
-    <state x="509" y="104" key="CommitChangelistDialog2/0.0.1842.1080@0.0.1842.1080" timestamp="1682001553065" />
-    <state x="701" y="294" key="FileChooserDialogImpl" timestamp="1682002007388">
-      <screen x="0" y="0" width="1842" height="1080" />
-    </state>
-    <state x="701" y="294" key="FileChooserDialogImpl/0.0.1842.1080@0.0.1842.1080" timestamp="1682002007388" />
-    <state x="401" y="114" key="SettingsEditor" timestamp="1682001330063">
-      <screen x="0" y="0" width="1842" height="1080" />
-    </state>
-    <state x="401" y="114" key="SettingsEditor/0.0.1842.1080@0.0.1842.1080" timestamp="1682001330063" />
-    <state x="513" y="272" key="Vcs.Push.Dialog.v2" timestamp="1682001558127">
-      <screen x="0" y="0" width="1842" height="1080" />
-    </state>
-    <state x="513" y="272" key="Vcs.Push.Dialog.v2/0.0.1842.1080@0.0.1842.1080" timestamp="1682001558127" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/rain/study/Test.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <option name="version" value="3" />
   </component>
 </project>
