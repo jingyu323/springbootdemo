@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import com.aspose.pdf.Document;
+import com.aspose.pdf.Page;
 import com.aspose.pdf.SaveFormat;
 
 
@@ -21,6 +22,14 @@ public class Pdf2Word {
             FileOutputStream os = new FileOutputStream(wordPath);
             //doc是将要被转化的word文档
             Document doc = new Document(pdfPath);
+            for (int i = 1; i <= doc.getPages().size(); i++)
+            {
+                Page page  = doc.getPages().get_Item(i);
+                System.out.println(page);
+            }
+
+
+            System.out.println(doc.getPages().size());
             //全面支持DOC, DOCX, OOXML, RTF HTML, OpenDocument, PDF, EPUB, XPS, SWF 相互转换
             doc.save(os, SaveFormat.DocX);
             os.close();
