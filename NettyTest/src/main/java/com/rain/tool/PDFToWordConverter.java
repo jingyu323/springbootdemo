@@ -10,6 +10,10 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/**
+ * 不保留格式
+ */
+
 public class PDFToWordConverter {
     public static void main(String[] args) throws IOException {
         // 加载PDF文件
@@ -25,7 +29,7 @@ public class PDFToWordConverter {
             para.createRun().setText(text);
 
             // 将文档保存为Word文件
-            try (FileOutputStream out = new FileOutputStream("example.docx")) {
+            try (FileOutputStream out = new FileOutputStream("example44.docx")) {
                 doc.write(out);
             }
         }
