@@ -3,6 +3,7 @@ package com.rain.tool.pdf;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.reflect.Modifier;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,6 +16,9 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 
 
+/***
+ * 能保留格式 但是有水印
+ */
 public class Pdf2Word {
     public static void main(String[] args) throws IOException {
         pdf2doc("E:\\study\\git\\springbootdemo\\NettyTest\\src\\main\\java\\com\\rain\\tool\\2222.pdf");
@@ -97,7 +101,7 @@ public class Pdf2Word {
                 System.out.println("duan-------" +  s);
             }
 
-
+//            removeWaterMark();
             System.out.println(doc.getPages().size());
             //全面支持DOC, DOCX, OOXML, RTF HTML, OpenDocument, PDF, EPUB, XPS, SWF 相互转换
             doc.save(os, SaveFormat.DocX);
@@ -109,5 +113,17 @@ public class Pdf2Word {
             System.out.println("Pdf 转 Word 失败...");
             e.printStackTrace();
         }
+    }
+
+
+
+    private static  void removeWaterMark() throws Exception {
+        Class<?> aClass = Class.forName("com.aspose.words.zzXyu");
+        java.lang.reflect.Field zzZXG = aClass.getDeclaredField("zzZXG");
+        zzZXG.setAccessible(true);
+        java.lang.reflect.Field modifiersField = zzZXG.getClass().getDeclaredField("modifiers");
+        modifiersField.setAccessible(true);
+        modifiersField.setInt(zzZXG, zzZXG.getModifiers() & ~Modifier.FINAL);
+        zzZXG.set(null,new byte[]{76, 73, 67, 69, 78, 83, 69, 70});
     }
 }
