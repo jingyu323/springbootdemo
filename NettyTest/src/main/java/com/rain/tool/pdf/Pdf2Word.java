@@ -17,7 +17,8 @@ import org.apache.pdfbox.text.PDFTextStripper;
 
 
 /***
- * 能保留格式 但是有水印
+ * 能保留格式 不添加额外水印  但是文档中有水印不会去除
+ * 下一步考虑怎去除文档中的水印
  */
 public class Pdf2Word {
     public static void main(String[] args) throws IOException {
