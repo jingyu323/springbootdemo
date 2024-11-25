@@ -1,8 +1,6 @@
 package com.rain.tool.pdf;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Modifier;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -12,6 +10,8 @@ import java.util.stream.Collectors;
 import com.aspose.pdf.Document;
 import com.aspose.pdf.Page;
 import com.aspose.pdf.SaveFormat;
+import com.aspose.pdf.devices.PngDevice;
+import com.aspose.pdf.devices.Resolution;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 
@@ -21,7 +21,12 @@ import org.apache.pdfbox.text.PDFTextStripper;
  */
 public class Pdf2Word {
     public static void main(String[] args) throws IOException {
-        pdf2doc("E:\\study\\git\\springbootdemo\\NettyTest\\src\\main\\java\\com\\rain\\tool\\2222.pdf");
+        pdf2doc("E:\\study\\git\\springbootdemo\\NettyTest\\src\\main\\java\\com\\rain\\tool\\mycat2映射关系.pdf");
+        pdf2ppt("E:\\study\\git\\springbootdemo\\NettyTest\\src\\main\\java\\com\\rain\\tool\\mycat2映射关系.pdf");
+        pdf2excel("E:\\study\\git\\springbootdemo\\NettyTest\\src\\main\\java\\com\\rain\\tool\\mycat2映射关系.pdf");
+        pdf2html("E:\\study\\git\\springbootdemo\\NettyTest\\src\\main\\java\\com\\rain\\tool\\mycat2映射关系.pdf");
+        pdf2imges( "E:\\study\\git\\springbootdemo\\NettyTest\\src\\main\\java\\com\\rain\\tool\\mycat2映射关系.pdf");
+
     }
 
     //pdf转doc
@@ -115,15 +120,76 @@ public class Pdf2Word {
         }
     }
 
+    public static void pdf2ppt(String pdfPath){
+        long old = System.currentTimeMillis();
+        String wordPath=pdfPath.substring(0,pdfPath.lastIndexOf("."))+".ppt";
+        try {
+            FileOutputStream os = new FileOutputStream(wordPath);
+            Document doc  = new Document(pdfPath);
+            doc.save(os, SaveFormat.Pptx);
+            os.close();
+            long now = System.currentTimeMillis();
+            System.out.println("Pdf 转 ppt 共耗时：" + ((now - old) / 1000.0) + "秒");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
-
-    private static  void removeWaterMark() throws Exception {
-        Class<?> aClass = Class.forName("com.aspose.words.zzXyu");
-        java.lang.reflect.Field zzZXG = aClass.getDeclaredField("zzZXG");
-        zzZXG.setAccessible(true);
-        java.lang.reflect.Field modifiersField = zzZXG.getClass().getDeclaredField("modifiers");
-        modifiersField.setAccessible(true);
-        modifiersField.setInt(zzZXG, zzZXG.getModifiers() & ~Modifier.FINAL);
-        zzZXG.set(null,new byte[]{76, 73, 67, 69, 78, 83, 69, 70});
     }
+
+    public static void pdf2excel(String pdfPath){
+        long old = System.currentTimeMillis();
+        String wordPath=pdfPath.substring(0,pdfPath.lastIndexOf("."))+".xlsx";
+        try {
+            FileOutputStream os = new FileOutputStream(wordPath);
+            Document doc  = new Document(pdfPath);
+            doc.save(os, SaveFormat.Excel);
+            os.close();
+            long now = System.currentTimeMillis();
+            System.out.println("Pdf 转 excel 共耗时：" + ((now - old) / 1000.0) + "秒");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    public static void pdf2html(String pdfPath){
+        long old = System.currentTimeMillis();
+        String wordPath=pdfPath.substring(0,pdfPath.lastIndexOf("."))+".html";
+
+        Document doc  = new Document(pdfPath);
+        doc.save(wordPath, SaveFormat.Html);
+
+        long now = System.currentTimeMillis();
+        System.out.println("Pdf 转 html 共耗时：" + ((now - old) / 1000.0) + "秒");
+
+    }
+    public static void pdf2imges(String pdfPath){
+        long old = System.currentTimeMillis();
+        Resolution resolution = new Resolution(300);
+        String wordPath=pdfPath.substring(0,pdfPath.lastIndexOf("."));
+        File imageDir = new File(wordPath+"_images");
+        imageDir.mkdirs();
+        try {
+
+            Document doc  = new Document(pdfPath);
+            PngDevice pngDevice  = new PngDevice(resolution);
+            for (int pageCount = 1; pageCount <= doc.getPages().size(); pageCount++){
+                OutputStream imageStream  = new FileOutputStream(imageDir+"/"+pageCount+".png");
+                pngDevice.process(doc.getPages().get_Item(pageCount), imageStream);
+                imageStream.close();
+            }
+
+            long now = System.currentTimeMillis();
+            System.out.println("Pdf 转 png 共耗时：" + ((now - old) / 1000.0) + "秒");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 }
