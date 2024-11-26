@@ -12,7 +12,15 @@ import com.aspose.pdf.Page;
 import com.aspose.pdf.SaveFormat;
 import com.aspose.pdf.devices.PngDevice;
 import com.aspose.pdf.devices.Resolution;
+import com.itextpdf.text.exceptions.UnsupportedPdfException;
+import com.itextpdf.text.pdf.*;
+import org.apache.pdfbox.cos.COSName;
 import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.PDResources;
+import org.apache.pdfbox.pdmodel.graphics.PDXObject;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.apache.pdfbox.text.PDFTextStripper;
 
 
@@ -22,12 +30,63 @@ import org.apache.pdfbox.text.PDFTextStripper;
  */
 public class Pdf2Word {
     public static void main(String[] args) throws IOException {
-        pdf2doc("E:\\study\\git\\springbootdemo\\NettyTest\\src\\main\\java\\com\\rain\\tool\\mycat2映射关系.pdf");
-        pdf2ppt("E:\\study\\git\\springbootdemo\\NettyTest\\src\\main\\java\\com\\rain\\tool\\mycat2映射关系.pdf");
-        pdf2excel("E:\\study\\git\\springbootdemo\\NettyTest\\src\\main\\java\\com\\rain\\tool\\mycat2映射关系.pdf");
-        pdf2html("E:\\study\\git\\springbootdemo\\NettyTest\\src\\main\\java\\com\\rain\\tool\\mycat2映射关系.pdf");
-        pdf2imges( "E:\\study\\git\\springbootdemo\\NettyTest\\src\\main\\java\\com\\rain\\tool\\mycat2映射关系.pdf");
+//        pdf2doc("E:\\study\\git\\springbootdemo\\NettyTest\\src\\main\\java\\com\\rain\\tool\\mycat2映射关系.pdf");
+        removeWaterMark("E:\\study\\git\\springbootdemo\\NettyTest\\src\\main\\java\\com\\rain\\tool\\mycat2映射关系.pdf");
+//        pdf2ppt("E:\\study\\git\\springbootdemo\\NettyTest\\src\\main\\java\\com\\rain\\tool\\mycat2映射关系.pdf");
+//        pdf2excel("E:\\study\\git\\springbootdemo\\NettyTest\\src\\main\\java\\com\\rain\\tool\\mycat2映射关系.pdf");
+//        pdf2html("E:\\study\\git\\springbootdemo\\NettyTest\\src\\main\\java\\com\\rain\\tool\\mycat2映射关系.pdf");
+//        pdf2imges( "E:\\study\\git\\springbootdemo\\NettyTest\\src\\main\\java\\com\\rain\\tool\\mycat2映射关系.pdf");
 
+    }
+
+
+    public static void extractImage(String filename){
+
+        PdfReader reader = null;
+        try {
+            //读取pdf文件
+            reader = new PdfReader(filename);
+            //获得pdf文件的页数
+            int sumPage = reader.getNumberOfPages();
+            //读取pdf文件中的每一页
+            for(int i = 1;i <= sumPage;i++){
+                //得到pdf每一页的字典对象
+                PdfDictionary dictionary = reader.getPageN(i);
+                //通过RESOURCES得到对应的字典对象
+                PdfDictionary res = (PdfDictionary) PdfReader.getPdfObject(dictionary.get(PdfName.RESOURCES));
+                //得到XOBJECT图片对象
+                PdfDictionary xobj = (PdfDictionary) PdfReader.getPdfObject(res.get(PdfName.XOBJECT));
+                if(xobj != null){
+                    for(Iterator it = xobj.getKeys().iterator();it.hasNext();){
+                        PdfObject obj = xobj.get((PdfName)it.next());
+                        if(obj.isIndirect()){
+                            PdfDictionary tg = (PdfDictionary) PdfReader.getPdfObject(obj);
+                            PdfName type = (PdfName) PdfReader.getPdfObject(tg.get(PdfName.SUBTYPE));
+                            if(PdfName.IMAGE.equals(type)){
+                                PdfObject object =  reader.getPdfObject(obj);
+                                if(object.isStream()){
+                                    PRStream prstream = (PRStream)object;
+                                    byte[] b;
+                                    try{
+                                        b = reader.getStreamBytes(prstream);
+                                    }catch(UnsupportedPdfException e){
+                                        b = reader.getStreamBytesRaw(prstream);
+                                    }
+                                    FileOutputStream output = new FileOutputStream(String.format("d:/pdf/output%d.jpg",i));
+                                    output.write(b);
+                                    output.flush();
+                                    output.close();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     //pdf转doc
@@ -118,6 +177,45 @@ public class Pdf2Word {
         } catch (Exception e) {
             System.out.println("Pdf 转 Word 失败...");
             e.printStackTrace();
+        }
+    }
+    public static void  removeWaterMark(String pdfPath){
+
+        try {
+            PDDocument document = PDDocument.load(new File(pdfPath));
+
+            for (PDPage page : document.getPages()) {
+                PDResources resources = page.getResources();
+                // 检查是否存在水印
+                if (resources != null) {
+                    for (COSName key : resources.getXObjectNames()) {
+                        PDXObject xObject = resources.getXObject(key);
+                        if (xObject instanceof PDImageXObject) {
+                            PDImageXObject imageXObject = (PDImageXObject) xObject;
+                            // 检查是否为水印
+//                            if (isWatermarkImage(imageXObject)) {
+//                                // 移除水印
+//                                resources.removeXObject(key);
+//                            }
+                        }
+                    }
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void removeWatermark(PDDocument document) {
+        for (PDPage page : document.getPages()) {
+            // 创建内容流，以便修改页面内容
+            try (PDPageContentStream contentStream = new PDPageContentStream(document, page, true, true)) {
+
+                // 这里需要编写删除水印文本的相关逻辑
+                // 假设水印是 "Sample Watermark"
+                // ... 实现逻辑 ...
+            } catch (IOException e) {
+                e.printStackTrace(); // 输出异常信息
+            }
         }
     }
 

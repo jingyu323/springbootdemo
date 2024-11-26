@@ -6,24 +6,20 @@ import java.util.List;
 import java.util.Map;
 
 
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Rectangle;
-import com.itextpdf.text.pdf.BaseFont;
-import com.itextpdf.text.pdf.PdfContentByte;
-import com.itextpdf.text.pdf.PdfReader;
-import com.itextpdf.text.pdf.PdfStamper;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.*;
 import com.itextpdf.text.pdf.parser.PdfReaderContentParser;
 
 public class PdfDelwaterUtil {
-    private static final String KEY_WORD = "EvaluationOnly.CreatedwithAspose.PDF.Copyright2002-2023AsposePtyLtd.";
+    private static final String KEY_WORD = "QQ:294712221";
     private static final String KEY_WORD_NEW = "";
 
     public static void main(String[] args) throws Exception {
         String source = "C:\\Users\\Administrator\\Desktop\\teds\\22223.pdf";
-        String target = "C:\\Users\\Administrator\\Desktop\\teds\\222231.pdf";
+        String filename ="E:\\study\\git\\springbootdemo\\NettyTest\\src\\main\\java\\com\\rain\\tool\\mycat2映射关系.pdf";
+        String target = "C:\\Users\\Administrator\\Desktop\\teds\\22223445.pdf";
         System.out.println("开始");
-        pdfReplace(source, target, KEY_WORD, KEY_WORD_NEW);
+        pdfReplace(filename, target, KEY_WORD, KEY_WORD_NEW);
         System.out.println("结束");
     }
 
@@ -149,25 +145,39 @@ public class PdfDelwaterUtil {
             //遍历每一页中的匹配项
             for (MatchItem item : items) {
                 canvas = stamper.getOverContent(page);
+                BaseFont bf = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", BaseFont.EMBEDDED);
+                float fontWidth = item.getFontWidth();
+                Font font = new Font(bf, fontWidth, Font.BOLD);
+                //设置字体和大小
+                canvas.setFontAndSize(font.getBaseFont(), fontWidth);
+
+
                 float x = item.getX();
                 float y = item.getY();
-                float fontWidth = item.getFontWidth();
+                canvas.showTextAligned(Element.ALIGN_LEFT, "eeee", x, y, -6);
+
+
                 canvas.saveState();
                 canvas.setColorFill(BaseColor.WHITE);
-                canvas.rectangle(x, y, fontWidth * keyWord.length(), fontWidth + 2);
+
+//                canvas.rotate(30);
+
+                canvas.rectangle(x, y, fontWidth * keyWord.length()*2+10, fontWidth +24);
+
+
+
                 canvas.fill();
                 canvas.restoreState();
                 //开始写入文本
                 canvas.beginText();
-                BaseFont bf = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", BaseFont.EMBEDDED);
-                Font font = new Font(bf, fontWidth, Font.BOLD);
-                //设置字体和大小
-                canvas.setFontAndSize(font.getBaseFont(), fontWidth);
+
+
                 //设置字体的输出位置
-                canvas.setTextMatrix(x, y + fontWidth / 10 + 0.5f);
+                canvas.setTextMatrix(x, y + fontWidth / 6 + 4.8f);
                 //要输出的text
-                canvas.showText(keyWordNew);
+                canvas.showText(" ");
                 canvas.endText();
+                canvas.saveState();
             }
         }
         stamper.close();
