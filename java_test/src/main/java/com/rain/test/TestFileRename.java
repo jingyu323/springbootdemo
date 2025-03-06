@@ -4,7 +4,7 @@ import java.io.File;
 
 public class TestFileRename {
     public static void main(String[] args) {
-        getFileList();
+        filenmecheck();
     }
     public  static  void getFileList(){
         String filePath2 = "E:\\home\\htkj\\dataLabelRootPath\\testLabel001";
@@ -28,4 +28,28 @@ public class TestFileRename {
         boolean res = file.renameTo(new File(filePath2));
         System.out.println(res);
     }
+
+
+    public static void filenmecheck(){
+        String filePath = "2_10X3023.jpg";
+//        String filePath = "1_10X1002.jpg";
+
+
+        if (filePath.split("X").length == 2) {
+            System.out.println(filePath.split("X")[1].substring(1, 4));
+            System.out.println(filePath.split("X")[1]);
+            System.out.println("L" + filePath.split("X")[1].substring(0, 1));
+            System.out.println(filePath.split("_")[0]);
+            System.out.println(filePath.split("_")[0]);
+        }else{
+            System.out.println("========"+filePath.split("X").length);
+        }
+
+
+
+    }
+
+
+
+
 }
