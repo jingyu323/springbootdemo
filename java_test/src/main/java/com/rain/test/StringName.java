@@ -25,9 +25,6 @@ public class StringName {
 
         System.out.println("Key with Max Value: " + keyWithMaxValue);
 
-
-
-
         System.out.println(names.length);
         if (names.length >2&&names[names.length-1].endsWith(".jpg")){
             for (String string : names) {
