@@ -5,9 +5,6 @@ import net.contentobjects.jnotify.JNotifyAdapter;
 import net.contentobjects.jnotify.JNotifyException;
 
 public class JnotifyTest extends JNotifyAdapter {
-
-
-
     //可以写到配置文件中
     private static final String REQUEST_BASE_PATH = "D:\\zhujiatun\\message";
     /**
