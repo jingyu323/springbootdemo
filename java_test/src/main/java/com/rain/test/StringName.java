@@ -1,14 +1,31 @@
 package com.rain.test;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class StringName {
 
     public static void main(String[] args) {
 
-        String name = "2_10X1023_2_10X1024.jpg";
+        String name = "8_10X3005.jpg";
         String[] names = name.split("X");
+
+        System.out.println(Integer.valueOf(name.split("X")[1].substring(1, 4)));
+        System.out.println("L" + name.split("X")[1].substring(0, 1));
+        System.out.println(Integer.valueOf(name.split("_")[0]));
+
+
+        Map<String,Double> map = new HashMap<>();
+
+                map.put("主排障器装饰扣-主排障器装饰扣正常", 0.2459955328660397);
+        map.put("主排障器装饰扣-主排障器装饰扣丢失",  0.7540044671339604);
+        String keyWithMaxValue = map.entrySet().stream()
+                .max(Comparator.comparing(Map.Entry::getValue))
+                .map(Map.Entry::getKey)
+                .orElse(null);
+
+        System.out.println("Key with Max Value: " + keyWithMaxValue);
+
+
 
 
         System.out.println(names.length);
