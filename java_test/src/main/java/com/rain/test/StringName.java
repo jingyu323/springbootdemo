@@ -1,5 +1,6 @@
 package com.rain.test;
 
+import java.nio.file.Paths;
 import java.util.*;
 
 public class StringName {
@@ -41,6 +42,10 @@ public class StringName {
             System.out.println(66666);
 
         }
+
+        String saveDirectory = Paths.get("sss", new String[] { "message" }).toString();
+
+        System.out.println(saveDirectory);
 
 
     }
