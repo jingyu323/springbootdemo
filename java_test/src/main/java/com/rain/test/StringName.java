@@ -1,10 +1,13 @@
 package com.rain.test;
 
+
+import java.awt.image.BufferedImage;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class StringName {
-
+    private static final SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
     public static void main(String[] args) {
 
         String name = "8_10X3005.jpg";
@@ -43,10 +46,22 @@ public class StringName {
 
         }
 
-        String saveDirectory = Paths.get("sss", new String[] { "message" }).toString();
+        String saveDirectory = Paths.get("sss", new String[] {"ssssdddd", "message" }).toString();
 
         System.out.println(saveDirectory);
 
+        String time = format.format(new Date());
 
+        System.out.println(time.substring(8));
+        System.out.println(time.substring(0,8));
+
+
+    }
+
+    private static BufferedImage resizeImage(BufferedImage originalImage, String rotate, int targetWidth, int targetHeight, String isHorz, String isVert) {
+        ImageProcessor ip = new ImageProcessor();
+        originalImage = ImageProcessor.rotate(originalImage, Integer.parseInt(rotate));
+        originalImage = ip.flip(originalImage, Boolean.parseBoolean(isHorz), Boolean.parseBoolean(isVert));
+        return originalImage;
     }
 }

@@ -31,6 +31,17 @@
             <artifactId>itextpdf</artifactId>
             <version>5.5.11</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+            <version>1.18.36</version>
+        </dependency>
     </dependencies>
 
 </project>
