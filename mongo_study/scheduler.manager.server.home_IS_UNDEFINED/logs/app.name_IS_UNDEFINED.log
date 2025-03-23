@@ -1,0 +1,392 @@
+2023-06-13 17:35:01,475 [main] INFO  org.mongodb.driver.client [SLF4JLogger.java : 71] - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync", "version": "4.9.1"}, "os": {"type": "Windows", "name": "Windows 8.1", "architecture": "amd64", "version": "6.3"}, "platform": "Java/Oracle Corporation/1.8.0_40-b25"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@6fdbe764, com.mongodb.Jep395RecordCodecProvider@51c668e3]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[192.168.182.142:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2023-06-13 17:35:01,511 [main] INFO  org.mongodb.driver.cluster [SLF4JLogger.java : 71] - Cluster description not yet available. Waiting for 30000 ms before timing out
+2023-06-13 17:35:11,467 [cluster-ClusterId{value='64883845023379671efa6a89', description='null'}-192.168.182.142:27017] INFO  org.mongodb.driver.cluster [SLF4JLogger.java : 76] - Exception in monitor thread while connecting to server 192.168.182.142:27017
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:73)
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:204)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:199)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:159)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at com.mongodb.internal.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:107)
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:82)
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:68)
+	... 4 common frames omitted
+2023-06-13 17:36:00,504 [main] INFO  org.mongodb.driver.client [SLF4JLogger.java : 71] - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync", "version": "4.9.1"}, "os": {"type": "Windows", "name": "Windows 8.1", "architecture": "amd64", "version": "6.3"}, "platform": "Java/Oracle Corporation/1.8.0_40-b25"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@2e6a8155, com.mongodb.Jep395RecordCodecProvider@6221a451]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[192.168.20.131:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2023-06-13 17:36:00,526 [main] INFO  org.mongodb.driver.cluster [SLF4JLogger.java : 71] - Cluster description not yet available. Waiting for 30000 ms before timing out
+2023-06-13 17:36:00,545 [cluster-ClusterId{value='648838802644191e2dcdc7f4', description='null'}-192.168.20.131:27017] INFO  org.mongodb.driver.cluster [SLF4JLogger.java : 71] - Monitor thread successfully connected to server with description ServerDescription{address=192.168.20.131:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=49166400}
+2023-06-13 17:36:00,575 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - admin
+2023-06-13 17:36:00,575 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - collection_test
+2023-06-13 17:36:00,575 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - config
+2023-06-13 17:36:00,575 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - local
+2023-06-13 17:36:00,576 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - rain
+2023-06-13 17:36:00,576 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - rain_test
+2023-06-13 17:36:00,576 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - raintest
+2023-06-13 17:36:00,576 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - runoob
+2023-06-13 17:36:00,576 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - test
+2023-06-13 17:36:06,573 [main] INFO  org.mongodb.driver.client [SLF4JLogger.java : 71] - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync", "version": "4.9.1"}, "os": {"type": "Windows", "name": "Windows 8.1", "architecture": "amd64", "version": "6.3"}, "platform": "Java/Oracle Corporation/1.8.0_40-b25"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@2e6a8155, com.mongodb.Jep395RecordCodecProvider@6221a451]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[192.168.20.131:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2023-06-13 17:36:06,580 [cluster-ClusterId{value='6488388646d1760851d8d979', description='null'}-192.168.20.131:27017] INFO  org.mongodb.driver.cluster [SLF4JLogger.java : 71] - Monitor thread successfully connected to server with description ServerDescription{address=192.168.20.131:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=13330300}
+2023-06-13 17:36:06,615 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - admin
+2023-06-13 17:36:06,615 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - collection_test
+2023-06-13 17:36:06,616 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - config
+2023-06-13 17:36:06,616 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - local
+2023-06-13 17:36:06,616 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - rain
+2023-06-13 17:36:06,616 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - rain_test
+2023-06-13 17:36:06,616 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - raintest
+2023-06-13 17:36:06,616 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - runoob
+2023-06-13 17:36:06,616 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - test
+2023-06-13 17:36:10,688 [main] INFO  org.mongodb.driver.client [SLF4JLogger.java : 71] - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync", "version": "4.9.1"}, "os": {"type": "Windows", "name": "Windows 8.1", "architecture": "amd64", "version": "6.3"}, "platform": "Java/Oracle Corporation/1.8.0_40-b25"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@2e6a8155, com.mongodb.Jep395RecordCodecProvider@6221a451]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[192.168.20.131:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2023-06-13 17:36:10,701 [cluster-ClusterId{value='6488388a57f0ea7f69c9744b', description='null'}-192.168.20.131:27017] INFO  org.mongodb.driver.cluster [SLF4JLogger.java : 71] - Monitor thread successfully connected to server with description ServerDescription{address=192.168.20.131:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=18724200}
+2023-06-13 17:36:10,745 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - admin
+2023-06-13 17:36:10,746 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - collection_test
+2023-06-13 17:36:10,746 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - config
+2023-06-13 17:36:10,746 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - local
+2023-06-13 17:36:10,746 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - rain
+2023-06-13 17:36:10,746 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - rain_test
+2023-06-13 17:36:10,747 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - raintest
+2023-06-13 17:36:10,747 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - runoob
+2023-06-13 17:36:10,747 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - test
+2023-06-13 17:38:30,133 [main] INFO  org.mongodb.driver.client [SLF4JLogger.java : 71] - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync", "version": "4.9.1"}, "os": {"type": "Windows", "name": "Windows 8.1", "architecture": "amd64", "version": "6.3"}, "platform": "Java/Oracle Corporation/1.8.0_40-b25"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@2e6a8155, com.mongodb.Jep395RecordCodecProvider@6221a451]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[192.168.20.131:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2023-06-13 17:38:30,142 [cluster-ClusterId{value='648839166dc5ab72fbb0e6b3', description='null'}-192.168.20.131:27017] INFO  org.mongodb.driver.cluster [SLF4JLogger.java : 71] - Monitor thread successfully connected to server with description ServerDescription{address=192.168.20.131:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=14121200}
+2023-06-13 17:38:30,143 [main] INFO  org.mongodb.driver.cluster [SLF4JLogger.java : 71] - Cluster description not yet available. Waiting for 30000 ms before timing out
+2023-06-13 17:38:30,169 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - admin
+2023-06-13 17:38:30,169 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - collection_test
+2023-06-13 17:38:30,170 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - config
+2023-06-13 17:38:30,170 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - local
+2023-06-13 17:38:30,170 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - rain
+2023-06-13 17:38:30,170 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - rain_test
+2023-06-13 17:38:30,170 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - raintest
+2023-06-13 17:38:30,170 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - runoob
+2023-06-13 17:38:30,170 [main] INFO  com.rain.test.DocumentsTest [DocumentsTest.java : 33] - test
+2023-06-15 09:30:27,332 [AMQP Connection 192.168.20.131:5672] ERROR c.r.c.impl.ForgivingExceptionHandler [ForgivingExceptionHandler.java : 119] - An unexpected connection driver error occurred
+java.net.SocketException: Socket Closed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.io.BufferedInputStream.fill(Unknown Source)
+	at java.io.BufferedInputStream.read(Unknown Source)
+	at java.io.DataInputStream.readUnsignedByte(Unknown Source)
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:90)
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184)
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:669)
+	at java.lang.Thread.run(Unknown Source)
+2023-06-15 10:44:50,827 [pool-2-thread-4] ERROR c.r.c.impl.ForgivingExceptionHandler [ForgivingExceptionHandler.java : 119] - Consumer com.rain.test.rabitmq.RabitMqTest$1@56fcd1ef (myConsumerTag) method handleDelivery for channel AMQChannel(amqp://admin@192.168.20.131:5672/,1) threw an exception for channel AMQChannel(amqp://admin@192.168.20.131:5672/,1)
+com.rabbitmq.client.AlreadyClosedException: channel is already closed due to clean channel shutdown; protocol method: #method<channel.close>(reply-code=200, reply-text=OK, class-id=0, method-id=0)
+	at com.rabbitmq.client.impl.AMQChannel.ensureIsOpen(AMQChannel.java:258)
+	at com.rabbitmq.client.impl.AMQChannel.transmit(AMQChannel.java:427)
+	at com.rabbitmq.client.impl.AMQChannel.transmit(AMQChannel.java:421)
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareChannelN.basicAck(RecoveryAwareChannelN.java:93)
+	at com.rabbitmq.client.impl.recovery.AutorecoveringChannel.basicAck(AutorecoveringChannel.java:439)
+	at com.rain.test.rabitmq.RabitMqTest$1.handleDelivery(RabitMqTest.java:138)
+	at com.rabbitmq.client.impl.ConsumerDispatcher$5.run(ConsumerDispatcher.java:149)
+	at com.rabbitmq.client.impl.ConsumerWorkService$WorkPoolRunnable.run(ConsumerWorkService.java:111)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+2023-06-15 10:52:50,861 [pool-2-thread-4] ERROR c.r.c.impl.ForgivingExceptionHandler [ForgivingExceptionHandler.java : 119] - Consumer com.rain.test.rabitmq.RabitMqTest$1@5090541d (myConsumerTag) method handleDelivery for channel AMQChannel(amqp://admin@192.168.20.131:5672/,1) threw an exception for channel AMQChannel(amqp://admin@192.168.20.131:5672/,1)
+com.rabbitmq.client.AlreadyClosedException: channel is already closed due to clean channel shutdown; protocol method: #method<channel.close>(reply-code=200, reply-text=OK, class-id=0, method-id=0)
+	at com.rabbitmq.client.impl.AMQChannel.ensureIsOpen(AMQChannel.java:258)
+	at com.rabbitmq.client.impl.AMQChannel.transmit(AMQChannel.java:427)
+	at com.rabbitmq.client.impl.AMQChannel.transmit(AMQChannel.java:421)
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareChannelN.basicAck(RecoveryAwareChannelN.java:93)
+	at com.rabbitmq.client.impl.recovery.AutorecoveringChannel.basicAck(AutorecoveringChannel.java:439)
+	at com.rain.test.rabitmq.RabitMqTest$1.handleDelivery(RabitMqTest.java:138)
+	at com.rabbitmq.client.impl.ConsumerDispatcher$5.run(ConsumerDispatcher.java:149)
+	at com.rabbitmq.client.impl.ConsumerWorkService$WorkPoolRunnable.run(ConsumerWorkService.java:111)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+2023-07-17 20:01:09,490 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 62] - Indexed with version 1
+2023-07-17 20:02:14,555 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 62] - Indexed with version 1
+2023-07-17 20:02:25,053 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 62] - Indexed with version 2
+2023-07-17 20:02:25,066 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 65] - product exists
+2023-07-17 20:03:03,180 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 62] - Indexed with version 1
+2023-07-17 20:03:03,187 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 65] - product exists
+2023-07-17 20:03:37,375 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 62] - Indexed with version 2
+2023-07-17 20:03:37,381 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 65] - product exists
+2023-07-17 20:04:11,441 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 62] - Indexed with version 3
+2023-07-17 20:04:11,447 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 65] - product exists
+2023-07-17 20:08:38,612 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 62] - Indexed with version 4
+2023-07-17 20:08:38,676 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 65] - product exists
+2023-07-17 20:10:18,049 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 62] - Indexed with version 5
+2023-07-17 20:10:18,056 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 65] - product exists
+2023-07-17 20:10:40,123 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 62] - Indexed with version 6
+2023-07-17 20:10:40,129 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 65] - product exists
+2023-07-17 20:18:28,500 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 62] - Indexed with version 7
+2023-07-17 20:18:28,506 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 65] - product exists
+2023-07-17 20:20:03,187 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 62] - Indexed with version 8
+2023-07-17 20:20:03,198 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 65] - product exists
+2023-07-17 20:20:28,789 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 62] - Indexed with version 9
+2023-07-17 20:20:28,795 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 65] - product exists
+2023-07-18 16:41:24,563 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 86] - There are 2 results
+2023-07-18 16:41:24,578 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 94] - Found product bk-2, score 0.8754687
+2023-07-18 16:41:24,578 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 94] - Found product bk-1, score 0.18232156
+2023-07-18 16:41:24,587 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 99] - product exists
+2023-07-18 16:44:44,702 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 86] - There are 2 results
+2023-07-18 16:44:44,704 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 94] - Found product bk-2, score 0.8754687
+2023-07-18 16:44:44,704 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 94] - Found product bk-1, score 0.18232156
+2023-07-18 16:44:44,712 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 99] - product exists
+2023-07-18 16:45:07,752 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 86] - There are 2 results
+2023-07-18 16:45:07,754 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 94] - Found product bk-2, score 0.8754687
+2023-07-18 16:45:07,754 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 94] - Found product bk-1, score 0.18232156
+2023-07-18 16:45:07,762 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 99] - product exists
+2023-07-18 16:45:35,176 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 86] - There are 2 results
+2023-07-18 16:45:35,178 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 94] - Found product bk-2, score 0.8754687
+2023-07-18 16:45:35,178 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 94] - Found product bk-1, score 0.18232156
+2023-07-18 16:45:35,186 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 99] - product exists
+2023-07-18 16:45:45,750 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 86] - There are 2 results
+2023-07-18 16:45:45,753 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 94] - Found product bk-2, score 0.8754687
+2023-07-18 16:45:45,753 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 94] - Found product bk-1, score 0.18232156
+2023-07-18 16:45:45,762 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 99] - product exists
+2023-07-18 17:02:47,883 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 73] - Indexed with version 1
+2023-07-18 17:03:58,991 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 73] - Indexed with version 2
+2023-07-18 17:04:24,774 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 73] - Indexed with version 1
+2023-07-18 17:06:00,504 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 73] - Indexed with version 2
+2023-07-18 17:08:20,226 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 75] - Indexed with version 3
+2023-07-18 17:19:09,536 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 75] - Indexed with version 1
+2023-07-19 17:26:26,373 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 173] - Indexed with version 1
+2023-07-19 19:45:09,096 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 230] - Found product bk-2, score 1.0
+2023-07-19 19:54:07,533 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 1 bikes under 123.0
+2023-07-19 19:54:07,535 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 124.0
+2023-07-19 19:54:07,535 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 1 bikes under 125.0
+2023-07-19 19:54:07,535 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 126.0
+2023-07-19 19:54:07,536 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 127.0
+2023-07-19 19:54:07,536 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 128.0
+2023-07-19 19:54:07,536 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 129.0
+2023-07-19 19:54:07,536 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 130.0
+2023-07-19 19:54:07,536 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 131.0
+2023-07-19 19:54:07,536 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 132.0
+2023-07-19 19:54:07,536 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 133.0
+2023-07-19 19:54:07,536 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 134.0
+2023-07-19 19:54:07,536 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 135.0
+2023-07-19 19:54:07,536 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 136.0
+2023-07-19 19:54:07,536 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 137.0
+2023-07-19 19:54:07,536 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 138.0
+2023-07-19 19:54:07,536 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 139.0
+2023-07-19 19:54:07,537 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 140.0
+2023-07-19 19:54:07,537 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 141.0
+2023-07-19 19:54:07,537 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 142.0
+2023-07-19 19:54:07,537 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 143.0
+2023-07-19 19:54:07,537 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 144.0
+2023-07-19 19:54:07,537 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 145.0
+2023-07-19 19:54:07,537 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 146.0
+2023-07-19 19:54:07,537 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 147.0
+2023-07-19 19:54:07,537 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 148.0
+2023-07-19 19:54:07,537 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 149.0
+2023-07-19 19:54:07,537 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 150.0
+2023-07-19 19:54:07,537 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 151.0
+2023-07-19 19:54:07,537 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 152.0
+2023-07-19 19:54:07,537 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 153.0
+2023-07-19 19:54:07,537 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 154.0
+2023-07-19 19:54:07,538 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 155.0
+2023-07-19 19:54:07,538 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 156.0
+2023-07-19 19:54:07,538 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 157.0
+2023-07-19 19:54:07,538 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 158.0
+2023-07-19 19:54:07,538 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 159.0
+2023-07-19 19:54:07,538 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 160.0
+2023-07-19 19:54:07,538 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 161.0
+2023-07-19 19:54:07,538 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 162.0
+2023-07-19 19:54:07,538 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 163.0
+2023-07-19 19:54:07,538 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 164.0
+2023-07-19 19:54:07,538 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 165.0
+2023-07-19 19:54:07,538 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 166.0
+2023-07-19 19:54:07,538 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 167.0
+2023-07-19 19:54:07,538 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 168.0
+2023-07-19 19:54:07,538 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 169.0
+2023-07-19 19:54:07,538 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 170.0
+2023-07-19 19:54:07,538 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 171.0
+2023-07-19 19:54:07,538 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 172.0
+2023-07-19 19:54:07,539 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 173.0
+2023-07-19 19:54:07,539 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 174.0
+2023-07-19 19:54:07,539 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 175.0
+2023-07-19 19:54:07,539 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 176.0
+2023-07-19 19:54:07,539 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 177.0
+2023-07-19 19:54:07,539 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 178.0
+2023-07-19 19:54:07,539 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 179.0
+2023-07-19 19:54:07,539 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 180.0
+2023-07-19 19:54:07,539 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 181.0
+2023-07-19 19:54:07,539 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 182.0
+2023-07-19 19:54:07,539 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 183.0
+2023-07-19 19:54:07,539 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 184.0
+2023-07-19 19:54:07,539 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 185.0
+2023-07-19 19:54:07,539 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 186.0
+2023-07-19 19:54:07,539 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 187.0
+2023-07-19 19:54:07,540 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 188.0
+2023-07-19 19:54:07,540 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 189.0
+2023-07-19 19:54:07,540 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 190.0
+2023-07-19 19:54:07,540 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 191.0
+2023-07-19 19:54:07,540 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 192.0
+2023-07-19 19:54:07,540 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 193.0
+2023-07-19 19:54:07,540 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 194.0
+2023-07-19 19:54:07,540 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 195.0
+2023-07-19 19:54:07,540 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 196.0
+2023-07-19 19:54:07,540 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 197.0
+2023-07-19 19:54:07,540 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 198.0
+2023-07-19 19:54:07,540 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 199.0
+2023-07-19 19:54:07,540 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 200.0
+2023-07-19 19:54:07,540 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 201.0
+2023-07-19 19:54:07,540 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 202.0
+2023-07-19 19:54:07,540 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 203.0
+2023-07-19 19:54:07,540 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 204.0
+2023-07-19 19:54:07,540 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 205.0
+2023-07-19 19:54:07,541 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 206.0
+2023-07-19 19:54:07,541 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 207.0
+2023-07-19 19:54:07,541 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 208.0
+2023-07-19 19:54:07,541 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 209.0
+2023-07-19 19:54:07,541 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 210.0
+2023-07-19 19:54:07,541 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 211.0
+2023-07-19 19:54:07,541 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 212.0
+2023-07-19 19:54:07,541 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 213.0
+2023-07-19 19:54:07,541 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 214.0
+2023-07-19 19:54:07,541 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 215.0
+2023-07-19 19:54:07,541 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 216.0
+2023-07-19 19:54:07,541 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 217.0
+2023-07-19 19:54:07,541 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 218.0
+2023-07-19 19:54:07,541 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 219.0
+2023-07-19 19:54:07,541 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 220.0
+2023-07-19 19:54:07,541 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 221.0
+2023-07-19 19:54:07,541 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 222.0
+2023-07-19 19:54:07,541 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 223.0
+2023-07-19 19:54:07,541 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 224.0
+2023-07-19 19:54:07,542 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 225.0
+2023-07-19 19:54:07,542 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 226.0
+2023-07-19 19:54:07,542 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 227.0
+2023-07-19 19:54:07,542 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 228.0
+2023-07-19 19:54:07,542 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 229.0
+2023-07-19 19:54:07,542 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 230.0
+2023-07-19 19:54:07,542 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 231.0
+2023-07-19 19:54:07,542 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 232.0
+2023-07-19 19:54:07,542 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 233.0
+2023-07-19 19:54:07,542 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 234.0
+2023-07-19 19:54:07,542 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 235.0
+2023-07-19 19:54:07,542 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 236.0
+2023-07-19 19:54:07,542 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 237.0
+2023-07-19 19:54:07,543 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 238.0
+2023-07-19 19:54:07,543 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 239.0
+2023-07-19 19:54:07,543 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 240.0
+2023-07-19 19:54:07,543 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 241.0
+2023-07-19 19:54:07,543 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 242.0
+2023-07-19 19:54:07,543 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 243.0
+2023-07-19 19:54:07,543 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 244.0
+2023-07-19 19:54:07,543 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 245.0
+2023-07-19 19:54:07,543 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 246.0
+2023-07-19 19:54:07,543 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 247.0
+2023-07-19 19:54:07,543 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 248.0
+2023-07-19 19:54:07,543 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 249.0
+2023-07-19 19:54:07,543 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 250.0
+2023-07-19 19:54:07,543 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 251.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 252.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 253.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 254.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 255.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 256.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 257.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 258.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 259.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 260.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 261.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 262.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 263.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 264.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 265.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 266.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 267.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 268.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 269.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 270.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 271.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 272.0
+2023-07-19 19:54:07,544 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 273.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 274.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 275.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 276.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 277.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 278.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 279.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 280.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 281.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 282.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 283.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 284.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 285.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 286.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 287.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 288.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 289.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 290.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 291.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 292.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 293.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 294.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 295.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 296.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 297.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 298.0
+2023-07-19 19:54:07,545 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 299.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 300.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 301.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 302.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 303.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 304.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 305.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 306.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 307.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 308.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 309.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 310.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 311.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 312.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 313.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 314.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 315.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 316.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 317.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 318.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 319.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 320.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 321.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 322.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 323.0
+2023-07-19 19:54:07,546 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 324.0
+2023-07-19 19:54:07,547 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 1 bikes under 325.0
+2023-07-19 19:54:07,547 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 326.0
+2023-07-19 19:54:07,547 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 327.0
+2023-07-19 19:54:07,547 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 328.0
+2023-07-19 19:54:07,547 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 329.0
+2023-07-19 19:54:07,547 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 330.0
+2023-07-19 19:54:07,547 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 331.0
+2023-07-19 19:54:07,547 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 332.0
+2023-07-19 19:54:07,547 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 333.0
+2023-07-19 19:54:07,547 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 334.0
+2023-07-19 19:54:07,547 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 1 bikes under 335.0
+2023-07-19 19:54:28,038 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 2 bikes under 120.0
+2023-07-19 19:54:28,040 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 130.0
+2023-07-19 19:54:28,040 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 140.0
+2023-07-19 19:54:28,040 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 150.0
+2023-07-19 19:54:28,041 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 160.0
+2023-07-19 19:54:28,041 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 170.0
+2023-07-19 19:54:28,041 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 180.0
+2023-07-19 19:54:28,041 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 190.0
+2023-07-19 19:54:28,041 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 200.0
+2023-07-19 19:54:28,041 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 210.0
+2023-07-19 19:54:28,041 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 220.0
+2023-07-19 19:54:28,041 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 230.0
+2023-07-19 19:54:28,041 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 240.0
+2023-07-19 19:54:28,041 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 250.0
+2023-07-19 19:54:28,041 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 260.0
+2023-07-19 19:54:28,041 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 270.0
+2023-07-19 19:54:28,041 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 280.0
+2023-07-19 19:54:28,041 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 290.0
+2023-07-19 19:54:28,042 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 300.0
+2023-07-19 19:54:28,042 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 0 bikes under 310.0
+2023-07-19 19:54:28,042 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 1 bikes under 320.0
+2023-07-19 19:54:28,042 [main] INFO  com.rain.es.test.EsConnectionTest [EsConnectionTest.java : 275] - There are 1 bikes under 330.0

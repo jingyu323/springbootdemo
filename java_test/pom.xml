@@ -18,8 +18,13 @@
     <dependencies>
         <dependency>
             <groupId>e-iceblue</groupId>
-            <artifactId>spire.doc.free</artifactId>
-            <version>3.9.0</version>
+            <artifactId>spire.pdf.free</artifactId>
+            <version>9.13.0</version>
+        </dependency>
+        <dependency>
+            <groupId>net.contentobjects.jnotify</groupId>
+            <artifactId>jnotify</artifactId>
+            <version>0.94</version>
         </dependency>
         <dependency>
             <groupId>com.itextpdf</groupId>

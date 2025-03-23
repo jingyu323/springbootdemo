@@ -1,0 +1,1356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htkj.station.sender.entity.TfOpVehicleMapper">
+  <resultMap id="BaseResultMap" type="com.htkj.station.sender.TfOpVehicle">
+    <id column="VEHICLE_SERIAL" jdbcType="VARCHAR" property="vehicleSerial" />
+    <result column="TRAIN_SERIAL" jdbcType="VARCHAR" property="trainSerial" />
+    <result column="VEHICLE_ID" jdbcType="VARCHAR" property="vehicleId" />
+    <result column="VEHICLE_SORT" jdbcType="VARCHAR" property="vehicleSort" />
+    <result column="VEHICLE_TYPE" jdbcType="VARCHAR" property="vehicleType" />
+    <result column="VEHICLE_ORDER" jdbcType="VARCHAR" property="vehicleOrder" />
+    <result column="MADE_FACTORY" jdbcType="VARCHAR" property="madeFactory" />
+    <result column="MADE_DATE" jdbcType="VARCHAR" property="madeDate" />
+    <result column="CONVERSION" jdbcType="VARCHAR" property="conversion" />
+    <result column="VEHICLE_OWNER" jdbcType="VARCHAR" property="vehicleOwner" />
+    <result column="AXES_DISTANCE" jdbcType="VARCHAR" property="axesDistance" />
+    <result column="MIDPART_PICS_NUMBER" jdbcType="NUMERIC" property="midpartPicsNumber" />
+    <result column="LOCK_VERSION" jdbcType="NUMERIC" property="lockVersion" />
+    <result column="FAULT_AUTO" jdbcType="NUMERIC" property="faultAuto" />
+    <result column="FAULT_MANUL" jdbcType="NUMERIC" property="faultManul" />
+    <result column="CAR_AXIS_NUMBER" jdbcType="NUMERIC" property="carAxisNumber" />
+    <result column="GRAB_INFO" jdbcType="VARCHAR" property="grabInfo" />
+    <result column="CMSPCAR_PICS_NUMBER" jdbcType="NUMERIC" property="cmspcarPicsNumber" />
+    <result column="DMSPCAR_PICS_NUMBER" jdbcType="NUMERIC" property="dmspcarPicsNumber" />
+    <result column="POS_AB_FLAG" jdbcType="VARCHAR" property="posAbFlag" />
+    <result column="MIDPARTCM_PICS_NUMBER" jdbcType="NUMERIC" property="midpartcmPicsNumber" />
+    <result column="CMCTCAR_PICS_NUMBER" jdbcType="NUMERIC" property="cmctcarPicsNumber" />
+    <result column="CMCAR_PICS_NUMBER" jdbcType="NUMERIC" property="cmcarPicsNumber" />
+    <result column="DMCAR_PICS_NUMBER" jdbcType="NUMERIC" property="dmcarPicsNumber" />
+    <result column="FILE_CREATED_RESULT" jdbcType="VARCHAR" property="fileCreatedResult" />
+    <result column="FILE_CREATED_REMARK" jdbcType="VARCHAR" property="fileCreatedRemark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    VEHICLE_SERIAL, TRAIN_SERIAL, VEHICLE_ID, VEHICLE_SORT, VEHICLE_TYPE, VEHICLE_ORDER, 
+    MADE_FACTORY, MADE_DATE, CONVERSION, VEHICLE_OWNER, AXES_DISTANCE, MIDPART_PICS_NUMBER, 
+    LOCK_VERSION, FAULT_AUTO, FAULT_MANUL, CAR_AXIS_NUMBER, GRAB_INFO, CMSPCAR_PICS_NUMBER, 
+    DMSPCAR_PICS_NUMBER, POS_AB_FLAG, MIDPARTCM_PICS_NUMBER, CMCTCAR_PICS_NUMBER, CMCAR_PICS_NUMBER, 
+    DMCAR_PICS_NUMBER, FILE_CREATED_RESULT, FILE_CREATED_REMARK
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TF_OP_VEHICLE
+    where VEHICLE_SERIAL = #{vehicleSerial,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TF_OP_VEHICLE
+    where VEHICLE_SERIAL = #{vehicleSerial,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.htkj.station.sender.TfOpVehicle">
+    insert into TF_OP_VEHICLE (VEHICLE_SERIAL, TRAIN_SERIAL, VEHICLE_ID, 
+      VEHICLE_SORT, VEHICLE_TYPE, VEHICLE_ORDER, 
+      MADE_FACTORY, MADE_DATE, CONVERSION, 
+      VEHICLE_OWNER, AXES_DISTANCE, MIDPART_PICS_NUMBER, 
+      LOCK_VERSION, FAULT_AUTO, FAULT_MANUL, 
+      CAR_AXIS_NUMBER, GRAB_INFO, CMSPCAR_PICS_NUMBER, 
+      DMSPCAR_PICS_NUMBER, POS_AB_FLAG, MIDPARTCM_PICS_NUMBER, 
+      CMCTCAR_PICS_NUMBER, CMCAR_PICS_NUMBER, DMCAR_PICS_NUMBER, 
+      FILE_CREATED_RESULT, FILE_CREATED_REMARK)
+    values (#{vehicleSerial,jdbcType=VARCHAR}, #{trainSerial,jdbcType=VARCHAR}, #{vehicleId,jdbcType=VARCHAR}, 
+      #{vehicleSort,jdbcType=VARCHAR}, #{vehicleType,jdbcType=VARCHAR}, #{vehicleOrder,jdbcType=VARCHAR}, 
+      #{madeFactory,jdbcType=VARCHAR}, #{madeDate,jdbcType=VARCHAR}, #{conversion,jdbcType=VARCHAR}, 
+      #{vehicleOwner,jdbcType=VARCHAR}, #{axesDistance,jdbcType=VARCHAR}, #{midpartPicsNumber,jdbcType=NUMERIC}, 
+      #{lockVersion,jdbcType=NUMERIC}, #{faultAuto,jdbcType=NUMERIC}, #{faultManul,jdbcType=NUMERIC}, 
+      #{carAxisNumber,jdbcType=NUMERIC}, #{grabInfo,jdbcType=VARCHAR}, #{cmspcarPicsNumber,jdbcType=NUMERIC}, 
+      #{dmspcarPicsNumber,jdbcType=NUMERIC}, #{posAbFlag,jdbcType=VARCHAR}, #{midpartcmPicsNumber,jdbcType=NUMERIC}, 
+      #{cmctcarPicsNumber,jdbcType=NUMERIC}, #{cmcarPicsNumber,jdbcType=NUMERIC}, #{dmcarPicsNumber,jdbcType=NUMERIC}, 
+      #{fileCreatedResult,jdbcType=VARCHAR}, #{fileCreatedRemark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.htkj.station.sender.TfOpVehicle">
+    insert into TF_OP_VEHICLE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="vehicleSerial != null">
+        VEHICLE_SERIAL,
+      </if>
+      <if test="trainSerial != null">
+        TRAIN_SERIAL,
+      </if>
+      <if test="vehicleId != null">
+        VEHICLE_ID,
+      </if>
+      <if test="vehicleSort != null">
+        VEHICLE_SORT,
+      </if>
+      <if test="vehicleType != null">
+        VEHICLE_TYPE,
+      </if>
+      <if test="vehicleOrder != null">
+        VEHICLE_ORDER,
+      </if>
+      <if test="madeFactory != null">
+        MADE_FACTORY,
+      </if>
+      <if test="madeDate != null">
+        MADE_DATE,
+      </if>
+      <if test="conversion != null">
+        CONVERSION,
+      </if>
+      <if test="vehicleOwner != null">
+        VEHICLE_OWNER,
+      </if>
+      <if test="axesDistance != null">
+        AXES_DISTANCE,
+      </if>
+      <if test="midpartPicsNumber != null">
+        MIDPART_PICS_NUMBER,
+      </if>
+      <if test="lockVersion != null">
+        LOCK_VERSION,
+      </if>
+      <if test="faultAuto != null">
+        FAULT_AUTO,
+      </if>
+      <if test="faultManul != null">
+        FAULT_MANUL,
+      </if>
+      <if test="carAxisNumber != null">
+        CAR_AXIS_NUMBER,
+      </if>
+      <if test="grabInfo != null">
+        GRAB_INFO,
+      </if>
+      <if test="cmspcarPicsNumber != null">
+        CMSPCAR_PICS_NUMBER,
+      </if>
+      <if test="dmspcarPicsNumber != null">
+        DMSPCAR_PICS_NUMBER,
+      </if>
+      <if test="posAbFlag != null">
+        POS_AB_FLAG,
+      </if>
+      <if test="midpartcmPicsNumber != null">
+        MIDPARTCM_PICS_NUMBER,
+      </if>
+      <if test="cmctcarPicsNumber != null">
+        CMCTCAR_PICS_NUMBER,
+      </if>
+      <if test="cmcarPicsNumber != null">
+        CMCAR_PICS_NUMBER,
+      </if>
+      <if test="dmcarPicsNumber != null">
+        DMCAR_PICS_NUMBER,
+      </if>
+      <if test="fileCreatedResult != null">
+        FILE_CREATED_RESULT,
+      </if>
+      <if test="fileCreatedRemark != null">
+        FILE_CREATED_REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="vehicleSerial != null">
+        #{vehicleSerial,jdbcType=VARCHAR},
+      </if>
+      <if test="trainSerial != null">
+        #{trainSerial,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleId != null">
+        #{vehicleId,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleSort != null">
+        #{vehicleSort,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleType != null">
+        #{vehicleType,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleOrder != null">
+        #{vehicleOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="madeFactory != null">
+        #{madeFactory,jdbcType=VARCHAR},
+      </if>
+      <if test="madeDate != null">
+        #{madeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="conversion != null">
+        #{conversion,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleOwner != null">
+        #{vehicleOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="axesDistance != null">
+        #{axesDistance,jdbcType=VARCHAR},
+      </if>
+      <if test="midpartPicsNumber != null">
+        #{midpartPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="lockVersion != null">
+        #{lockVersion,jdbcType=NUMERIC},
+      </if>
+      <if test="faultAuto != null">
+        #{faultAuto,jdbcType=NUMERIC},
+      </if>
+      <if test="faultManul != null">
+        #{faultManul,jdbcType=NUMERIC},
+      </if>
+      <if test="carAxisNumber != null">
+        #{carAxisNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="grabInfo != null">
+        #{grabInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="cmspcarPicsNumber != null">
+        #{cmspcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="dmspcarPicsNumber != null">
+        #{dmspcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="posAbFlag != null">
+        #{posAbFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="midpartcmPicsNumber != null">
+        #{midpartcmPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="cmctcarPicsNumber != null">
+        #{cmctcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="cmcarPicsNumber != null">
+        #{cmcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="dmcarPicsNumber != null">
+        #{dmcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="fileCreatedResult != null">
+        #{fileCreatedResult,jdbcType=VARCHAR},
+      </if>
+      <if test="fileCreatedRemark != null">
+        #{fileCreatedRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.htkj.station.sender.TfOpVehicle">
+    update TF_OP_VEHICLE
+    <set>
+      <if test="trainSerial != null">
+        TRAIN_SERIAL = #{trainSerial,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleId != null">
+        VEHICLE_ID = #{vehicleId,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleSort != null">
+        VEHICLE_SORT = #{vehicleSort,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleType != null">
+        VEHICLE_TYPE = #{vehicleType,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleOrder != null">
+        VEHICLE_ORDER = #{vehicleOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="madeFactory != null">
+        MADE_FACTORY = #{madeFactory,jdbcType=VARCHAR},
+      </if>
+      <if test="madeDate != null">
+        MADE_DATE = #{madeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="conversion != null">
+        CONVERSION = #{conversion,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleOwner != null">
+        VEHICLE_OWNER = #{vehicleOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="axesDistance != null">
+        AXES_DISTANCE = #{axesDistance,jdbcType=VARCHAR},
+      </if>
+      <if test="midpartPicsNumber != null">
+        MIDPART_PICS_NUMBER = #{midpartPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="lockVersion != null">
+        LOCK_VERSION = #{lockVersion,jdbcType=NUMERIC},
+      </if>
+      <if test="faultAuto != null">
+        FAULT_AUTO = #{faultAuto,jdbcType=NUMERIC},
+      </if>
+      <if test="faultManul != null">
+        FAULT_MANUL = #{faultManul,jdbcType=NUMERIC},
+      </if>
+      <if test="carAxisNumber != null">
+        CAR_AXIS_NUMBER = #{carAxisNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="grabInfo != null">
+        GRAB_INFO = #{grabInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="cmspcarPicsNumber != null">
+        CMSPCAR_PICS_NUMBER = #{cmspcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="dmspcarPicsNumber != null">
+        DMSPCAR_PICS_NUMBER = #{dmspcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="posAbFlag != null">
+        POS_AB_FLAG = #{posAbFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="midpartcmPicsNumber != null">
+        MIDPARTCM_PICS_NUMBER = #{midpartcmPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="cmctcarPicsNumber != null">
+        CMCTCAR_PICS_NUMBER = #{cmctcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="cmcarPicsNumber != null">
+        CMCAR_PICS_NUMBER = #{cmcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="dmcarPicsNumber != null">
+        DMCAR_PICS_NUMBER = #{dmcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="fileCreatedResult != null">
+        FILE_CREATED_RESULT = #{fileCreatedResult,jdbcType=VARCHAR},
+      </if>
+      <if test="fileCreatedRemark != null">
+        FILE_CREATED_REMARK = #{fileCreatedRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where VEHICLE_SERIAL = #{vehicleSerial,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.htkj.station.sender.TfOpVehicle">
+    update TF_OP_VEHICLE
+    set TRAIN_SERIAL = #{trainSerial,jdbcType=VARCHAR},
+      VEHICLE_ID = #{vehicleId,jdbcType=VARCHAR},
+      VEHICLE_SORT = #{vehicleSort,jdbcType=VARCHAR},
+      VEHICLE_TYPE = #{vehicleType,jdbcType=VARCHAR},
+      VEHICLE_ORDER = #{vehicleOrder,jdbcType=VARCHAR},
+      MADE_FACTORY = #{madeFactory,jdbcType=VARCHAR},
+      MADE_DATE = #{madeDate,jdbcType=VARCHAR},
+      CONVERSION = #{conversion,jdbcType=VARCHAR},
+      VEHICLE_OWNER = #{vehicleOwner,jdbcType=VARCHAR},
+      AXES_DISTANCE = #{axesDistance,jdbcType=VARCHAR},
+      MIDPART_PICS_NUMBER = #{midpartPicsNumber,jdbcType=NUMERIC},
+      LOCK_VERSION = #{lockVersion,jdbcType=NUMERIC},
+      FAULT_AUTO = #{faultAuto,jdbcType=NUMERIC},
+      FAULT_MANUL = #{faultManul,jdbcType=NUMERIC},
+      CAR_AXIS_NUMBER = #{carAxisNumber,jdbcType=NUMERIC},
+      GRAB_INFO = #{grabInfo,jdbcType=VARCHAR},
+      CMSPCAR_PICS_NUMBER = #{cmspcarPicsNumber,jdbcType=NUMERIC},
+      DMSPCAR_PICS_NUMBER = #{dmspcarPicsNumber,jdbcType=NUMERIC},
+      POS_AB_FLAG = #{posAbFlag,jdbcType=VARCHAR},
+      MIDPARTCM_PICS_NUMBER = #{midpartcmPicsNumber,jdbcType=NUMERIC},
+      CMCTCAR_PICS_NUMBER = #{cmctcarPicsNumber,jdbcType=NUMERIC},
+      CMCAR_PICS_NUMBER = #{cmcarPicsNumber,jdbcType=NUMERIC},
+      DMCAR_PICS_NUMBER = #{dmcarPicsNumber,jdbcType=NUMERIC},
+      FILE_CREATED_RESULT = #{fileCreatedResult,jdbcType=VARCHAR},
+      FILE_CREATED_REMARK = #{fileCreatedRemark,jdbcType=VARCHAR}
+    where VEHICLE_SERIAL = #{vehicleSerial,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.htkj.station.sender.TfOpVehicle">
+    <id column="VEHICLE_SERIAL" jdbcType="VARCHAR" property="vehicleSerial" />
+    <result column="TRAIN_SERIAL" jdbcType="VARCHAR" property="trainSerial" />
+    <result column="VEHICLE_ID" jdbcType="VARCHAR" property="vehicleId" />
+    <result column="VEHICLE_SORT" jdbcType="VARCHAR" property="vehicleSort" />
+    <result column="VEHICLE_TYPE" jdbcType="VARCHAR" property="vehicleType" />
+    <result column="VEHICLE_ORDER" jdbcType="VARCHAR" property="vehicleOrder" />
+    <result column="MADE_FACTORY" jdbcType="VARCHAR" property="madeFactory" />
+    <result column="MADE_DATE" jdbcType="VARCHAR" property="madeDate" />
+    <result column="CONVERSION" jdbcType="VARCHAR" property="conversion" />
+    <result column="VEHICLE_OWNER" jdbcType="VARCHAR" property="vehicleOwner" />
+    <result column="AXES_DISTANCE" jdbcType="VARCHAR" property="axesDistance" />
+    <result column="MIDPART_PICS_NUMBER" jdbcType="NUMERIC" property="midpartPicsNumber" />
+    <result column="LOCK_VERSION" jdbcType="NUMERIC" property="lockVersion" />
+    <result column="FAULT_AUTO" jdbcType="NUMERIC" property="faultAuto" />
+    <result column="FAULT_MANUL" jdbcType="NUMERIC" property="faultManul" />
+    <result column="CAR_AXIS_NUMBER" jdbcType="NUMERIC" property="carAxisNumber" />
+    <result column="GRAB_INFO" jdbcType="VARCHAR" property="grabInfo" />
+    <result column="CMSPCAR_PICS_NUMBER" jdbcType="NUMERIC" property="cmspcarPicsNumber" />
+    <result column="DMSPCAR_PICS_NUMBER" jdbcType="NUMERIC" property="dmspcarPicsNumber" />
+    <result column="POS_AB_FLAG" jdbcType="VARCHAR" property="posAbFlag" />
+    <result column="MIDPARTCM_PICS_NUMBER" jdbcType="NUMERIC" property="midpartcmPicsNumber" />
+    <result column="CMCTCAR_PICS_NUMBER" jdbcType="NUMERIC" property="cmctcarPicsNumber" />
+    <result column="CMCAR_PICS_NUMBER" jdbcType="NUMERIC" property="cmcarPicsNumber" />
+    <result column="DMCAR_PICS_NUMBER" jdbcType="NUMERIC" property="dmcarPicsNumber" />
+    <result column="FILE_CREATED_RESULT" jdbcType="VARCHAR" property="fileCreatedResult" />
+    <result column="FILE_CREATED_REMARK" jdbcType="VARCHAR" property="fileCreatedRemark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    VEHICLE_SERIAL, TRAIN_SERIAL, VEHICLE_ID, VEHICLE_SORT, VEHICLE_TYPE, VEHICLE_ORDER, 
+    MADE_FACTORY, MADE_DATE, CONVERSION, VEHICLE_OWNER, AXES_DISTANCE, MIDPART_PICS_NUMBER, 
+    LOCK_VERSION, FAULT_AUTO, FAULT_MANUL, CAR_AXIS_NUMBER, GRAB_INFO, CMSPCAR_PICS_NUMBER, 
+    DMSPCAR_PICS_NUMBER, POS_AB_FLAG, MIDPARTCM_PICS_NUMBER, CMCTCAR_PICS_NUMBER, CMCAR_PICS_NUMBER, 
+    DMCAR_PICS_NUMBER, FILE_CREATED_RESULT, FILE_CREATED_REMARK
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TF_OP_VEHICLE
+    where VEHICLE_SERIAL = #{vehicleSerial,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TF_OP_VEHICLE
+    where VEHICLE_SERIAL = #{vehicleSerial,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.htkj.station.sender.TfOpVehicle">
+    insert into TF_OP_VEHICLE (VEHICLE_SERIAL, TRAIN_SERIAL, VEHICLE_ID, 
+      VEHICLE_SORT, VEHICLE_TYPE, VEHICLE_ORDER, 
+      MADE_FACTORY, MADE_DATE, CONVERSION, 
+      VEHICLE_OWNER, AXES_DISTANCE, MIDPART_PICS_NUMBER, 
+      LOCK_VERSION, FAULT_AUTO, FAULT_MANUL, 
+      CAR_AXIS_NUMBER, GRAB_INFO, CMSPCAR_PICS_NUMBER, 
+      DMSPCAR_PICS_NUMBER, POS_AB_FLAG, MIDPARTCM_PICS_NUMBER, 
+      CMCTCAR_PICS_NUMBER, CMCAR_PICS_NUMBER, DMCAR_PICS_NUMBER, 
+      FILE_CREATED_RESULT, FILE_CREATED_REMARK)
+    values (#{vehicleSerial,jdbcType=VARCHAR}, #{trainSerial,jdbcType=VARCHAR}, #{vehicleId,jdbcType=VARCHAR}, 
+      #{vehicleSort,jdbcType=VARCHAR}, #{vehicleType,jdbcType=VARCHAR}, #{vehicleOrder,jdbcType=VARCHAR}, 
+      #{madeFactory,jdbcType=VARCHAR}, #{madeDate,jdbcType=VARCHAR}, #{conversion,jdbcType=VARCHAR}, 
+      #{vehicleOwner,jdbcType=VARCHAR}, #{axesDistance,jdbcType=VARCHAR}, #{midpartPicsNumber,jdbcType=NUMERIC}, 
+      #{lockVersion,jdbcType=NUMERIC}, #{faultAuto,jdbcType=NUMERIC}, #{faultManul,jdbcType=NUMERIC}, 
+      #{carAxisNumber,jdbcType=NUMERIC}, #{grabInfo,jdbcType=VARCHAR}, #{cmspcarPicsNumber,jdbcType=NUMERIC}, 
+      #{dmspcarPicsNumber,jdbcType=NUMERIC}, #{posAbFlag,jdbcType=VARCHAR}, #{midpartcmPicsNumber,jdbcType=NUMERIC}, 
+      #{cmctcarPicsNumber,jdbcType=NUMERIC}, #{cmcarPicsNumber,jdbcType=NUMERIC}, #{dmcarPicsNumber,jdbcType=NUMERIC}, 
+      #{fileCreatedResult,jdbcType=VARCHAR}, #{fileCreatedRemark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.htkj.station.sender.TfOpVehicle">
+    insert into TF_OP_VEHICLE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="vehicleSerial != null">
+        VEHICLE_SERIAL,
+      </if>
+      <if test="trainSerial != null">
+        TRAIN_SERIAL,
+      </if>
+      <if test="vehicleId != null">
+        VEHICLE_ID,
+      </if>
+      <if test="vehicleSort != null">
+        VEHICLE_SORT,
+      </if>
+      <if test="vehicleType != null">
+        VEHICLE_TYPE,
+      </if>
+      <if test="vehicleOrder != null">
+        VEHICLE_ORDER,
+      </if>
+      <if test="madeFactory != null">
+        MADE_FACTORY,
+      </if>
+      <if test="madeDate != null">
+        MADE_DATE,
+      </if>
+      <if test="conversion != null">
+        CONVERSION,
+      </if>
+      <if test="vehicleOwner != null">
+        VEHICLE_OWNER,
+      </if>
+      <if test="axesDistance != null">
+        AXES_DISTANCE,
+      </if>
+      <if test="midpartPicsNumber != null">
+        MIDPART_PICS_NUMBER,
+      </if>
+      <if test="lockVersion != null">
+        LOCK_VERSION,
+      </if>
+      <if test="faultAuto != null">
+        FAULT_AUTO,
+      </if>
+      <if test="faultManul != null">
+        FAULT_MANUL,
+      </if>
+      <if test="carAxisNumber != null">
+        CAR_AXIS_NUMBER,
+      </if>
+      <if test="grabInfo != null">
+        GRAB_INFO,
+      </if>
+      <if test="cmspcarPicsNumber != null">
+        CMSPCAR_PICS_NUMBER,
+      </if>
+      <if test="dmspcarPicsNumber != null">
+        DMSPCAR_PICS_NUMBER,
+      </if>
+      <if test="posAbFlag != null">
+        POS_AB_FLAG,
+      </if>
+      <if test="midpartcmPicsNumber != null">
+        MIDPARTCM_PICS_NUMBER,
+      </if>
+      <if test="cmctcarPicsNumber != null">
+        CMCTCAR_PICS_NUMBER,
+      </if>
+      <if test="cmcarPicsNumber != null">
+        CMCAR_PICS_NUMBER,
+      </if>
+      <if test="dmcarPicsNumber != null">
+        DMCAR_PICS_NUMBER,
+      </if>
+      <if test="fileCreatedResult != null">
+        FILE_CREATED_RESULT,
+      </if>
+      <if test="fileCreatedRemark != null">
+        FILE_CREATED_REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="vehicleSerial != null">
+        #{vehicleSerial,jdbcType=VARCHAR},
+      </if>
+      <if test="trainSerial != null">
+        #{trainSerial,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleId != null">
+        #{vehicleId,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleSort != null">
+        #{vehicleSort,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleType != null">
+        #{vehicleType,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleOrder != null">
+        #{vehicleOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="madeFactory != null">
+        #{madeFactory,jdbcType=VARCHAR},
+      </if>
+      <if test="madeDate != null">
+        #{madeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="conversion != null">
+        #{conversion,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleOwner != null">
+        #{vehicleOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="axesDistance != null">
+        #{axesDistance,jdbcType=VARCHAR},
+      </if>
+      <if test="midpartPicsNumber != null">
+        #{midpartPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="lockVersion != null">
+        #{lockVersion,jdbcType=NUMERIC},
+      </if>
+      <if test="faultAuto != null">
+        #{faultAuto,jdbcType=NUMERIC},
+      </if>
+      <if test="faultManul != null">
+        #{faultManul,jdbcType=NUMERIC},
+      </if>
+      <if test="carAxisNumber != null">
+        #{carAxisNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="grabInfo != null">
+        #{grabInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="cmspcarPicsNumber != null">
+        #{cmspcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="dmspcarPicsNumber != null">
+        #{dmspcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="posAbFlag != null">
+        #{posAbFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="midpartcmPicsNumber != null">
+        #{midpartcmPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="cmctcarPicsNumber != null">
+        #{cmctcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="cmcarPicsNumber != null">
+        #{cmcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="dmcarPicsNumber != null">
+        #{dmcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="fileCreatedResult != null">
+        #{fileCreatedResult,jdbcType=VARCHAR},
+      </if>
+      <if test="fileCreatedRemark != null">
+        #{fileCreatedRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.htkj.station.sender.TfOpVehicle">
+    update TF_OP_VEHICLE
+    <set>
+      <if test="trainSerial != null">
+        TRAIN_SERIAL = #{trainSerial,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleId != null">
+        VEHICLE_ID = #{vehicleId,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleSort != null">
+        VEHICLE_SORT = #{vehicleSort,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleType != null">
+        VEHICLE_TYPE = #{vehicleType,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleOrder != null">
+        VEHICLE_ORDER = #{vehicleOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="madeFactory != null">
+        MADE_FACTORY = #{madeFactory,jdbcType=VARCHAR},
+      </if>
+      <if test="madeDate != null">
+        MADE_DATE = #{madeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="conversion != null">
+        CONVERSION = #{conversion,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleOwner != null">
+        VEHICLE_OWNER = #{vehicleOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="axesDistance != null">
+        AXES_DISTANCE = #{axesDistance,jdbcType=VARCHAR},
+      </if>
+      <if test="midpartPicsNumber != null">
+        MIDPART_PICS_NUMBER = #{midpartPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="lockVersion != null">
+        LOCK_VERSION = #{lockVersion,jdbcType=NUMERIC},
+      </if>
+      <if test="faultAuto != null">
+        FAULT_AUTO = #{faultAuto,jdbcType=NUMERIC},
+      </if>
+      <if test="faultManul != null">
+        FAULT_MANUL = #{faultManul,jdbcType=NUMERIC},
+      </if>
+      <if test="carAxisNumber != null">
+        CAR_AXIS_NUMBER = #{carAxisNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="grabInfo != null">
+        GRAB_INFO = #{grabInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="cmspcarPicsNumber != null">
+        CMSPCAR_PICS_NUMBER = #{cmspcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="dmspcarPicsNumber != null">
+        DMSPCAR_PICS_NUMBER = #{dmspcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="posAbFlag != null">
+        POS_AB_FLAG = #{posAbFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="midpartcmPicsNumber != null">
+        MIDPARTCM_PICS_NUMBER = #{midpartcmPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="cmctcarPicsNumber != null">
+        CMCTCAR_PICS_NUMBER = #{cmctcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="cmcarPicsNumber != null">
+        CMCAR_PICS_NUMBER = #{cmcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="dmcarPicsNumber != null">
+        DMCAR_PICS_NUMBER = #{dmcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="fileCreatedResult != null">
+        FILE_CREATED_RESULT = #{fileCreatedResult,jdbcType=VARCHAR},
+      </if>
+      <if test="fileCreatedRemark != null">
+        FILE_CREATED_REMARK = #{fileCreatedRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where VEHICLE_SERIAL = #{vehicleSerial,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.htkj.station.sender.TfOpVehicle">
+    update TF_OP_VEHICLE
+    set TRAIN_SERIAL = #{trainSerial,jdbcType=VARCHAR},
+      VEHICLE_ID = #{vehicleId,jdbcType=VARCHAR},
+      VEHICLE_SORT = #{vehicleSort,jdbcType=VARCHAR},
+      VEHICLE_TYPE = #{vehicleType,jdbcType=VARCHAR},
+      VEHICLE_ORDER = #{vehicleOrder,jdbcType=VARCHAR},
+      MADE_FACTORY = #{madeFactory,jdbcType=VARCHAR},
+      MADE_DATE = #{madeDate,jdbcType=VARCHAR},
+      CONVERSION = #{conversion,jdbcType=VARCHAR},
+      VEHICLE_OWNER = #{vehicleOwner,jdbcType=VARCHAR},
+      AXES_DISTANCE = #{axesDistance,jdbcType=VARCHAR},
+      MIDPART_PICS_NUMBER = #{midpartPicsNumber,jdbcType=NUMERIC},
+      LOCK_VERSION = #{lockVersion,jdbcType=NUMERIC},
+      FAULT_AUTO = #{faultAuto,jdbcType=NUMERIC},
+      FAULT_MANUL = #{faultManul,jdbcType=NUMERIC},
+      CAR_AXIS_NUMBER = #{carAxisNumber,jdbcType=NUMERIC},
+      GRAB_INFO = #{grabInfo,jdbcType=VARCHAR},
+      CMSPCAR_PICS_NUMBER = #{cmspcarPicsNumber,jdbcType=NUMERIC},
+      DMSPCAR_PICS_NUMBER = #{dmspcarPicsNumber,jdbcType=NUMERIC},
+      POS_AB_FLAG = #{posAbFlag,jdbcType=VARCHAR},
+      MIDPARTCM_PICS_NUMBER = #{midpartcmPicsNumber,jdbcType=NUMERIC},
+      CMCTCAR_PICS_NUMBER = #{cmctcarPicsNumber,jdbcType=NUMERIC},
+      CMCAR_PICS_NUMBER = #{cmcarPicsNumber,jdbcType=NUMERIC},
+      DMCAR_PICS_NUMBER = #{dmcarPicsNumber,jdbcType=NUMERIC},
+      FILE_CREATED_RESULT = #{fileCreatedResult,jdbcType=VARCHAR},
+      FILE_CREATED_REMARK = #{fileCreatedRemark,jdbcType=VARCHAR}
+    where VEHICLE_SERIAL = #{vehicleSerial,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.htkj.station.sender.TfOpVehicle">
+    <id column="VEHICLE_SERIAL" jdbcType="VARCHAR" property="vehicleSerial" />
+    <result column="TRAIN_SERIAL" jdbcType="VARCHAR" property="trainSerial" />
+    <result column="VEHICLE_ID" jdbcType="VARCHAR" property="vehicleId" />
+    <result column="VEHICLE_SORT" jdbcType="VARCHAR" property="vehicleSort" />
+    <result column="VEHICLE_TYPE" jdbcType="VARCHAR" property="vehicleType" />
+    <result column="VEHICLE_ORDER" jdbcType="VARCHAR" property="vehicleOrder" />
+    <result column="MADE_FACTORY" jdbcType="VARCHAR" property="madeFactory" />
+    <result column="MADE_DATE" jdbcType="VARCHAR" property="madeDate" />
+    <result column="CONVERSION" jdbcType="VARCHAR" property="conversion" />
+    <result column="VEHICLE_OWNER" jdbcType="VARCHAR" property="vehicleOwner" />
+    <result column="AXES_DISTANCE" jdbcType="VARCHAR" property="axesDistance" />
+    <result column="MIDPART_PICS_NUMBER" jdbcType="NUMERIC" property="midpartPicsNumber" />
+    <result column="LOCK_VERSION" jdbcType="NUMERIC" property="lockVersion" />
+    <result column="FAULT_AUTO" jdbcType="NUMERIC" property="faultAuto" />
+    <result column="FAULT_MANUL" jdbcType="NUMERIC" property="faultManul" />
+    <result column="CAR_AXIS_NUMBER" jdbcType="NUMERIC" property="carAxisNumber" />
+    <result column="GRAB_INFO" jdbcType="VARCHAR" property="grabInfo" />
+    <result column="CMSPCAR_PICS_NUMBER" jdbcType="NUMERIC" property="cmspcarPicsNumber" />
+    <result column="DMSPCAR_PICS_NUMBER" jdbcType="NUMERIC" property="dmspcarPicsNumber" />
+    <result column="POS_AB_FLAG" jdbcType="VARCHAR" property="posAbFlag" />
+    <result column="MIDPARTCM_PICS_NUMBER" jdbcType="NUMERIC" property="midpartcmPicsNumber" />
+    <result column="CMCTCAR_PICS_NUMBER" jdbcType="NUMERIC" property="cmctcarPicsNumber" />
+    <result column="CMCAR_PICS_NUMBER" jdbcType="NUMERIC" property="cmcarPicsNumber" />
+    <result column="DMCAR_PICS_NUMBER" jdbcType="NUMERIC" property="dmcarPicsNumber" />
+    <result column="FILE_CREATED_RESULT" jdbcType="VARCHAR" property="fileCreatedResult" />
+    <result column="FILE_CREATED_REMARK" jdbcType="VARCHAR" property="fileCreatedRemark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    VEHICLE_SERIAL, TRAIN_SERIAL, VEHICLE_ID, VEHICLE_SORT, VEHICLE_TYPE, VEHICLE_ORDER, 
+    MADE_FACTORY, MADE_DATE, CONVERSION, VEHICLE_OWNER, AXES_DISTANCE, MIDPART_PICS_NUMBER, 
+    LOCK_VERSION, FAULT_AUTO, FAULT_MANUL, CAR_AXIS_NUMBER, GRAB_INFO, CMSPCAR_PICS_NUMBER, 
+    DMSPCAR_PICS_NUMBER, POS_AB_FLAG, MIDPARTCM_PICS_NUMBER, CMCTCAR_PICS_NUMBER, CMCAR_PICS_NUMBER, 
+    DMCAR_PICS_NUMBER, FILE_CREATED_RESULT, FILE_CREATED_REMARK
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TF_OP_VEHICLE
+    where VEHICLE_SERIAL = #{vehicleSerial,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TF_OP_VEHICLE
+    where VEHICLE_SERIAL = #{vehicleSerial,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.htkj.station.sender.TfOpVehicle">
+    insert into TF_OP_VEHICLE (VEHICLE_SERIAL, TRAIN_SERIAL, VEHICLE_ID, 
+      VEHICLE_SORT, VEHICLE_TYPE, VEHICLE_ORDER, 
+      MADE_FACTORY, MADE_DATE, CONVERSION, 
+      VEHICLE_OWNER, AXES_DISTANCE, MIDPART_PICS_NUMBER, 
+      LOCK_VERSION, FAULT_AUTO, FAULT_MANUL, 
+      CAR_AXIS_NUMBER, GRAB_INFO, CMSPCAR_PICS_NUMBER, 
+      DMSPCAR_PICS_NUMBER, POS_AB_FLAG, MIDPARTCM_PICS_NUMBER, 
+      CMCTCAR_PICS_NUMBER, CMCAR_PICS_NUMBER, DMCAR_PICS_NUMBER, 
+      FILE_CREATED_RESULT, FILE_CREATED_REMARK)
+    values (#{vehicleSerial,jdbcType=VARCHAR}, #{trainSerial,jdbcType=VARCHAR}, #{vehicleId,jdbcType=VARCHAR}, 
+      #{vehicleSort,jdbcType=VARCHAR}, #{vehicleType,jdbcType=VARCHAR}, #{vehicleOrder,jdbcType=VARCHAR}, 
+      #{madeFactory,jdbcType=VARCHAR}, #{madeDate,jdbcType=VARCHAR}, #{conversion,jdbcType=VARCHAR}, 
+      #{vehicleOwner,jdbcType=VARCHAR}, #{axesDistance,jdbcType=VARCHAR}, #{midpartPicsNumber,jdbcType=NUMERIC}, 
+      #{lockVersion,jdbcType=NUMERIC}, #{faultAuto,jdbcType=NUMERIC}, #{faultManul,jdbcType=NUMERIC}, 
+      #{carAxisNumber,jdbcType=NUMERIC}, #{grabInfo,jdbcType=VARCHAR}, #{cmspcarPicsNumber,jdbcType=NUMERIC}, 
+      #{dmspcarPicsNumber,jdbcType=NUMERIC}, #{posAbFlag,jdbcType=VARCHAR}, #{midpartcmPicsNumber,jdbcType=NUMERIC}, 
+      #{cmctcarPicsNumber,jdbcType=NUMERIC}, #{cmcarPicsNumber,jdbcType=NUMERIC}, #{dmcarPicsNumber,jdbcType=NUMERIC}, 
+      #{fileCreatedResult,jdbcType=VARCHAR}, #{fileCreatedRemark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.htkj.station.sender.TfOpVehicle">
+    insert into TF_OP_VEHICLE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="vehicleSerial != null">
+        VEHICLE_SERIAL,
+      </if>
+      <if test="trainSerial != null">
+        TRAIN_SERIAL,
+      </if>
+      <if test="vehicleId != null">
+        VEHICLE_ID,
+      </if>
+      <if test="vehicleSort != null">
+        VEHICLE_SORT,
+      </if>
+      <if test="vehicleType != null">
+        VEHICLE_TYPE,
+      </if>
+      <if test="vehicleOrder != null">
+        VEHICLE_ORDER,
+      </if>
+      <if test="madeFactory != null">
+        MADE_FACTORY,
+      </if>
+      <if test="madeDate != null">
+        MADE_DATE,
+      </if>
+      <if test="conversion != null">
+        CONVERSION,
+      </if>
+      <if test="vehicleOwner != null">
+        VEHICLE_OWNER,
+      </if>
+      <if test="axesDistance != null">
+        AXES_DISTANCE,
+      </if>
+      <if test="midpartPicsNumber != null">
+        MIDPART_PICS_NUMBER,
+      </if>
+      <if test="lockVersion != null">
+        LOCK_VERSION,
+      </if>
+      <if test="faultAuto != null">
+        FAULT_AUTO,
+      </if>
+      <if test="faultManul != null">
+        FAULT_MANUL,
+      </if>
+      <if test="carAxisNumber != null">
+        CAR_AXIS_NUMBER,
+      </if>
+      <if test="grabInfo != null">
+        GRAB_INFO,
+      </if>
+      <if test="cmspcarPicsNumber != null">
+        CMSPCAR_PICS_NUMBER,
+      </if>
+      <if test="dmspcarPicsNumber != null">
+        DMSPCAR_PICS_NUMBER,
+      </if>
+      <if test="posAbFlag != null">
+        POS_AB_FLAG,
+      </if>
+      <if test="midpartcmPicsNumber != null">
+        MIDPARTCM_PICS_NUMBER,
+      </if>
+      <if test="cmctcarPicsNumber != null">
+        CMCTCAR_PICS_NUMBER,
+      </if>
+      <if test="cmcarPicsNumber != null">
+        CMCAR_PICS_NUMBER,
+      </if>
+      <if test="dmcarPicsNumber != null">
+        DMCAR_PICS_NUMBER,
+      </if>
+      <if test="fileCreatedResult != null">
+        FILE_CREATED_RESULT,
+      </if>
+      <if test="fileCreatedRemark != null">
+        FILE_CREATED_REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="vehicleSerial != null">
+        #{vehicleSerial,jdbcType=VARCHAR},
+      </if>
+      <if test="trainSerial != null">
+        #{trainSerial,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleId != null">
+        #{vehicleId,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleSort != null">
+        #{vehicleSort,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleType != null">
+        #{vehicleType,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleOrder != null">
+        #{vehicleOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="madeFactory != null">
+        #{madeFactory,jdbcType=VARCHAR},
+      </if>
+      <if test="madeDate != null">
+        #{madeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="conversion != null">
+        #{conversion,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleOwner != null">
+        #{vehicleOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="axesDistance != null">
+        #{axesDistance,jdbcType=VARCHAR},
+      </if>
+      <if test="midpartPicsNumber != null">
+        #{midpartPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="lockVersion != null">
+        #{lockVersion,jdbcType=NUMERIC},
+      </if>
+      <if test="faultAuto != null">
+        #{faultAuto,jdbcType=NUMERIC},
+      </if>
+      <if test="faultManul != null">
+        #{faultManul,jdbcType=NUMERIC},
+      </if>
+      <if test="carAxisNumber != null">
+        #{carAxisNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="grabInfo != null">
+        #{grabInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="cmspcarPicsNumber != null">
+        #{cmspcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="dmspcarPicsNumber != null">
+        #{dmspcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="posAbFlag != null">
+        #{posAbFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="midpartcmPicsNumber != null">
+        #{midpartcmPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="cmctcarPicsNumber != null">
+        #{cmctcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="cmcarPicsNumber != null">
+        #{cmcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="dmcarPicsNumber != null">
+        #{dmcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="fileCreatedResult != null">
+        #{fileCreatedResult,jdbcType=VARCHAR},
+      </if>
+      <if test="fileCreatedRemark != null">
+        #{fileCreatedRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.htkj.station.sender.TfOpVehicle">
+    update TF_OP_VEHICLE
+    <set>
+      <if test="trainSerial != null">
+        TRAIN_SERIAL = #{trainSerial,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleId != null">
+        VEHICLE_ID = #{vehicleId,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleSort != null">
+        VEHICLE_SORT = #{vehicleSort,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleType != null">
+        VEHICLE_TYPE = #{vehicleType,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleOrder != null">
+        VEHICLE_ORDER = #{vehicleOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="madeFactory != null">
+        MADE_FACTORY = #{madeFactory,jdbcType=VARCHAR},
+      </if>
+      <if test="madeDate != null">
+        MADE_DATE = #{madeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="conversion != null">
+        CONVERSION = #{conversion,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleOwner != null">
+        VEHICLE_OWNER = #{vehicleOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="axesDistance != null">
+        AXES_DISTANCE = #{axesDistance,jdbcType=VARCHAR},
+      </if>
+      <if test="midpartPicsNumber != null">
+        MIDPART_PICS_NUMBER = #{midpartPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="lockVersion != null">
+        LOCK_VERSION = #{lockVersion,jdbcType=NUMERIC},
+      </if>
+      <if test="faultAuto != null">
+        FAULT_AUTO = #{faultAuto,jdbcType=NUMERIC},
+      </if>
+      <if test="faultManul != null">
+        FAULT_MANUL = #{faultManul,jdbcType=NUMERIC},
+      </if>
+      <if test="carAxisNumber != null">
+        CAR_AXIS_NUMBER = #{carAxisNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="grabInfo != null">
+        GRAB_INFO = #{grabInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="cmspcarPicsNumber != null">
+        CMSPCAR_PICS_NUMBER = #{cmspcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="dmspcarPicsNumber != null">
+        DMSPCAR_PICS_NUMBER = #{dmspcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="posAbFlag != null">
+        POS_AB_FLAG = #{posAbFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="midpartcmPicsNumber != null">
+        MIDPARTCM_PICS_NUMBER = #{midpartcmPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="cmctcarPicsNumber != null">
+        CMCTCAR_PICS_NUMBER = #{cmctcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="cmcarPicsNumber != null">
+        CMCAR_PICS_NUMBER = #{cmcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="dmcarPicsNumber != null">
+        DMCAR_PICS_NUMBER = #{dmcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="fileCreatedResult != null">
+        FILE_CREATED_RESULT = #{fileCreatedResult,jdbcType=VARCHAR},
+      </if>
+      <if test="fileCreatedRemark != null">
+        FILE_CREATED_REMARK = #{fileCreatedRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where VEHICLE_SERIAL = #{vehicleSerial,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.htkj.station.sender.TfOpVehicle">
+    update TF_OP_VEHICLE
+    set TRAIN_SERIAL = #{trainSerial,jdbcType=VARCHAR},
+      VEHICLE_ID = #{vehicleId,jdbcType=VARCHAR},
+      VEHICLE_SORT = #{vehicleSort,jdbcType=VARCHAR},
+      VEHICLE_TYPE = #{vehicleType,jdbcType=VARCHAR},
+      VEHICLE_ORDER = #{vehicleOrder,jdbcType=VARCHAR},
+      MADE_FACTORY = #{madeFactory,jdbcType=VARCHAR},
+      MADE_DATE = #{madeDate,jdbcType=VARCHAR},
+      CONVERSION = #{conversion,jdbcType=VARCHAR},
+      VEHICLE_OWNER = #{vehicleOwner,jdbcType=VARCHAR},
+      AXES_DISTANCE = #{axesDistance,jdbcType=VARCHAR},
+      MIDPART_PICS_NUMBER = #{midpartPicsNumber,jdbcType=NUMERIC},
+      LOCK_VERSION = #{lockVersion,jdbcType=NUMERIC},
+      FAULT_AUTO = #{faultAuto,jdbcType=NUMERIC},
+      FAULT_MANUL = #{faultManul,jdbcType=NUMERIC},
+      CAR_AXIS_NUMBER = #{carAxisNumber,jdbcType=NUMERIC},
+      GRAB_INFO = #{grabInfo,jdbcType=VARCHAR},
+      CMSPCAR_PICS_NUMBER = #{cmspcarPicsNumber,jdbcType=NUMERIC},
+      DMSPCAR_PICS_NUMBER = #{dmspcarPicsNumber,jdbcType=NUMERIC},
+      POS_AB_FLAG = #{posAbFlag,jdbcType=VARCHAR},
+      MIDPARTCM_PICS_NUMBER = #{midpartcmPicsNumber,jdbcType=NUMERIC},
+      CMCTCAR_PICS_NUMBER = #{cmctcarPicsNumber,jdbcType=NUMERIC},
+      CMCAR_PICS_NUMBER = #{cmcarPicsNumber,jdbcType=NUMERIC},
+      DMCAR_PICS_NUMBER = #{dmcarPicsNumber,jdbcType=NUMERIC},
+      FILE_CREATED_RESULT = #{fileCreatedResult,jdbcType=VARCHAR},
+      FILE_CREATED_REMARK = #{fileCreatedRemark,jdbcType=VARCHAR}
+    where VEHICLE_SERIAL = #{vehicleSerial,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.htkj.station.sender.TfOpVehicle">
+    <id column="VEHICLE_SERIAL" jdbcType="VARCHAR" property="vehicleSerial" />
+    <result column="TRAIN_SERIAL" jdbcType="VARCHAR" property="trainSerial" />
+    <result column="VEHICLE_ID" jdbcType="VARCHAR" property="vehicleId" />
+    <result column="VEHICLE_SORT" jdbcType="VARCHAR" property="vehicleSort" />
+    <result column="VEHICLE_TYPE" jdbcType="VARCHAR" property="vehicleType" />
+    <result column="VEHICLE_ORDER" jdbcType="VARCHAR" property="vehicleOrder" />
+    <result column="MADE_FACTORY" jdbcType="VARCHAR" property="madeFactory" />
+    <result column="MADE_DATE" jdbcType="VARCHAR" property="madeDate" />
+    <result column="CONVERSION" jdbcType="VARCHAR" property="conversion" />
+    <result column="VEHICLE_OWNER" jdbcType="VARCHAR" property="vehicleOwner" />
+    <result column="AXES_DISTANCE" jdbcType="VARCHAR" property="axesDistance" />
+    <result column="MIDPART_PICS_NUMBER" jdbcType="NUMERIC" property="midpartPicsNumber" />
+    <result column="LOCK_VERSION" jdbcType="NUMERIC" property="lockVersion" />
+    <result column="FAULT_AUTO" jdbcType="NUMERIC" property="faultAuto" />
+    <result column="FAULT_MANUL" jdbcType="NUMERIC" property="faultManul" />
+    <result column="CAR_AXIS_NUMBER" jdbcType="NUMERIC" property="carAxisNumber" />
+    <result column="GRAB_INFO" jdbcType="VARCHAR" property="grabInfo" />
+    <result column="CMSPCAR_PICS_NUMBER" jdbcType="NUMERIC" property="cmspcarPicsNumber" />
+    <result column="DMSPCAR_PICS_NUMBER" jdbcType="NUMERIC" property="dmspcarPicsNumber" />
+    <result column="POS_AB_FLAG" jdbcType="VARCHAR" property="posAbFlag" />
+    <result column="MIDPARTCM_PICS_NUMBER" jdbcType="NUMERIC" property="midpartcmPicsNumber" />
+    <result column="CMCTCAR_PICS_NUMBER" jdbcType="NUMERIC" property="cmctcarPicsNumber" />
+    <result column="CMCAR_PICS_NUMBER" jdbcType="NUMERIC" property="cmcarPicsNumber" />
+    <result column="DMCAR_PICS_NUMBER" jdbcType="NUMERIC" property="dmcarPicsNumber" />
+    <result column="FILE_CREATED_RESULT" jdbcType="VARCHAR" property="fileCreatedResult" />
+    <result column="FILE_CREATED_REMARK" jdbcType="VARCHAR" property="fileCreatedRemark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    VEHICLE_SERIAL, TRAIN_SERIAL, VEHICLE_ID, VEHICLE_SORT, VEHICLE_TYPE, VEHICLE_ORDER, 
+    MADE_FACTORY, MADE_DATE, CONVERSION, VEHICLE_OWNER, AXES_DISTANCE, MIDPART_PICS_NUMBER, 
+    LOCK_VERSION, FAULT_AUTO, FAULT_MANUL, CAR_AXIS_NUMBER, GRAB_INFO, CMSPCAR_PICS_NUMBER, 
+    DMSPCAR_PICS_NUMBER, POS_AB_FLAG, MIDPARTCM_PICS_NUMBER, CMCTCAR_PICS_NUMBER, CMCAR_PICS_NUMBER, 
+    DMCAR_PICS_NUMBER, FILE_CREATED_RESULT, FILE_CREATED_REMARK
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TF_OP_VEHICLE
+    where VEHICLE_SERIAL = #{vehicleSerial,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TF_OP_VEHICLE
+    where VEHICLE_SERIAL = #{vehicleSerial,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.htkj.station.sender.TfOpVehicle">
+    insert into TF_OP_VEHICLE (VEHICLE_SERIAL, TRAIN_SERIAL, VEHICLE_ID, 
+      VEHICLE_SORT, VEHICLE_TYPE, VEHICLE_ORDER, 
+      MADE_FACTORY, MADE_DATE, CONVERSION, 
+      VEHICLE_OWNER, AXES_DISTANCE, MIDPART_PICS_NUMBER, 
+      LOCK_VERSION, FAULT_AUTO, FAULT_MANUL, 
+      CAR_AXIS_NUMBER, GRAB_INFO, CMSPCAR_PICS_NUMBER, 
+      DMSPCAR_PICS_NUMBER, POS_AB_FLAG, MIDPARTCM_PICS_NUMBER, 
+      CMCTCAR_PICS_NUMBER, CMCAR_PICS_NUMBER, DMCAR_PICS_NUMBER, 
+      FILE_CREATED_RESULT, FILE_CREATED_REMARK)
+    values (#{vehicleSerial,jdbcType=VARCHAR}, #{trainSerial,jdbcType=VARCHAR}, #{vehicleId,jdbcType=VARCHAR}, 
+      #{vehicleSort,jdbcType=VARCHAR}, #{vehicleType,jdbcType=VARCHAR}, #{vehicleOrder,jdbcType=VARCHAR}, 
+      #{madeFactory,jdbcType=VARCHAR}, #{madeDate,jdbcType=VARCHAR}, #{conversion,jdbcType=VARCHAR}, 
+      #{vehicleOwner,jdbcType=VARCHAR}, #{axesDistance,jdbcType=VARCHAR}, #{midpartPicsNumber,jdbcType=NUMERIC}, 
+      #{lockVersion,jdbcType=NUMERIC}, #{faultAuto,jdbcType=NUMERIC}, #{faultManul,jdbcType=NUMERIC}, 
+      #{carAxisNumber,jdbcType=NUMERIC}, #{grabInfo,jdbcType=VARCHAR}, #{cmspcarPicsNumber,jdbcType=NUMERIC}, 
+      #{dmspcarPicsNumber,jdbcType=NUMERIC}, #{posAbFlag,jdbcType=VARCHAR}, #{midpartcmPicsNumber,jdbcType=NUMERIC}, 
+      #{cmctcarPicsNumber,jdbcType=NUMERIC}, #{cmcarPicsNumber,jdbcType=NUMERIC}, #{dmcarPicsNumber,jdbcType=NUMERIC}, 
+      #{fileCreatedResult,jdbcType=VARCHAR}, #{fileCreatedRemark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.htkj.station.sender.TfOpVehicle">
+    insert into TF_OP_VEHICLE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="vehicleSerial != null">
+        VEHICLE_SERIAL,
+      </if>
+      <if test="trainSerial != null">
+        TRAIN_SERIAL,
+      </if>
+      <if test="vehicleId != null">
+        VEHICLE_ID,
+      </if>
+      <if test="vehicleSort != null">
+        VEHICLE_SORT,
+      </if>
+      <if test="vehicleType != null">
+        VEHICLE_TYPE,
+      </if>
+      <if test="vehicleOrder != null">
+        VEHICLE_ORDER,
+      </if>
+      <if test="madeFactory != null">
+        MADE_FACTORY,
+      </if>
+      <if test="madeDate != null">
+        MADE_DATE,
+      </if>
+      <if test="conversion != null">
+        CONVERSION,
+      </if>
+      <if test="vehicleOwner != null">
+        VEHICLE_OWNER,
+      </if>
+      <if test="axesDistance != null">
+        AXES_DISTANCE,
+      </if>
+      <if test="midpartPicsNumber != null">
+        MIDPART_PICS_NUMBER,
+      </if>
+      <if test="lockVersion != null">
+        LOCK_VERSION,
+      </if>
+      <if test="faultAuto != null">
+        FAULT_AUTO,
+      </if>
+      <if test="faultManul != null">
+        FAULT_MANUL,
+      </if>
+      <if test="carAxisNumber != null">
+        CAR_AXIS_NUMBER,
+      </if>
+      <if test="grabInfo != null">
+        GRAB_INFO,
+      </if>
+      <if test="cmspcarPicsNumber != null">
+        CMSPCAR_PICS_NUMBER,
+      </if>
+      <if test="dmspcarPicsNumber != null">
+        DMSPCAR_PICS_NUMBER,
+      </if>
+      <if test="posAbFlag != null">
+        POS_AB_FLAG,
+      </if>
+      <if test="midpartcmPicsNumber != null">
+        MIDPARTCM_PICS_NUMBER,
+      </if>
+      <if test="cmctcarPicsNumber != null">
+        CMCTCAR_PICS_NUMBER,
+      </if>
+      <if test="cmcarPicsNumber != null">
+        CMCAR_PICS_NUMBER,
+      </if>
+      <if test="dmcarPicsNumber != null">
+        DMCAR_PICS_NUMBER,
+      </if>
+      <if test="fileCreatedResult != null">
+        FILE_CREATED_RESULT,
+      </if>
+      <if test="fileCreatedRemark != null">
+        FILE_CREATED_REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="vehicleSerial != null">
+        #{vehicleSerial,jdbcType=VARCHAR},
+      </if>
+      <if test="trainSerial != null">
+        #{trainSerial,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleId != null">
+        #{vehicleId,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleSort != null">
+        #{vehicleSort,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleType != null">
+        #{vehicleType,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleOrder != null">
+        #{vehicleOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="madeFactory != null">
+        #{madeFactory,jdbcType=VARCHAR},
+      </if>
+      <if test="madeDate != null">
+        #{madeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="conversion != null">
+        #{conversion,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleOwner != null">
+        #{vehicleOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="axesDistance != null">
+        #{axesDistance,jdbcType=VARCHAR},
+      </if>
+      <if test="midpartPicsNumber != null">
+        #{midpartPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="lockVersion != null">
+        #{lockVersion,jdbcType=NUMERIC},
+      </if>
+      <if test="faultAuto != null">
+        #{faultAuto,jdbcType=NUMERIC},
+      </if>
+      <if test="faultManul != null">
+        #{faultManul,jdbcType=NUMERIC},
+      </if>
+      <if test="carAxisNumber != null">
+        #{carAxisNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="grabInfo != null">
+        #{grabInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="cmspcarPicsNumber != null">
+        #{cmspcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="dmspcarPicsNumber != null">
+        #{dmspcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="posAbFlag != null">
+        #{posAbFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="midpartcmPicsNumber != null">
+        #{midpartcmPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="cmctcarPicsNumber != null">
+        #{cmctcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="cmcarPicsNumber != null">
+        #{cmcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="dmcarPicsNumber != null">
+        #{dmcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="fileCreatedResult != null">
+        #{fileCreatedResult,jdbcType=VARCHAR},
+      </if>
+      <if test="fileCreatedRemark != null">
+        #{fileCreatedRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.htkj.station.sender.TfOpVehicle">
+    update TF_OP_VEHICLE
+    <set>
+      <if test="trainSerial != null">
+        TRAIN_SERIAL = #{trainSerial,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleId != null">
+        VEHICLE_ID = #{vehicleId,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleSort != null">
+        VEHICLE_SORT = #{vehicleSort,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleType != null">
+        VEHICLE_TYPE = #{vehicleType,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleOrder != null">
+        VEHICLE_ORDER = #{vehicleOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="madeFactory != null">
+        MADE_FACTORY = #{madeFactory,jdbcType=VARCHAR},
+      </if>
+      <if test="madeDate != null">
+        MADE_DATE = #{madeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="conversion != null">
+        CONVERSION = #{conversion,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleOwner != null">
+        VEHICLE_OWNER = #{vehicleOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="axesDistance != null">
+        AXES_DISTANCE = #{axesDistance,jdbcType=VARCHAR},
+      </if>
+      <if test="midpartPicsNumber != null">
+        MIDPART_PICS_NUMBER = #{midpartPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="lockVersion != null">
+        LOCK_VERSION = #{lockVersion,jdbcType=NUMERIC},
+      </if>
+      <if test="faultAuto != null">
+        FAULT_AUTO = #{faultAuto,jdbcType=NUMERIC},
+      </if>
+      <if test="faultManul != null">
+        FAULT_MANUL = #{faultManul,jdbcType=NUMERIC},
+      </if>
+      <if test="carAxisNumber != null">
+        CAR_AXIS_NUMBER = #{carAxisNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="grabInfo != null">
+        GRAB_INFO = #{grabInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="cmspcarPicsNumber != null">
+        CMSPCAR_PICS_NUMBER = #{cmspcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="dmspcarPicsNumber != null">
+        DMSPCAR_PICS_NUMBER = #{dmspcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="posAbFlag != null">
+        POS_AB_FLAG = #{posAbFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="midpartcmPicsNumber != null">
+        MIDPARTCM_PICS_NUMBER = #{midpartcmPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="cmctcarPicsNumber != null">
+        CMCTCAR_PICS_NUMBER = #{cmctcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="cmcarPicsNumber != null">
+        CMCAR_PICS_NUMBER = #{cmcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="dmcarPicsNumber != null">
+        DMCAR_PICS_NUMBER = #{dmcarPicsNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="fileCreatedResult != null">
+        FILE_CREATED_RESULT = #{fileCreatedResult,jdbcType=VARCHAR},
+      </if>
+      <if test="fileCreatedRemark != null">
+        FILE_CREATED_REMARK = #{fileCreatedRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where VEHICLE_SERIAL = #{vehicleSerial,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.htkj.station.sender.TfOpVehicle">
+    update TF_OP_VEHICLE
+    set TRAIN_SERIAL = #{trainSerial,jdbcType=VARCHAR},
+      VEHICLE_ID = #{vehicleId,jdbcType=VARCHAR},
+      VEHICLE_SORT = #{vehicleSort,jdbcType=VARCHAR},
+      VEHICLE_TYPE = #{vehicleType,jdbcType=VARCHAR},
+      VEHICLE_ORDER = #{vehicleOrder,jdbcType=VARCHAR},
+      MADE_FACTORY = #{madeFactory,jdbcType=VARCHAR},
+      MADE_DATE = #{madeDate,jdbcType=VARCHAR},
+      CONVERSION = #{conversion,jdbcType=VARCHAR},
+      VEHICLE_OWNER = #{vehicleOwner,jdbcType=VARCHAR},
+      AXES_DISTANCE = #{axesDistance,jdbcType=VARCHAR},
+      MIDPART_PICS_NUMBER = #{midpartPicsNumber,jdbcType=NUMERIC},
+      LOCK_VERSION = #{lockVersion,jdbcType=NUMERIC},
+      FAULT_AUTO = #{faultAuto,jdbcType=NUMERIC},
+      FAULT_MANUL = #{faultManul,jdbcType=NUMERIC},
+      CAR_AXIS_NUMBER = #{carAxisNumber,jdbcType=NUMERIC},
+      GRAB_INFO = #{grabInfo,jdbcType=VARCHAR},
+      CMSPCAR_PICS_NUMBER = #{cmspcarPicsNumber,jdbcType=NUMERIC},
+      DMSPCAR_PICS_NUMBER = #{dmspcarPicsNumber,jdbcType=NUMERIC},
+      POS_AB_FLAG = #{posAbFlag,jdbcType=VARCHAR},
+      MIDPARTCM_PICS_NUMBER = #{midpartcmPicsNumber,jdbcType=NUMERIC},
+      CMCTCAR_PICS_NUMBER = #{cmctcarPicsNumber,jdbcType=NUMERIC},
+      CMCAR_PICS_NUMBER = #{cmcarPicsNumber,jdbcType=NUMERIC},
+      DMCAR_PICS_NUMBER = #{dmcarPicsNumber,jdbcType=NUMERIC},
+      FILE_CREATED_RESULT = #{fileCreatedResult,jdbcType=VARCHAR},
+      FILE_CREATED_REMARK = #{fileCreatedRemark,jdbcType=VARCHAR}
+    where VEHICLE_SERIAL = #{vehicleSerial,jdbcType=VARCHAR}
+  </update>
+</mapper>
