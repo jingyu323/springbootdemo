@@ -1,7 +1,5 @@
 package com.htkj.station.sender.entity;
 
-import com.htkj.station.sender.TfOpVehicle;
-
 public interface TfOpVehicleMapper {
     int deleteByPrimaryKey(String vehicleSerial);
 

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rain.netty.demo.nettyclient.mapper.SysStaffMapper">
+    <resultMap id="BaseResultMap" type="com.rain.netty.demo.nettyclient.entity.SysStaff">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="code" property="code" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="gender" property="gender" jdbcType="TINYINT"/>
+        <result column="pwd" property="pwd" jdbcType="CHAR"/>
+        <result column="avatar" property="avatar" jdbcType="VARCHAR"/>
+        <result column="birthday" property="birthday" jdbcType="DATE"/>
+        <result column="phone" property="phone" jdbcType="CHAR"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="dept_id" property="deptId" jdbcType="INTEGER"/>
+        <result column="status" property="status" jdbcType="TINYINT"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="is_deleted" property="isDeleted" jdbcType="TINYINT"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+        , code, name, gender, pwd, avatar, birthday, phone, address, remark, dept_id, status,
+    create_time, update_time, is_deleted
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_staff
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectAll" resultType="com.rain.netty.demo.nettyclient.entity.SysStaff">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_staff
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from sys_staff
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.rain.netty.demo.nettyclient.entity.SysStaff">
+        insert into sys_staff (id, code, name,
+                               gender, pwd, avatar, birthday,
+                               phone, address, remark,
+                               dept_id, status, create_time,
+                               update_time, is_deleted)
+        values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+                #{gender,jdbcType=TINYINT}, #{pwd,jdbcType=CHAR}, #{avatar,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE},
+                #{phone,jdbcType=CHAR}, #{address,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR},
+                #{deptId,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP},
+                #{updateTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=TINYINT})
+    </insert>
+    <insert id="insertSelective" parameterType="com.rain.netty.demo.nettyclient.entity.SysStaff">
+        insert into sys_staff
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="code != null">
+                code,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="gender != null">
+                gender,
+            </if>
+            <if test="pwd != null">
+                pwd,
+            </if>
+            <if test="avatar != null">
+                avatar,
+            </if>
+            <if test="birthday != null">
+                birthday,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="deptId != null">
+                dept_id,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="isDeleted != null">
+                is_deleted,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="code != null">
+                #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                #{gender,jdbcType=TINYINT},
+            </if>
+            <if test="pwd != null">
+                #{pwd,jdbcType=CHAR},
+            </if>
+            <if test="avatar != null">
+                #{avatar,jdbcType=VARCHAR},
+            </if>
+            <if test="birthday != null">
+                #{birthday,jdbcType=DATE},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=CHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="deptId != null">
+                #{deptId,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=TINYINT},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDeleted != null">
+                #{isDeleted,jdbcType=TINYINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.rain.netty.demo.nettyclient.entity.SysStaff">
+        update sys_staff
+        <set>
+            <if test="code != null">
+                code = #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                gender = #{gender,jdbcType=TINYINT},
+            </if>
+            <if test="pwd != null">
+                pwd = #{pwd,jdbcType=CHAR},
+            </if>
+            <if test="avatar != null">
+                avatar = #{avatar,jdbcType=VARCHAR},
+            </if>
+            <if test="birthday != null">
+                birthday = #{birthday,jdbcType=DATE},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=CHAR},
+            </if>
+            <if test="address != null">
+                address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="deptId != null">
+                dept_id = #{deptId,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=TINYINT},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDeleted != null">
+                is_deleted = #{isDeleted,jdbcType=TINYINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.rain.netty.demo.nettyclient.entity.SysStaff">
+        update sys_staff
+        set code        = #{code,jdbcType=VARCHAR},
+            name        = #{name,jdbcType=VARCHAR},
+            gender      = #{gender,jdbcType=TINYINT},
+            pwd         = #{pwd,jdbcType=CHAR},
+            avatar      = #{avatar,jdbcType=VARCHAR},
+            birthday    = #{birthday,jdbcType=DATE},
+            phone       = #{phone,jdbcType=CHAR},
+            address     = #{address,jdbcType=VARCHAR},
+            remark      = #{remark,jdbcType=VARCHAR},
+            dept_id     = #{deptId,jdbcType=INTEGER},
+            status      = #{status,jdbcType=TINYINT},
+            create_time = #{createTime,jdbcType=TIMESTAMP},
+            update_time = #{updateTime,jdbcType=TIMESTAMP},
+            is_deleted  = #{isDeleted,jdbcType=TINYINT}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

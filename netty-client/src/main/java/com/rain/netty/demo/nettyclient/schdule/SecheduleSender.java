@@ -1,7 +1,9 @@
 package com.rain.netty.demo.nettyclient.schdule;
 
 
+import com.rain.netty.demo.nettyclient.entity.SysStaff;
 import com.rain.netty.demo.nettyclient.netty.NettyClientTest;
+import com.rain.netty.demo.nettyclient.service.SysStaffService;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.util.concurrent.GenericFutureListener;
@@ -12,6 +14,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Component
@@ -20,6 +23,9 @@ public class SecheduleSender {
     @Autowired
     NettyClientTest nettyClientTest;
 
+    @Autowired
+    SysStaffService sysStaffService;
+
 
     @Scheduled(fixedRate = 5000)
     public void sendeMsg() {
@@ -27,6 +33,7 @@ public class SecheduleSender {
 
         // 发送回调监听
         GenericFutureListener sendCallBack = future2 -> {
+
             if (future2.isSuccess()) {
                 logger.info("发送成功!{}", new Date());
             } else {
@@ -35,8 +42,13 @@ public class SecheduleSender {
             }
         };
 
-        ChannelFuture writeAndFlushFuture = channel.writeAndFlush("Hello Netty Server,   client from timer" + new Date());
-        writeAndFlushFuture.addListener(sendCallBack);
+        List<SysStaff> staffs = sysStaffService.findAll();
+
+        for (SysStaff staff : staffs) {
+            ChannelFuture writeAndFlushFuture = channel.writeAndFlush("Hello Netty Server,   client from timer" + staff.getName() + new Date());
+            writeAndFlushFuture.addListener(sendCallBack);
+        }
+
 
     }
 
