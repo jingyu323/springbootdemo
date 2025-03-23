@@ -16,12 +16,14 @@ public class FirstClientHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
-        for (int i = 0; i < 1000; i++) {
-            ByteBuf buffer = getByteBuf(ctx);
-            ctx.channel().writeAndFlush(buffer);
-            System.out.println("send complete..." + "," + count);
-//            ctx.channel().config().getWriteBufferWaterMark();
-        }
+//        for (int i = 0; i < 1000; i++) {
+//            ByteBuf buffer = getByteBuf(ctx);
+//            ctx.channel().writeAndFlush(buffer);
+//            System.out.println("send complete..." + "," + count);
+//
+//        }
+        System.out.println("send complete..." + "," + count);
+        ctx.channel().config().getWriteBufferWaterMark();
     }
 
     @Override

@@ -31,6 +31,7 @@ public class SecheduleSender {
                 logger.info("发送成功!{}", new Date());
             } else {
                 logger.info("发送失败!{}", new Date());
+                nettyClientTest.reconect();
             }
         };
 

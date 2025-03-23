@@ -20,7 +20,8 @@ public class NettyClientTest {
     static final int PORT = Integer.parseInt(System.getProperty("port", "8080"));
     static final int SIZE = Integer.parseInt(System.getProperty("size", "256"));
     Channel channel;
-
+    Bootstrap bootstrap;
+    
     @PostConstruct
     public void start() {
         EventLoopGroup group = new NioEventLoopGroup();
@@ -46,10 +47,7 @@ public class NettyClientTest {
         try {
             future = bootstrap.connect(HOST, PORT).sync();
 
-
-//            future.channel().closeFuture().sync();
-
-
+            this.bootstrap = bootstrap;
             //Step5: 循环链接服务端
             ChannelFuture f = null;
             boolean connected = false;
@@ -73,12 +71,8 @@ public class NettyClientTest {
                     connected = true;
                 }
             }
-
-
             this.channel = future.channel();
             future.channel().writeAndFlush("Hello Netty Server, I am a common client");
-//            future.channel().closeFuture().sync();
-
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -90,5 +84,38 @@ public class NettyClientTest {
 
     public Channel getChanel() {
         return this.channel;
+    }
+
+    public Bootstrap getBootstrap() {
+        return this.bootstrap;
+    }
+
+    public void reconect() {
+
+        //Step5: 循环链接服务端
+        ChannelFuture f = null;
+        boolean connected = false;
+        while (!connected) {
+            f = bootstrap.connect();
+            f.addListener((ChannelFuture futureListener) -> {
+                if (futureListener.isSuccess()) {
+                    logger.info("EchoClient客户端连接成功!");
+                } else {
+                    logger.info("EchoClient客户端连接失败!");
+                }
+            });
+            // sync作用: 因为上面的连接到服务器上以及监听都是异步操作, 执行后马上返回, 可能连接还未完全建立, 所以sync在此等待一下
+            // f.sync(); 发生错误会抛异常
+            f.awaitUninterruptibly();//发生错误不会抛异常
+            if (f.isCancelled()) {
+                logger.info("用户取消连接:");
+                return;
+                // Connection attempt cancelled by user
+            } else if (f.isSuccess()) {
+                connected = true;
+            }
+        }
+        this.channel = f.channel();
+
     }
 }
