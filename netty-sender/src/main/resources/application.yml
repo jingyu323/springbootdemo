@@ -1,0 +1,45 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    jdbcUrl: jdbc:oracle:thin:@192.168.199.191:1521/orclpdb  #thin连接  注意修改为自己的地址和库名
+    username: TFDS  #用户名
+    password: test123  #密码
+  cache:
+    type: ehcache
+    ehcache:
+      config: classpath:ehcache.xml
+  task:
+    scheduling:
+      thread-name-prefix: nzc-schedule- #线程名前缀
+      pool:
+        size: 10 #核心线程数
+socket:
+  # 服务端ip地址
+  host: localhost
+  # 服务端监听端口 6660
+  port: 6800
+  # 暂时无用
+  poolKeep: 100
+  # workerGroup 线程数设置为系统核心数的几倍
+  poolCore: 2
+  # 最大连接数
+  poolMax: 100
+  # 暂时无用
+  poolQueueInit: 100
+  #探测站图片存储路径 Linux home/stationid  windows D:\stationid\indexId (indexId 是train表中的indexid)
+  tkStationPath: E:/photo/station01
+  #版本号
+  version: 1
+
+# 本程序端口，必须配置
+server:
+  port: 9099
+  tomcat:
+    uri-encoding: UTF-8
+mybatis:
+    mapper-locations: classpath*:mappers/**/*.xml
+    type-aliases-package: com.htkj.station.sender.mybatis.entity
+
+

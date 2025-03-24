@@ -1,5 +1,8 @@
-package com.htkj.station.sender;
+package com.htkj.station.sender.mybatis.entity;
 
+import lombok.Data;
+
+@Data
 public class TfOpVehicle {
     private String vehicleSerial;
 
@@ -23,15 +26,15 @@ public class TfOpVehicle {
 
     private String axesDistance;
 
-    private Short midpartPicsNumber;
+    private Integer midpartPicsNumber;
 
-    private Short lockVersion;
+    private Long lockVersion;
 
-    private Short faultAuto;
+    private Integer faultAuto;
 
-    private Short faultManul;
+    private Integer faultManul;
 
-    private Short carAxisNumber;
+    private Integer carAxisNumber;
 
     private String grabInfo;
 
@@ -41,17 +44,33 @@ public class TfOpVehicle {
 
     private String posAbFlag;
 
-    private Short midpartcmPicsNumber;
+    private Integer midpartcmPicsNumber;
 
-    private Short cmctcarPicsNumber;
+    private Integer cmctcarPicsNumber;
 
-    private Short cmcarPicsNumber;
+    private Integer cmcarPicsNumber;
 
-    private Short dmcarPicsNumber;
+    private Integer dmcarPicsNumber;
 
     private String fileCreatedResult;
 
     private String fileCreatedRemark;
+
+    private Integer ljbDb;
+
+    private Integer qtZxjDb;
+
+    private Integer zjbDb;
+
+    private Integer htZxjDb;
+
+    private Integer ljbCm;
+
+    private Integer qtZxjCm;
+
+    private Integer htZxjCm;
+
+    private Integer zjbCm;
 
     public String getVehicleSerial() {
         return vehicleSerial;
@@ -141,43 +160,43 @@ public class TfOpVehicle {
         this.axesDistance = axesDistance == null ? null : axesDistance.trim();
     }
 
-    public Short getMidpartPicsNumber() {
+    public Integer getMidpartPicsNumber() {
         return midpartPicsNumber;
     }
 
-    public void setMidpartPicsNumber(Short midpartPicsNumber) {
+    public void setMidpartPicsNumber(Integer midpartPicsNumber) {
         this.midpartPicsNumber = midpartPicsNumber;
     }
 
-    public Short getLockVersion() {
+    public Long getLockVersion() {
         return lockVersion;
     }
 
-    public void setLockVersion(Short lockVersion) {
+    public void setLockVersion(Long lockVersion) {
         this.lockVersion = lockVersion;
     }
 
-    public Short getFaultAuto() {
+    public Integer getFaultAuto() {
         return faultAuto;
     }
 
-    public void setFaultAuto(Short faultAuto) {
+    public void setFaultAuto(Integer faultAuto) {
         this.faultAuto = faultAuto;
     }
 
-    public Short getFaultManul() {
+    public Integer getFaultManul() {
         return faultManul;
     }
 
-    public void setFaultManul(Short faultManul) {
+    public void setFaultManul(Integer faultManul) {
         this.faultManul = faultManul;
     }
 
-    public Short getCarAxisNumber() {
+    public Integer getCarAxisNumber() {
         return carAxisNumber;
     }
 
-    public void setCarAxisNumber(Short carAxisNumber) {
+    public void setCarAxisNumber(Integer carAxisNumber) {
         this.carAxisNumber = carAxisNumber;
     }
 
@@ -213,35 +232,35 @@ public class TfOpVehicle {
         this.posAbFlag = posAbFlag == null ? null : posAbFlag.trim();
     }
 
-    public Short getMidpartcmPicsNumber() {
+    public Integer getMidpartcmPicsNumber() {
         return midpartcmPicsNumber;
     }
 
-    public void setMidpartcmPicsNumber(Short midpartcmPicsNumber) {
+    public void setMidpartcmPicsNumber(Integer midpartcmPicsNumber) {
         this.midpartcmPicsNumber = midpartcmPicsNumber;
     }
 
-    public Short getCmctcarPicsNumber() {
+    public Integer getCmctcarPicsNumber() {
         return cmctcarPicsNumber;
     }
 
-    public void setCmctcarPicsNumber(Short cmctcarPicsNumber) {
+    public void setCmctcarPicsNumber(Integer cmctcarPicsNumber) {
         this.cmctcarPicsNumber = cmctcarPicsNumber;
     }
 
-    public Short getCmcarPicsNumber() {
+    public Integer getCmcarPicsNumber() {
         return cmcarPicsNumber;
     }
 
-    public void setCmcarPicsNumber(Short cmcarPicsNumber) {
+    public void setCmcarPicsNumber(Integer cmcarPicsNumber) {
         this.cmcarPicsNumber = cmcarPicsNumber;
     }
 
-    public Short getDmcarPicsNumber() {
+    public Integer getDmcarPicsNumber() {
         return dmcarPicsNumber;
     }
 
-    public void setDmcarPicsNumber(Short dmcarPicsNumber) {
+    public void setDmcarPicsNumber(Integer dmcarPicsNumber) {
         this.dmcarPicsNumber = dmcarPicsNumber;
     }
 

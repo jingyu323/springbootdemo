@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 映射文件，映射到对应的SQL接口 -->
+<mapper namespace="com.htkj.station.sender.mybatis.mapper.TrainLogMapper">
+
+    <!--返回的结果集，用于关联实体类属性和数据库字段 -->
+    <!--如果实体类属性和数据库属性名保持一致，就不需要javaType和jdbcType（必须大写）属性 -->
+    <resultMap id="TrainLogResultMap" type="com.htkj.station.sender.mybatis.entity.TrainLog">
+        <result column="ILOG" property="ILog" javaType="java.lang.String" jdbcType="VARCHAR" />
+        <result column="TRAIN_SERIAL" property="TrainSerial" javaType="java.lang.String" jdbcType="VARCHAR" />
+        <result column="ITIME" property="ITime" javaType="java.util.Date" jdbcType="DATE"/>
+    </resultMap>
+
+    <!-- 查询数据 -->
+    <!-- 入参定义：在接口定义中使用@Param注解(单参/多参都可使用) -->
+    <!-- 语句末尾不能有分号：ORA-00911: invalid character -->
+    <select id="queryAllTrainLog" resultMap="TrainLogResultMap">
+        select *  from TF_OP_TRAIN_ILOG
+    </select>
+
+
+
+
+</mapper>

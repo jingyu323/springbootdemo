@@ -1,0 +1,21 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+#    禁用数据源
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+socket:
+  # 监听端口 6660
+  port: 6800
+  # 暂时无用
+  poolKeep: 100
+  # workerGroup 线程数设置为系统核心数的几倍
+  poolCore: 2
+  # 最大连接数
+  poolMax: 100
+  # 暂时无用
+  poolQueueInit: 100
+
+  #版本号
+  version: 1
+

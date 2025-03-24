@@ -1,6 +1,7 @@
-package com.htkj.station.sender.entity;
+package com.htkj.station.sender.mybatis.mapper;
 
-import com.htkj.station.sender.TfOpVehicle;
+
+import com.htkj.station.sender.mybatis.entity.TfOpVehicle;
 
 public interface TfOpVehicleMapper {
     int deleteByPrimaryKey(String vehicleSerial);

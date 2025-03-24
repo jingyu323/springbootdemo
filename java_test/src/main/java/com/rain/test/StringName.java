@@ -4,6 +4,9 @@ package com.rain.test;
 import java.awt.image.BufferedImage;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.*;
 
 public class StringName {
@@ -54,6 +57,18 @@ public class StringName {
 
         System.out.println(time.substring(8));
         System.out.println(time.substring(0,8));
+
+        // 指定日期
+
+        LocalDate currentDate = LocalDate.now();
+
+        // 获取当天的开始时间
+        LocalDateTime startOfDay = currentDate.atStartOfDay();
+
+        System.out.println(startOfDay.toString());
+
+        Date now  = Date.from(startOfDay.atZone(ZoneId.systemDefault()).toInstant());
+        System.out.println(now);
 
 
     }

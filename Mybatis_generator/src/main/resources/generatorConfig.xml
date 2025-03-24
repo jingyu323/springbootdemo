@@ -54,18 +54,14 @@
         domainObjectName：指定生成的类名，与tableName保持一致即可
         -->
         <table
-
                 tableName="TF_OP_TRAIN"
-                domainObjectName="TFOpTrain"
                 enableCountByExample="false"
                 enableDeleteByExample="false"
                 enableSelectByExample="false"
                 enableUpdateByExample="false">
         </table>
         <table
-
                 tableName="TF_OP_VEHICLE"
-
                 enableCountByExample="false"
                 enableDeleteByExample="false"
                 enableSelectByExample="false"

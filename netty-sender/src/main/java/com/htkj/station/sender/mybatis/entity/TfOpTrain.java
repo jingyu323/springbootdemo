@@ -1,8 +1,8 @@
-package com.htkj.station.sender;
+package com.htkj.station.sender.mybatis.entity;
 
 import java.util.Date;
 
-public class TFOpTrain {
+public class TfOpTrain {
     private String trainSerial;
 
     private String trainId;
@@ -13,17 +13,17 @@ public class TFOpTrain {
 
     private String direction;
 
-    private Short vehicleNumber;
+    private Integer vehicleNumber;
 
-    private Short freightVehicleNumber;
+    private Integer freightVehicleNumber;
 
-    private Short carVehicleNumber;
+    private Integer carVehicleNumber;
 
-    private Short speed;
+    private Integer speed;
 
     private String trainSort;
 
-    private Short engineNumber;
+    private Integer engineNumber;
 
     private String passKind;
 
@@ -33,15 +33,15 @@ public class TFOpTrain {
 
     private String picValidState;
 
-    private Short highestSpeed;
+    private Integer highestSpeed;
 
-    private Short lowestSpeed;
+    private Integer lowestSpeed;
 
-    private Short equDetectNumber;
+    private Integer equDetectNumber;
 
-    private Short indexId;
+    private Integer indexId;
 
-    private Short detectNumber;
+    private Integer detectNumber;
 
     private String dayNight;
 
@@ -51,23 +51,23 @@ public class TFOpTrain {
 
     private String imgReadyStatus;
 
-    private Short lockVersion;
+    private Long lockVersion;
 
     private String trainStatus;
 
-    private Short vehicleExposure;
+    private Integer vehicleExposure;
 
-    private Short photoExposure;
+    private Integer photoExposure;
 
-    private Short vehicleBlack;
+    private Integer vehicleBlack;
 
-    private Short photoBlack;
+    private Integer photoBlack;
 
-    private Short vehicleLost;
+    private Integer vehicleLost;
 
-    private Short photoLost;
+    private Integer photoLost;
 
-    private Short vehicleDisoerder;
+    private Integer vehicleDisoerder;
 
     private String fileCreatedResult;
 
@@ -113,35 +113,35 @@ public class TFOpTrain {
         this.direction = direction == null ? null : direction.trim();
     }
 
-    public Short getVehicleNumber() {
+    public Integer getVehicleNumber() {
         return vehicleNumber;
     }
 
-    public void setVehicleNumber(Short vehicleNumber) {
+    public void setVehicleNumber(Integer vehicleNumber) {
         this.vehicleNumber = vehicleNumber;
     }
 
-    public Short getFreightVehicleNumber() {
+    public Integer getFreightVehicleNumber() {
         return freightVehicleNumber;
     }
 
-    public void setFreightVehicleNumber(Short freightVehicleNumber) {
+    public void setFreightVehicleNumber(Integer freightVehicleNumber) {
         this.freightVehicleNumber = freightVehicleNumber;
     }
 
-    public Short getCarVehicleNumber() {
+    public Integer getCarVehicleNumber() {
         return carVehicleNumber;
     }
 
-    public void setCarVehicleNumber(Short carVehicleNumber) {
+    public void setCarVehicleNumber(Integer carVehicleNumber) {
         this.carVehicleNumber = carVehicleNumber;
     }
 
-    public Short getSpeed() {
+    public Integer getSpeed() {
         return speed;
     }
 
-    public void setSpeed(Short speed) {
+    public void setSpeed(Integer speed) {
         this.speed = speed;
     }
 
@@ -153,11 +153,11 @@ public class TFOpTrain {
         this.trainSort = trainSort == null ? null : trainSort.trim();
     }
 
-    public Short getEngineNumber() {
+    public Integer getEngineNumber() {
         return engineNumber;
     }
 
-    public void setEngineNumber(Short engineNumber) {
+    public void setEngineNumber(Integer engineNumber) {
         this.engineNumber = engineNumber;
     }
 
@@ -193,43 +193,43 @@ public class TFOpTrain {
         this.picValidState = picValidState == null ? null : picValidState.trim();
     }
 
-    public Short getHighestSpeed() {
+    public Integer getHighestSpeed() {
         return highestSpeed;
     }
 
-    public void setHighestSpeed(Short highestSpeed) {
+    public void setHighestSpeed(Integer highestSpeed) {
         this.highestSpeed = highestSpeed;
     }
 
-    public Short getLowestSpeed() {
+    public Integer getLowestSpeed() {
         return lowestSpeed;
     }
 
-    public void setLowestSpeed(Short lowestSpeed) {
+    public void setLowestSpeed(Integer lowestSpeed) {
         this.lowestSpeed = lowestSpeed;
     }
 
-    public Short getEquDetectNumber() {
+    public Integer getEquDetectNumber() {
         return equDetectNumber;
     }
 
-    public void setEquDetectNumber(Short equDetectNumber) {
+    public void setEquDetectNumber(Integer equDetectNumber) {
         this.equDetectNumber = equDetectNumber;
     }
 
-    public Short getIndexId() {
+    public Integer getIndexId() {
         return indexId;
     }
 
-    public void setIndexId(Short indexId) {
+    public void setIndexId(Integer indexId) {
         this.indexId = indexId;
     }
 
-    public Short getDetectNumber() {
+    public Integer getDetectNumber() {
         return detectNumber;
     }
 
-    public void setDetectNumber(Short detectNumber) {
+    public void setDetectNumber(Integer detectNumber) {
         this.detectNumber = detectNumber;
     }
 
@@ -265,11 +265,11 @@ public class TFOpTrain {
         this.imgReadyStatus = imgReadyStatus == null ? null : imgReadyStatus.trim();
     }
 
-    public Short getLockVersion() {
+    public Long getLockVersion() {
         return lockVersion;
     }
 
-    public void setLockVersion(Short lockVersion) {
+    public void setLockVersion(Long lockVersion) {
         this.lockVersion = lockVersion;
     }
 
@@ -281,59 +281,59 @@ public class TFOpTrain {
         this.trainStatus = trainStatus == null ? null : trainStatus.trim();
     }
 
-    public Short getVehicleExposure() {
+    public Integer getVehicleExposure() {
         return vehicleExposure;
     }
 
-    public void setVehicleExposure(Short vehicleExposure) {
+    public void setVehicleExposure(Integer vehicleExposure) {
         this.vehicleExposure = vehicleExposure;
     }
 
-    public Short getPhotoExposure() {
+    public Integer getPhotoExposure() {
         return photoExposure;
     }
 
-    public void setPhotoExposure(Short photoExposure) {
+    public void setPhotoExposure(Integer photoExposure) {
         this.photoExposure = photoExposure;
     }
 
-    public Short getVehicleBlack() {
+    public Integer getVehicleBlack() {
         return vehicleBlack;
     }
 
-    public void setVehicleBlack(Short vehicleBlack) {
+    public void setVehicleBlack(Integer vehicleBlack) {
         this.vehicleBlack = vehicleBlack;
     }
 
-    public Short getPhotoBlack() {
+    public Integer getPhotoBlack() {
         return photoBlack;
     }
 
-    public void setPhotoBlack(Short photoBlack) {
+    public void setPhotoBlack(Integer photoBlack) {
         this.photoBlack = photoBlack;
     }
 
-    public Short getVehicleLost() {
+    public Integer getVehicleLost() {
         return vehicleLost;
     }
 
-    public void setVehicleLost(Short vehicleLost) {
+    public void setVehicleLost(Integer vehicleLost) {
         this.vehicleLost = vehicleLost;
     }
 
-    public Short getPhotoLost() {
+    public Integer getPhotoLost() {
         return photoLost;
     }
 
-    public void setPhotoLost(Short photoLost) {
+    public void setPhotoLost(Integer photoLost) {
         this.photoLost = photoLost;
     }
 
-    public Short getVehicleDisoerder() {
+    public Integer getVehicleDisoerder() {
         return vehicleDisoerder;
     }
 
-    public void setVehicleDisoerder(Short vehicleDisoerder) {
+    public void setVehicleDisoerder(Integer vehicleDisoerder) {
         this.vehicleDisoerder = vehicleDisoerder;
     }
 
