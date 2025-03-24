@@ -31,7 +31,6 @@ public class SchedulerTimer {
     SenderNettyClient senderNettyClient;
 
 
-
     @Scheduled(fixedRate = 10000)
     public void statusMessagesTasks() {
         System.out.println("执行定时任务: " + LocalDateTime.now());

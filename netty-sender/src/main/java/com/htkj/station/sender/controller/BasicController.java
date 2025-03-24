@@ -18,10 +18,10 @@ package com.htkj.station.sender.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.htkj.station.sender.mybatis.entity.TrainLog;
-import com.htkj.station.sender.service.TrainLogService;
 
 
+import com.htkj.station.sender.mybatis.entity.SysStaff;
+import com.htkj.station.sender.service.SysStaffService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.cache.CacheManager;
@@ -40,16 +40,17 @@ import java.util.List;
 public class BasicController {
 
     @Autowired
-    private TrainLogService trainLogService;
-    @Autowired
     CacheManager cacheManager;
+
+    @Autowired
+    SysStaffService sysStaffService;
 
 
     // http://127.0.0.1:8080/hello?name=lisi
     @RequestMapping("/hello")
     @ResponseBody
     public String hello(@RequestParam(name = "name") String name) {
-        List<TrainLog>  logs =  trainLogService.queryAllTrainLog();
+        List<SysStaff>  staffs = sysStaffService.findAll();
 
         //获取缓存对象
         Cache cache = cacheManager.getCache("parsedtrain");
@@ -62,7 +63,7 @@ public class BasicController {
         ObjectMapper objectMapper = new ObjectMapper();
         String json = null;
         try {
-            json = objectMapper.writeValueAsString(logs);
+            json = objectMapper.writeValueAsString(staffs);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }

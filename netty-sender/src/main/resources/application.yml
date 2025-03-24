@@ -4,7 +4,7 @@ spring:
   datasource:
     driver-class-name: oracle.jdbc.OracleDriver
     jdbcUrl: jdbc:oracle:thin:@192.168.199.191:1521/orclpdb  #thin连接  注意修改为自己的地址和库名
-    username: TFDS  #用户名
+    username: test  #用户名
     password: test123  #密码
   cache:
     type: ehcache
