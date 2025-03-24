@@ -17,6 +17,7 @@ import io.netty.handler.codec.string.StringEncoder;
 
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
@@ -31,10 +32,8 @@ import java.util.List;
 public class SenderNettyClient {
     private static final Logger logger = LoggerFactory.getLogger(SenderNettyClient.class);
 
-    public void setChannel(Channel channel) {
-        this.channel = channel;
-    }
 
+    @Setter
     private Channel channel;
     @Resource
     SenderConfig config ;
@@ -42,6 +41,8 @@ public class SenderNettyClient {
     private int coreCount = Runtime.getRuntime().availableProcessors();
 
     Bootstrap bootstrap;
+
+
     @PostConstruct
     public void start() throws Exception {
         EventLoopGroup group = new NioEventLoopGroup(this.coreCount *config.getPoolCore());
@@ -85,9 +86,6 @@ public class SenderNettyClient {
                         System.out.println("连接服务器成功");
                         //得到channel
 
-
-
-
                         System.out.println("========"+channel.id().toString());
 
                     } else {
@@ -99,20 +97,48 @@ public class SenderNettyClient {
             });
 
             Channel channel = future.channel();
-            setChannel(channel);
+            this.channel = channel;
+
             channel.writeAndFlush("Hello Netty Server, I am a common client");
         }catch (Exception e)  {
             group.shutdownGracefully();
         }
     }
 
+
     public void reconect() {
 
+        if(this.bootstrap == null){
+            EventLoopGroup group = new NioEventLoopGroup(this.coreCount *config.getPoolCore());
+
+            this.bootstrap = new Bootstrap()
+                    .group(group)
+                    .remoteAddress(config.getHost(), config.getPort())
+                    .channel(NioSocketChannel.class)
+                    .handler(new ChannelInitializer<SocketChannel>() {
+
+                        @Override
+                        protected void initChannel(SocketChannel ch) throws Exception {
+
+                            //得到pipeline
+                            ChannelPipeline pipeline = ch.pipeline();
+                            //加入相关handler
+                            pipeline.addLast(new ChannelHandler[] { (ChannelHandler)new LengthFieldBasedFrameDecoder(2097152, 0, 4, 0, 4) });
+                            pipeline.addLast(new ChannelHandler[] { (ChannelHandler)new LengthFieldPrepender(4) });
+                            pipeline.addLast(new ChannelHandler[] { (ChannelHandler)new ObjectDecoder(ClassResolvers.cacheDisabled(null)) });
+                            pipeline.addLast(new ChannelHandler[] { (ChannelHandler)new ObjectEncoder() });
+                            //加入自定义的handler
+                            pipeline.addLast(new ClientHandler());
+                            pipeline.addLast(new LoggingHandler(LogLevel.DEBUG));
+
+                        }
+                    });
+        }
         //Step5: 循环链接服务端
         ChannelFuture f = null;
         boolean connected = false;
         while (!connected) {
-            f = bootstrap.connect();
+            f = this.bootstrap.connect();
             f.addListener((ChannelFuture futureListener) -> {
                 if (futureListener.isSuccess()) {
                     logger.info("EchoClient客户端连接成功!");
