@@ -37,7 +37,3 @@ public interface BatchAcknowledgingConsumerAwareMessageListener<K, V> extends Ba
     void onMessage(List<ConsumerRecord<K, V>> data, Acknowledgment acknowledgment, Consumer<?, ?> consumer);
 }
 ```
-
-# ES 接口访问
-
-

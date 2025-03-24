@@ -3,5 +3,4 @@ target/
 *.impl
 *.jar
 *.iml
-*.arr
-libs
+*,aar

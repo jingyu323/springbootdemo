@@ -16,10 +16,10 @@
         </commentGenerator>
 
         <!-- jdbc连接 填写数据库的信息-->
-        <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
-                        connectionURL="jdbc:oracle:thin:@192.168.199.191:1521/orclpdb"
-                        userId="TFDS"
-                        password="test123" >
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/hrm?serverTimezone=UTC"
+                        userId="root"
+                        password="root" >
             <property name="nullCatalogMeansCurrent" value="true" />
         </jdbcConnection>
 
@@ -54,12 +54,19 @@
         domainObjectName：指定生成的类名，与tableName保持一致即可
         -->
         <table
+<<<<<<< HEAD
                 tableName="TF_OP_TRAIN"
+=======
+
+                tableName="sys_staff"
+                domainObjectName="SysStaff"
+>>>>>>> ced8b7eb881f01411b521dcf729b569acbf6b5f0
                 enableCountByExample="false"
                 enableDeleteByExample="false"
                 enableSelectByExample="false"
                 enableUpdateByExample="false">
         </table>
+<<<<<<< HEAD
         <table
                 tableName="TF_OP_VEHICLE"
                 enableCountByExample="false"
@@ -67,6 +74,9 @@
                 enableSelectByExample="false"
                 enableUpdateByExample="false">
         </table>
+=======
+
+>>>>>>> ced8b7eb881f01411b521dcf729b569acbf6b5f0
 
     </context>
 

@@ -1,10 +1,10 @@
 package com.rain.study.danmicproxy;
 
+import javassist.util.proxy.ProxyFactory;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-
 
 public class UserServiceHandler  implements InvocationHandler {
 
@@ -30,6 +30,6 @@ public class UserServiceHandler  implements InvocationHandler {
             System.out.println("该类无接口，不能使用jdk都动态代理");
             throw new RuntimeException("该类无接口，不能使用jdk都动态代理");
         }
-        return Proxy.newProxyInstance(target.getClass().getClassLoader(), interfaces, this);
+        return Proxy.newProxyInstance(ProxyFactory.class.getClassLoader(), interfaces, this);
     }
 }
