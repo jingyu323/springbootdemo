@@ -50,13 +50,11 @@ public class TestFileRename {
         for (Map.Entry<String, List<File>> entry : fileMap.entrySet())  {
             String key = entry.getKey();
             List<File> fileList = entry.getValue();
-            for (File f : fileList) {
-                System.out.println(key+":"+f.getName());
-            }
 
+            System.out.println(key+":");
             JSONObject jb=  buildJsonRequestBody(fileList);
 
-            JSONObject  reqBody =  FileUtils.writeJson(sendFile.getPath(), jb);
+              FileUtils.writeJson(key+".json", jb);
         }
 
 
@@ -70,8 +68,8 @@ public class TestFileRename {
             String path = null;
 
 
-            imgInfo.put("path", path);
-            imgInfo.put("image", GetImageStr(path));
+            imgInfo.put("path", item.getAbsolutePath());
+            imgInfo.put("image", GetImageStr(item.getAbsolutePath()));
             imgArr.add(imgInfo);
         });
         requestBody.put("input_image_info", imgArr);
