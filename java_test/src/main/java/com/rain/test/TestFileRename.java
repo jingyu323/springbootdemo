@@ -1,11 +1,47 @@
 package com.rain.test;
 
+import com.rain.test.util.Base64;
+
 import java.io.File;
 
 public class TestFileRename {
     public static void main(String[] args) {
-        filenmecheck();
+        fileToJson();
     }
+
+    public static void  fileToJson(){
+
+        String path = "F:\\ht\\J85F02F06\\pic\\20250325\\113505_1\\";
+
+        long start = System.currentTimeMillis();
+        File file = new File(path);
+        File[] files = file.listFiles();
+
+        for (File f : files) {
+            System.out.println(Base64.GetImageStr(f.getAbsolutePath()));
+        }
+
+
+        System.out.println(System.currentTimeMillis()-start);
+
+
+        long start2 = System.currentTimeMillis();
+
+        File file2 = new File(path);
+        File[] files2 = file2.listFiles();
+
+        for (File f : files2) {
+            System.out.println(Base64.GetImageStr(f.getAbsolutePath()));
+        }
+
+
+        System.out.println(System.currentTimeMillis()-start2);
+
+
+
+    }
+
+
     public  static  void getFileList(){
         String filePath2 = "E:\\home\\htkj\\dataLabelRootPath\\testLabel001";
         File file = new File(filePath2);
