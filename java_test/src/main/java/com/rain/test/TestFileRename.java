@@ -1,8 +1,15 @@
 package com.rain.test;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.rain.test.util.Base64;
+import com.rain.test.util.FileUtils;
 
 import java.io.File;
+import java.security.KeyStore;
+import java.util.*;
+
+import static com.rain.test.util.Base64.GetImageStr;
 
 public class TestFileRename {
     public static void main(String[] args) {
@@ -17,28 +24,62 @@ public class TestFileRename {
         File file = new File(path);
         File[] files = file.listFiles();
 
+
+        Map<String, List<File>> fileMap = new HashMap<>();
+
         for (File f : files) {
-            System.out.println(Base64.GetImageStr(f.getAbsolutePath()));
+
+            String fileName = f.getName().substring(0,f.getName().lastIndexOf("X")+2);
+
+//            vehicle_2-camera_2
+            String jsonName = "vehicle_"+fileName.split("_")[0]+"-camera_"+fileName.split("X")[1]; ;
+
+
+
+            List<File> fileList = fileMap.get(jsonName);
+            if (fileList == null) {
+                fileList = new ArrayList<>();
+            }
+            fileList.add(f);
+            fileMap.put(jsonName, fileList);
+
+
         }
 
 
-        System.out.println(System.currentTimeMillis()-start);
+        for (Map.Entry<String, List<File>> entry : fileMap.entrySet())  {
+            String key = entry.getKey();
+            List<File> fileList = entry.getValue();
+            for (File f : fileList) {
+                System.out.println(key+":"+f.getName());
+            }
 
+            JSONObject jb=  buildJsonRequestBody(fileList);
 
-        long start2 = System.currentTimeMillis();
-
-        File file2 = new File(path);
-        File[] files2 = file2.listFiles();
-
-        for (File f : files2) {
-            System.out.println(Base64.GetImageStr(f.getAbsolutePath()));
+            JSONObject  reqBody =  FileUtils.writeJson(sendFile.getPath(), jb);
         }
 
 
-        System.out.println(System.currentTimeMillis()-start2);
+    }
+
+    private static JSONObject buildJsonRequestBody(List<File> carList) {
+        JSONObject requestBody = new JSONObject();
+        JSONArray imgArr = new JSONArray();
+        carList.forEach(item -> {
+            JSONObject imgInfo = new JSONObject();
+            String path = null;
 
 
+            imgInfo.put("path", path);
+            imgInfo.put("image", GetImageStr(path));
+            imgArr.add(imgInfo);
+        });
+        requestBody.put("input_image_info", imgArr);
+        //apt tr
+        requestBody.put("station_code","F999999999");
+           requestBody.put("car_code", "ZYS374401");
 
+        return requestBody;
     }
 
 
