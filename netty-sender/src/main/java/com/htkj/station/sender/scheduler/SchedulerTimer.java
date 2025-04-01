@@ -39,7 +39,6 @@ public class SchedulerTimer {
         Channel channel = senderNettyClient.getChannel();
 
         GenericFutureListener sendCallBack = future2 -> {
-
             if (future2.isSuccess()) {
                 logger.info("发送成功!{}", new Date());
             } else {
@@ -47,9 +46,12 @@ public class SchedulerTimer {
                 senderNettyClient.reconect();
             }
         };
-        ChannelFuture  writeAndFlushFuture =channel.writeAndFlush(" msg  from timer "+  new Date());
-        writeAndFlushFuture.addListener(sendCallBack);
-
-
+        try {
+            ChannelFuture  writeAndFlushFuture =channel.writeAndFlush(" msg  from timer "+  new Date());
+            writeAndFlushFuture.addListener(sendCallBack);
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            senderNettyClient.reconect();
+        }
     }
 }
