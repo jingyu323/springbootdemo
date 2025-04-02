@@ -17,7 +17,12 @@ public class TestFileRename {
 
     public static void  fileToJson(){
 
-        String path = "F:\\ht\\J85F02F06\\pic\\20250325\\113505_1\\";
+        String path = "F:\\ht\\TF0100181\\pic\\20250322\\010101_1\\";
+        String path1 = "F:\\ht\\TF0100181\\pic\\20250322\\010101_1\\1_10X1003.jpg";
+
+
+        System.out.println(path1.indexOf("pic"));
+        System.out.println(path1.substring(path1.indexOf("pic")));
 
         long start = System.currentTimeMillis();
         File file = new File(path);
