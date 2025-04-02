@@ -6,7 +6,6 @@ import com.rain.test.util.Base64;
 import com.rain.test.util.FileUtils;
 
 import java.io.File;
-import java.security.KeyStore;
 import java.util.*;
 
 import static com.rain.test.util.Base64.GetImageStr;
@@ -23,6 +22,17 @@ public class TestFileRename {
         long start = System.currentTimeMillis();
         File file = new File(path);
         File[] files = file.listFiles();
+
+        String camerNo = "5";
+
+        switch (camerNo) {
+            case "5":
+            case "6":
+            case "7":
+            case "8":
+            case "9":
+                System.out.println(camerNo);
+        }
 
 
         Map<String, List<File>> fileMap = new HashMap<>();
