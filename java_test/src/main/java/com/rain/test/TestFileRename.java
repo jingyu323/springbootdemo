@@ -22,7 +22,7 @@ public class TestFileRename {
 
 
         System.out.println(path1.indexOf("pic"));
-        System.out.println(path1.substring(path1.indexOf("pic")));
+        System.out.println(path1.substring(path1.indexOf("pic")+"pic".length()+1));
 
         long start = System.currentTimeMillis();
         File file = new File(path);
