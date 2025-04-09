@@ -1,11 +1,16 @@
 package com.rain.test;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.rain.test.util.Base64;
 import com.rain.test.util.FileUtils;
 
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 
 import static com.rain.test.util.Base64.GetImageStr;
@@ -59,9 +64,37 @@ public class TestFileRename {
             fileMap.put(jsonName, fileList);
 
 
+
+        }
+
+//            genJsonFile(    fileMap);
+
+
+
+        readJsonFile();
+
+    }
+
+    public static void  readJsonFile(){
+        String jsonPath = "E:\\study\\git\\springbootdemo\\java_test\\vehicle_1-camera_1.json";
+
+        File file = new File(jsonPath);
+        String content = null;
+        try {
+            content = new String(Files.readAllBytes(Paths.get(jsonPath)));
+
+//            System.out.println(content);
+
+            JSONObject requestBody =new JSONObject().parseObject(content);
+            System.out.println(requestBody);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
 
+    }
+
+    private static void genJsonFile(  Map<String, List<File>> fileMap){
         for (Map.Entry<String, List<File>> entry : fileMap.entrySet())  {
             String key = entry.getKey();
             List<File> fileList = entry.getValue();
@@ -69,10 +102,8 @@ public class TestFileRename {
             System.out.println(key+":");
             JSONObject jb=  buildJsonRequestBody(fileList);
 
-              FileUtils.writeJson(key+".json", jb);
+            FileUtils.writeJson(key+".json", jb);
         }
-
-
     }
 
     private static JSONObject buildJsonRequestBody(List<File> carList) {
