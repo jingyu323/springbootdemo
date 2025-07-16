@@ -1,5 +1,6 @@
 package com.rain.test.util;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -26,6 +27,11 @@ public class Test001 {
         Long bb = 100L;
 
         System.out.println(aaas*100/bb);
+
+
+        File imge = new File("F:/ht/0604-2/0604-34/构造-广州局实车故障构造-1217_CRH380A_0_5282-华兴致远/1_10X1001.jpg");
+
+        System.out.println(imge);
 
     }
 }
