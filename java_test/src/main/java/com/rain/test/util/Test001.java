@@ -1,12 +1,20 @@
 package com.rain.test.util;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Test001 {
-    public static void main(String[] args) {
+
+    private static final String SEP = File.separator;
+    public static void main(String[] args) throws IOException {
         List<Integer> list =  new ArrayList<>();
         list.add(Integer.valueOf("1"));
         list.add(Integer.valueOf("3"));
@@ -32,6 +40,24 @@ public class Test001 {
         File imge = new File("F:/ht/0604-2/0604-34/构造-广州局实车故障构造-1217_CRH380A_0_5282-华兴致远/1_10X1001.jpg");
 
         System.out.println(imge);
+        long l1 = System.currentTimeMillis();
+
+        BufferedImage image = ImageIO.read(imge);
+
+        String saveDirectory = Paths.get("F:/ht", new String[] { "pic" }).toString();
+        File directory = new File(saveDirectory);
+        if (!directory.exists())
+            directory.mkdirs();
+        File outputFile = new File(saveDirectory + SEP + "imageName.jpg");
+        try(FileOutputStream fos = new FileOutputStream(outputFile); BufferedOutputStream bos = new BufferedOutputStream(fos)) {
+            ImageIO.write(image, "jpeg", bos);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        System.out.println("耗时："+ (System.currentTimeMillis() - l1));
+
 
     }
 }
