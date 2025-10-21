@@ -3,9 +3,9 @@ package com.rain.test;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.spire.pdf.FileFormat;
-import com.spire.pdf.PdfDocument;
-import com.spire.pdf.PdfDocumentBase;
+//import com.spire.pdf.FileFormat;
+//import com.spire.pdf.PdfDocument;
+//import com.spire.pdf.PdfDocumentBase;
 
 import java.io.*;
 
@@ -21,9 +21,9 @@ public class MergePDF3 {
         FileInputStream stream2 = new FileInputStream(new File("E:\\git_project\\java\\springbootdemo\\java_test\\src\\main\\resources\\pdf\\931信号与线性系统.pdf"));
         InputStream[] streams = new FileInputStream[]{stream1, stream2};
         //Merge these documents and return an object of PdfDocumentBase
-        PdfDocumentBase pdf = PdfDocument.mergeFiles(streams);
+//        PdfDocumentBase pdf = PdfDocument.mergeFiles(streams);
         //Save the result to a PDF file
-        pdf.save("MergedPDF2.pdf", FileFormat.PDF);
+//        pdf.save("MergedPDF2.pdf", FileFormat.PDF);
 
 
         Document mergedDocument = new Document();

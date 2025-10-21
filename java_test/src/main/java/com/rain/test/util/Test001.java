@@ -57,6 +57,24 @@ public class Test001 {
 
 
         System.out.println("耗时："+ (System.currentTimeMillis() - l1));
+        String  train = "01026_15_161_18_002_24_447_27_288";
+        System.out.println(train.substring(1,2));
+
+        String filePath =  "F:/xialongmen/state/ZT_sdfdf.data";
+        String[] splitArray = filePath.replace("//","/").split("/");
+        System.out.println(splitArray.length);
+        for(int i=0;i<splitArray.length;i++){
+            System.out.println(  splitArray[i]);
+        }
+
+        String data = "45";
+
+        double  fileSize = Double.valueOf(data) / 1000;
+        System.out.println(fileSize);
+
+        System.out.println(String.format("%02d", 2));
+
+
 
 
     }
