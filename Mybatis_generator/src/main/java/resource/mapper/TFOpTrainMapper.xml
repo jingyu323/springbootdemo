@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.htkj.station.sender.entity.TfOpTrainMapper" >
+  <resultMap id="BaseResultMap" type="com.htkj.station.sender.TfOpTrain" >
+    <result column="TRAIN_SERIAL" property="trainSerial" jdbcType="VARCHAR" />
+    <result column="TRAIN_ID" property="trainId" jdbcType="VARCHAR" />
+    <result column="STATION_ID" property="stationId" jdbcType="VARCHAR" />
+    <result column="PASS_TIME" property="passTime" jdbcType="TIMESTAMP" />
+    <result column="DIRECTION" property="direction" jdbcType="VARCHAR" />
+    <result column="VEHICLE_NUMBER" property="vehicleNumber" jdbcType="NUMERIC" />
+    <result column="FREIGHT_VEHICLE_NUMBER" property="freightVehicleNumber" jdbcType="NUMERIC" />
+    <result column="CAR_VEHICLE_NUMBER" property="carVehicleNumber" jdbcType="NUMERIC" />
+    <result column="SPEED" property="speed" jdbcType="NUMERIC" />
+    <result column="TRAIN_SORT" property="trainSort" jdbcType="VARCHAR" />
+    <result column="ENGINE_NUMBER" property="engineNumber" jdbcType="NUMERIC" />
+    <result column="PASS_KIND" property="passKind" jdbcType="VARCHAR" />
+    <result column="PASS_STATE" property="passState" jdbcType="VARCHAR" />
+    <result column="VIEW_STATE" property="viewState" jdbcType="VARCHAR" />
+    <result column="PIC_VALID_STATE" property="picValidState" jdbcType="VARCHAR" />
+    <result column="HIGHEST_SPEED" property="highestSpeed" jdbcType="NUMERIC" />
+    <result column="LOWEST_SPEED" property="lowestSpeed" jdbcType="NUMERIC" />
+    <result column="EQU_DETECT_NUMBER" property="equDetectNumber" jdbcType="NUMERIC" />
+    <result column="INDEX_ID" property="indexId" jdbcType="NUMERIC" />
+    <result column="DETECT_NUMBER" property="detectNumber" jdbcType="NUMERIC" />
+    <result column="DAY_NIGHT" property="dayNight" jdbcType="VARCHAR" />
+    <result column="TEAM" property="team" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="IMG_READY_STATUS" property="imgReadyStatus" jdbcType="VARCHAR" />
+    <result column="LOCK_VERSION" property="lockVersion" jdbcType="NUMERIC" />
+    <result column="TRAIN_STATUS" property="trainStatus" jdbcType="VARCHAR" />
+    <result column="VEHICLE_EXPOSURE" property="vehicleExposure" jdbcType="NUMERIC" />
+    <result column="PHOTO_EXPOSURE" property="photoExposure" jdbcType="NUMERIC" />
+    <result column="VEHICLE_BLACK" property="vehicleBlack" jdbcType="NUMERIC" />
+    <result column="PHOTO_BLACK" property="photoBlack" jdbcType="NUMERIC" />
+    <result column="VEHICLE_LOST" property="vehicleLost" jdbcType="NUMERIC" />
+    <result column="PHOTO_LOST" property="photoLost" jdbcType="NUMERIC" />
+    <result column="VEHICLE_DISOERDER" property="vehicleDisoerder" jdbcType="NUMERIC" />
+    <result column="FILE_CREATED_RESULT" property="fileCreatedResult" jdbcType="VARCHAR" />
+    <result column="FILE_CREATED_REMARK" property="fileCreatedRemark" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.htkj.station.sender.TfOpTrain" >
+    insert into TF_OP_TRAIN (TRAIN_SERIAL, TRAIN_ID, STATION_ID, 
+      PASS_TIME, DIRECTION, VEHICLE_NUMBER, 
+      FREIGHT_VEHICLE_NUMBER, CAR_VEHICLE_NUMBER, 
+      SPEED, TRAIN_SORT, ENGINE_NUMBER, 
+      PASS_KIND, PASS_STATE, VIEW_STATE, 
+      PIC_VALID_STATE, HIGHEST_SPEED, LOWEST_SPEED, 
+      EQU_DETECT_NUMBER, INDEX_ID, DETECT_NUMBER, 
+      DAY_NIGHT, TEAM, REMARK, 
+      IMG_READY_STATUS, LOCK_VERSION, TRAIN_STATUS, 
+      VEHICLE_EXPOSURE, PHOTO_EXPOSURE, VEHICLE_BLACK, 
+      PHOTO_BLACK, VEHICLE_LOST, PHOTO_LOST, 
+      VEHICLE_DISOERDER, FILE_CREATED_RESULT, FILE_CREATED_REMARK
+      )
+    values (#{trainSerial,jdbcType=VARCHAR}, #{trainId,jdbcType=VARCHAR}, #{stationId,jdbcType=VARCHAR}, 
+      #{passTime,jdbcType=TIMESTAMP}, #{direction,jdbcType=VARCHAR}, #{vehicleNumber,jdbcType=NUMERIC}, 
+      #{freightVehicleNumber,jdbcType=NUMERIC}, #{carVehicleNumber,jdbcType=NUMERIC}, 
+      #{speed,jdbcType=NUMERIC}, #{trainSort,jdbcType=VARCHAR}, #{engineNumber,jdbcType=NUMERIC}, 
+      #{passKind,jdbcType=VARCHAR}, #{passState,jdbcType=VARCHAR}, #{viewState,jdbcType=VARCHAR}, 
+      #{picValidState,jdbcType=VARCHAR}, #{highestSpeed,jdbcType=NUMERIC}, #{lowestSpeed,jdbcType=NUMERIC}, 
+      #{equDetectNumber,jdbcType=NUMERIC}, #{indexId,jdbcType=NUMERIC}, #{detectNumber,jdbcType=NUMERIC}, 
+      #{dayNight,jdbcType=VARCHAR}, #{team,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{imgReadyStatus,jdbcType=VARCHAR}, #{lockVersion,jdbcType=NUMERIC}, #{trainStatus,jdbcType=VARCHAR}, 
+      #{vehicleExposure,jdbcType=NUMERIC}, #{photoExposure,jdbcType=NUMERIC}, #{vehicleBlack,jdbcType=NUMERIC}, 
+      #{photoBlack,jdbcType=NUMERIC}, #{vehicleLost,jdbcType=NUMERIC}, #{photoLost,jdbcType=NUMERIC}, 
+      #{vehicleDisoerder,jdbcType=NUMERIC}, #{fileCreatedResult,jdbcType=VARCHAR}, #{fileCreatedRemark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.htkj.station.sender.TfOpTrain" >
+    insert into TF_OP_TRAIN
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="trainSerial != null" >
+        TRAIN_SERIAL,
+      </if>
+      <if test="trainId != null" >
+        TRAIN_ID,
+      </if>
+      <if test="stationId != null" >
+        STATION_ID,
+      </if>
+      <if test="passTime != null" >
+        PASS_TIME,
+      </if>
+      <if test="direction != null" >
+        DIRECTION,
+      </if>
+      <if test="vehicleNumber != null" >
+        VEHICLE_NUMBER,
+      </if>
+      <if test="freightVehicleNumber != null" >
+        FREIGHT_VEHICLE_NUMBER,
+      </if>
+      <if test="carVehicleNumber != null" >
+        CAR_VEHICLE_NUMBER,
+      </if>
+      <if test="speed != null" >
+        SPEED,
+      </if>
+      <if test="trainSort != null" >
+        TRAIN_SORT,
+      </if>
+      <if test="engineNumber != null" >
+        ENGINE_NUMBER,
+      </if>
+      <if test="passKind != null" >
+        PASS_KIND,
+      </if>
+      <if test="passState != null" >
+        PASS_STATE,
+      </if>
+      <if test="viewState != null" >
+        VIEW_STATE,
+      </if>
+      <if test="picValidState != null" >
+        PIC_VALID_STATE,
+      </if>
+      <if test="highestSpeed != null" >
+        HIGHEST_SPEED,
+      </if>
+      <if test="lowestSpeed != null" >
+        LOWEST_SPEED,
+      </if>
+      <if test="equDetectNumber != null" >
+        EQU_DETECT_NUMBER,
+      </if>
+      <if test="indexId != null" >
+        INDEX_ID,
+      </if>
+      <if test="detectNumber != null" >
+        DETECT_NUMBER,
+      </if>
+      <if test="dayNight != null" >
+        DAY_NIGHT,
+      </if>
+      <if test="team != null" >
+        TEAM,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="imgReadyStatus != null" >
+        IMG_READY_STATUS,
+      </if>
+      <if test="lockVersion != null" >
+        LOCK_VERSION,
+      </if>
+      <if test="trainStatus != null" >
+        TRAIN_STATUS,
+      </if>
+      <if test="vehicleExposure != null" >
+        VEHICLE_EXPOSURE,
+      </if>
+      <if test="photoExposure != null" >
+        PHOTO_EXPOSURE,
+      </if>
+      <if test="vehicleBlack != null" >
+        VEHICLE_BLACK,
+      </if>
+      <if test="photoBlack != null" >
+        PHOTO_BLACK,
+      </if>
+      <if test="vehicleLost != null" >
+        VEHICLE_LOST,
+      </if>
+      <if test="photoLost != null" >
+        PHOTO_LOST,
+      </if>
+      <if test="vehicleDisoerder != null" >
+        VEHICLE_DISOERDER,
+      </if>
+      <if test="fileCreatedResult != null" >
+        FILE_CREATED_RESULT,
+      </if>
+      <if test="fileCreatedRemark != null" >
+        FILE_CREATED_REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="trainSerial != null" >
+        #{trainSerial,jdbcType=VARCHAR},
+      </if>
+      <if test="trainId != null" >
+        #{trainId,jdbcType=VARCHAR},
+      </if>
+      <if test="stationId != null" >
+        #{stationId,jdbcType=VARCHAR},
+      </if>
+      <if test="passTime != null" >
+        #{passTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="direction != null" >
+        #{direction,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleNumber != null" >
+        #{vehicleNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="freightVehicleNumber != null" >
+        #{freightVehicleNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="carVehicleNumber != null" >
+        #{carVehicleNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="speed != null" >
+        #{speed,jdbcType=NUMERIC},
+      </if>
+      <if test="trainSort != null" >
+        #{trainSort,jdbcType=VARCHAR},
+      </if>
+      <if test="engineNumber != null" >
+        #{engineNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="passKind != null" >
+        #{passKind,jdbcType=VARCHAR},
+      </if>
+      <if test="passState != null" >
+        #{passState,jdbcType=VARCHAR},
+      </if>
+      <if test="viewState != null" >
+        #{viewState,jdbcType=VARCHAR},
+      </if>
+      <if test="picValidState != null" >
+        #{picValidState,jdbcType=VARCHAR},
+      </if>
+      <if test="highestSpeed != null" >
+        #{highestSpeed,jdbcType=NUMERIC},
+      </if>
+      <if test="lowestSpeed != null" >
+        #{lowestSpeed,jdbcType=NUMERIC},
+      </if>
+      <if test="equDetectNumber != null" >
+        #{equDetectNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="indexId != null" >
+        #{indexId,jdbcType=NUMERIC},
+      </if>
+      <if test="detectNumber != null" >
+        #{detectNumber,jdbcType=NUMERIC},
+      </if>
+      <if test="dayNight != null" >
+        #{dayNight,jdbcType=VARCHAR},
+      </if>
+      <if test="team != null" >
+        #{team,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="imgReadyStatus != null" >
+        #{imgReadyStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="lockVersion != null" >
+        #{lockVersion,jdbcType=NUMERIC},
+      </if>
+      <if test="trainStatus != null" >
+        #{trainStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleExposure != null" >
+        #{vehicleExposure,jdbcType=NUMERIC},
+      </if>
+      <if test="photoExposure != null" >
+        #{photoExposure,jdbcType=NUMERIC},
+      </if>
+      <if test="vehicleBlack != null" >
+        #{vehicleBlack,jdbcType=NUMERIC},
+      </if>
+      <if test="photoBlack != null" >
+        #{photoBlack,jdbcType=NUMERIC},
+      </if>
+      <if test="vehicleLost != null" >
+        #{vehicleLost,jdbcType=NUMERIC},
+      </if>
+      <if test="photoLost != null" >
+        #{photoLost,jdbcType=NUMERIC},
+      </if>
+      <if test="vehicleDisoerder != null" >
+        #{vehicleDisoerder,jdbcType=NUMERIC},
+      </if>
+      <if test="fileCreatedResult != null" >
+        #{fileCreatedResult,jdbcType=VARCHAR},
+      </if>
+      <if test="fileCreatedRemark != null" >
+        #{fileCreatedRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
