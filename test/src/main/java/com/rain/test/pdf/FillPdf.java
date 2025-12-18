@@ -9,14 +9,18 @@ import com.itextpdf.text.pdf.PdfStamper;
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class FillPdf {
 
     public static void main(String[] args) {
+
+        Map<String, String>  data=new HashMap<>();
+        data.put("name","嘉靖");
+        data.put("age","18");
+//        data.put("","true");
+
+        generatePDF("E:\\study\\git\\springbootdemo\\test\\src\\main\\java\\com\\rain\\test\\pdf\\1.高血压患者健康教育处方1.pdf", "E:/study/git/springbootdemo/1.高血压患者健康教育处方1.pdf",  data);
 
     }
 
@@ -59,7 +63,7 @@ public class FillPdf {
             /* 将要生成的目标PDF文件名称 */
             PdfStamper ps = new PdfStamper(reader, bos);
 
-            BaseFont bf = BaseFont.createFont("/usr/share/fonts/zhFonts/SimSun.ttf",BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+            BaseFont bf = BaseFont.createFont("C:\\Windows\\Fonts\\simkai.ttf",BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
 
             AcroFields s = ps.getAcroFields();
 
@@ -68,6 +72,7 @@ public class FillPdf {
             /* 取出报表模板中的所有字段 */
             AcroFields fields = ps.getAcroFields();
             fields.setSubstitutionFonts(fontList);
+
 
             fillData(fields, data);
             /* 必须要调用这个，否则文档不会生成的  如果为false那么生成的PDF文件还能编辑，一定要设为true*/
