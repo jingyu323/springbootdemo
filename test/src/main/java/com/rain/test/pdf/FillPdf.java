@@ -10,6 +10,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class FillPdf {
 
@@ -20,15 +22,53 @@ public class FillPdf {
         data.put("age","18");
         data.put("gender","男");
         data.put("result","轻微感冒");
-        data.put("testtxt","testtxtsssssss");
         data.put("toggle_1","On");
         data.put("toggle_2","On");
+        data.put("toggle_3","On");
+
         data.put("toggle_17","On");
-        data.put("toggle_17","On");
-        data.put("test","是");
-        data.put("suggestion","（1）　\t 收缩压≥180mmHg 和 / 或舒张压≥110mmHg，出现身体不适的症状。\n" +
+        data.put("doctorSign","望向光");
+        data.put("phone","99998816");
+        data.put("year","2025");
+        data.put("month","12");
+        data.put("day","18");
+
+        String sugs = "（1）　\t 收缩压≥180mmHg 和 / 或舒张压≥110mmHg，出现身体不适的症状。\n" +
                 "（2）　\t 意识改变、剧烈头痛或头晕、恶心呕吐、视物模糊、眼痛、心悸、胸闷、喘憋不能平卧，建议使用急救车转诊。\n" +
-                "（3）　\t 其他严重情况");
+                "（2）　\t 意识改变、剧烈头痛或头晕、恶心呕吐、视物模糊、眼痛、心悸、胸闷、喘憋不能平卧，建议使用急救车转诊。\n" +
+                "（2）　\t 意识改变、剧烈头痛或头晕、恶心呕吐、视物模糊、眼痛、心悸、胸闷、喘憋不能平卧，建议使用急救车转诊。\n" +
+                "（2）　\t 意识改变、剧烈头痛或头晕、恶心呕吐、视物模糊、眼痛、心悸、胸闷、喘憋不能平卧，建议使用急救车转诊。\n" +
+                "（2）　\t 意识改变、剧烈头痛或头晕、恶心呕吐、视物模糊、眼痛、心悸、胸闷、喘憋不能平卧，建议使用急救车转诊。\n" +
+                "（3）　\t 其他严重情况";
+
+        String[] ct = sugs.split("\n");
+
+        List<String> content=new ArrayList<>();
+        int maxSus=8;
+
+        for (int i = 0; i < ct.length; i++) {
+            String text = ct[i];
+            StringBuilder sb = new StringBuilder();
+            for (char c : text.toCharArray()) {
+                sb.append(c);
+                int length = calculateLength(sb.toString());
+                if (length >= 62) {
+                    content.add(sb.toString());
+                    sb = new StringBuilder();
+                }
+
+            }
+            content.add(sb.toString());
+        }
+
+        for (int i = 0; i < content.size(); i++) {
+            if ( i>= maxSus){
+                break;
+            }
+            data.put("suggestion"+i,content.get(i));
+        }
+
+
 
         generatePDF("E:\\study\\git\\springbootdemo\\test\\src\\main\\java\\com\\rain\\test\\pdf\\1.高血压患者健康教育处方1.pdf", "E:/study/git/springbootdemo/1.高血压患者健康教育处方1.pdf",  data);
 
@@ -48,6 +88,8 @@ public class FillPdf {
             if (formFields.containsKey(key)) {
                 String value = data.get(key);
                 fields.setField(key, value,true); // 为字段赋值,注意字段名称是区分大小写的
+
+
                 keys.add(key);
             }
         }
@@ -82,7 +124,7 @@ public class FillPdf {
             /* 取出报表模板中的所有字段 */
             AcroFields fields = ps.getAcroFields();
             fields.setSubstitutionFonts(fontList);
-            
+
 
             fillData(fields, data);
             /* 必须要调用这个，否则文档不会生成的  如果为false那么生成的PDF文件还能编辑，一定要设为true*/
@@ -112,6 +154,17 @@ public class FillPdf {
             }
         }
         return null;
+    }
+
+
+    public static int calculateLength(String input) {
+        int length = 0;
+        Pattern pattern = Pattern.compile("[\\u4e00-\\u9fa5\\p{Punct}]");
+        Matcher matcher = pattern.matcher(input);
+        while (matcher.find()) {
+            length += 2; // 中文和符号按2计
+        }
+        return length + input.replaceAll("[\\u4e00-\\u9fa5\\p{Punct}]", "").length(); // 英文按1计
     }
 
 }
